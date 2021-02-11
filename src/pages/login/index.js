@@ -1,25 +1,68 @@
+
 import React from 'react'
 
-const Login = () => <h1>Login</h1>
+import { ErrorMessage, Formik, Form, Field } from 'formik'
+import * as yup from 'yup'
+import axios from 'axios'
+import { history } from '../../history'
+import LogoVector from '../login/LogoVector.png'
 
-    // <div class='container'> 
-    //     <form action="Acesso">
-    //     <div class="form">
-    //     <input type="email" class='acessar' id='email' placeholder='Digite o seu email' autocomplete='off'>
-    // </div>
-    // <div class='form'>
-    //     <input type='password' class='acessar' id='senha' placeholder='Senha' autocomplete='off'>
-    // </div>
-    // </form>
-    //     <button class='btn'id='btnLogin'>
-    //     Iniciar sessão 
-    //     </button> 
-    //     <ul>     
-    //     <li id="btnRegister">Não possui conta?
-    //         <a href="/register">Cadastre-se</a>
-    //     </li>
-    //     </ul> 
-    // </div>
-    // `;
+import './Login.css'
 
-export default Login;
+const Login = () => {
+    const handleSubmit = values => {
+        axios.post('http://https://lab-api-bq.herokuapp.com/auth', values)
+            .then(resp => {
+                const { data } = resp
+                if (data) {
+                    localStorage.setItem('app-token', data)
+                    history.push('/')
+                }
+            })
+    }
+
+    const validations = yup.object().shape({
+        email: yup.string().email().required(),
+        password: yup.string().min(6).required()
+    })
+    return (
+        <>
+            <img className="Logo" src = { LogoVector }/>
+            <h1>Faça seu login</h1>
+            <p>preencha os campos abaixo</p>
+            <Formik
+                initialValues={{}}
+                onSubmit={handleSubmit}
+                validationSchema={validations}
+            >
+                <Form className="Login">
+                    <div className="Login-Group">
+                        <Field
+                            name="email"
+                            className="Login-Field"
+                        />
+                        <ErrorMessage
+                            component="span"
+                            name="email"
+                            className="Login-Error"
+                        />
+                    </div>
+                    <div className="Login-Group">
+                        <Field
+                            name="password"
+                            className="Login-Field"
+                        />
+                        <ErrorMessage
+                            component="span"
+                            name="password"
+                            className="Login-Error"
+                        />
+                    </div>
+                    <button className="Login-Btn" type="submit">Entrar</button>
+                </Form>
+            </Formik>
+        </>
+    )
+}
+
+export default Login

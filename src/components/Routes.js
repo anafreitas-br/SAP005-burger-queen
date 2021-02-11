@@ -5,7 +5,8 @@ import Register from '../pages/register'
 import Hall from '../pages/hall'
 import Kitchen from '../pages/kitchen'
 import { history } from '../history'
-
+import NotFound from './NotFound'
+import PrivateRoute from './PrivateRoute'
 
 
 
@@ -14,8 +15,10 @@ const Routes = () => (
         <Switch>
             <Route component = {Login} exact path='/'/>
             <Route component = {Register} exact path='/register'/>
-            <Route component = {Hall} exact path='/hall'/>
-            <Route component = {Kitchen} exact path='/kitchen'/>
+            <PrivateRoute component={Hall} exact path="/hall"/>
+            <PrivateRoute component={Kitchen} exact path="/kitchen"/>
+            <PrivateRoute component={NotFound}/>
+            
         </Switch>
     </Router>
 )

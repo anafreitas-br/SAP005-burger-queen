@@ -5,8 +5,13 @@ import './App.css';
 
 
 
-const App = () => <Routes/>
+const App = () => (
+    <main className="App">
+        <Routes/>   
+    </main>
 
+
+)
 
 
 export default App;

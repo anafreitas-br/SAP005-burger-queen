@@ -1,25 +1,45 @@
+
 import React from 'react'
+import {useHistory} from 'react-router-dom'
+import { ErrorMessage, Formik, Form, Field } from 'formik'
+import * as yup from 'yup'
+import axios from 'axios'
+import LogoVector from '../login/LogoVector.png'
 
-const Login = () => <h1>Login</h1>
+import './Login.css'
 
-    // <div class='container'> 
-    //     <form action="Acesso">
-    //     <div class="form">
-    //     <input type="email" class='acessar' id='email' placeholder='Digite o seu email' autocomplete='off'>
-    // </div>
-    // <div class='form'>
-    //     <input type='password' class='acessar' id='senha' placeholder='Senha' autocomplete='off'>
-    // </div>
-    // </form>
-    //     <button class='btn'id='btnLogin'>
-    //     Iniciar sessão 
-    //     </button> 
-    //     <ul>     
-    //     <li id="btnRegister">Não possui conta?
-    //         <a href="/register">Cadastre-se</a>
-    //     </li>
-    //     </ul> 
-    // </div>
-    // `;
+    const Login = () => {
+        
+    const history = useHistory();    
+    const handleSubmit = values => console.log(values)
+        
+    const routerRegister = () => { history.push('/register') } 
+    const validations = yup.object().shape({
+        email: yup.string().email().required(),
+        password: yup.string().min(6).required()
+    })
+    return (
+        <>
+            <img className="Logo" src = { LogoVector }/>
+            <h1>Faça seu login</h1>
+            <p>preencha os campos abaixo</p>
+            <Formik initialValues={{}} onSubmit={handleSubmit} validationSchema={validations}>
+                <Form className="Login">
+                    <div className="Login-Group">
+                        <Field name="email" className="Login-Field"/>
+                        <ErrorMessage component="span"name="email"className="Login-Error"/>
+                    </div>
+                    <div className="Login-Group">
+                        <Field name="password"className="Login-Field"/>
+                        <ErrorMessage component="span"name="password"className="Login-Error"/>
+                    </div>
+                    <button className="Login-Btn" type="submit">Entrar</button>
+                    <p className="question-register"> Primeiro dia aqui? <span className="button-back-register" 
+                    onClick={routerRegister}>Cadastre-se !</span></p>                     
+                </Form>
+            </Formik>
+        </>
+    )
+}
 
-export default Login;
+export default Login

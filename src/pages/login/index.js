@@ -1,9 +1,9 @@
 
 import React from 'react'
-import {useHistory} from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
+
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
-import axios from 'axios'
 import LogoVector from '../login/LogoVector.png'
 
 import './Login.css'
@@ -18,6 +18,7 @@ import './Login.css'
         email: yup.string().email().required(),
         password: yup.string().min(6).required()
     })
+
     return (
         <>
             <img className="Logo" src = { LogoVector }/>
@@ -34,8 +35,8 @@ import './Login.css'
                         <ErrorMessage component="span"name="password"className="Login-Error"/>
                     </div>
                     <button className="Login-Btn" type="submit">Entrar</button>
-                    <p className="question-register"> Primeiro dia aqui? <span className="button-back-register" 
-                    onClick={routerRegister}>Cadastre-se !</span></p>                     
+                    <p className="question-register"> Primeiro dia aqui? <Link to ="/register" className="button-back-register" 
+                    onClick={routerRegister}>Cadastre-se !</Link></p>                     
                 </Form>
             </Formik>
         </>

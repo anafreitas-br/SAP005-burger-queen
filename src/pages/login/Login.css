@@ -21,17 +21,21 @@
 
 .Logo {
     width: 50%;
-    margin-top: 4.2rem;
+    margin-top: 2rem;
 }
 
 .Login-Btn {
     padding: .5rem 2rem;
     margin-top: 2rem;
     border-radius: 7px;
-    border: none;
+    
 }
 
 .Login-Btn:hover {
     cursor: pointer;
 
+}
+
+.button-back-login {
+    text-decoration: none;
 }

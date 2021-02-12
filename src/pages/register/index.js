@@ -1,5 +1,5 @@
 import React, { useState } from 'react' 
-import { useHistory } from 'react-router-dom' 
+import { useHistory, Link } from 'react-router-dom' 
 
 const Register = () => { 
 const history = useHistory();
@@ -13,11 +13,6 @@ const history = useHistory();
         history.push('/')
     }
 
-    const btnRegister = (event) => {
-        event.preventDefault();
-        console.log("fez cadastro")
-    }
-
     return (
         <div className="container-register">
             <h1 className="title-register">Cadastro</h1>
@@ -29,11 +24,13 @@ const history = useHistory();
                 <label id="kitchen">Sou cozinheira ou cozinheiro</label><br />
                 <input type="email" id="email-register" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
                 <input type="password" id="pass-register" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} /> <br />
-                <button className="button-register" onClick={btnRegister}>Cadastrar</button><br />
-                <p className="question-login"> Já tem uma conta? <span className="button-back-login" onClick={routerLogin}>Faça Login aqui!</span></p>
+                <button className="button-register" onClick={(e)=> {e.preventDefault()}}>Cadastrar</button><br />
+                <p className="question-login"> Já criou sua conta? <Link to ="/" className="button-back-login" onClick={routerLogin}>Faça Login aqui!</Link></p>
             </form>
         </div>
+
     );
-};
+            }    
+
 
 export default Register;

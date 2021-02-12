@@ -3,15 +3,14 @@ import { useHistory, Link } from 'react-router-dom'
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
-import LogoVector from '../../img/LogoVector.png'' 
+import LogoVector from '../../img/LogoVector.png'
 
 const Register = () => { 
 
     const history = useHistory();
 
     const [name, setName] = useState('');
-    const [optionHall, setOptionHall] = useState('');
-    const [optionKitchen, setOptionKitchen] = useState('');
+    const [option, setOption] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -28,9 +27,36 @@ const Register = () => {
     })
 
     const handleSubmit = (event) => {
-        console.log(name, email, password, optionHall, optionKitchen)
         event.preventDefault();
-        // console.log("fez cadastro")
+        fetch('https://lab-api-bq.herokuapp.com/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify ({
+                "email": `${email}`,
+                "password": `${password}`,
+                "role": `${option}`,
+                "restaurant": "Vegan Queen",
+                "name": `${name}`
+            })
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json);
+            // if(json.id !== null) {
+            //     event.preventDefault();
+            //     alert("cadastro realizado com sucesso!")
+            //     routerLogin();
+            // } 
+            // if (json.email === `${email}`) {
+            //     event.preventDefault();
+            //     alert("houve um erro no cadastro")
+            // }
+            setName('');
+            setEmail('');
+            setPassword('');
+        })
     }
 
     return (
@@ -45,16 +71,17 @@ const Register = () => {
                         <ErrorMessage component="span"name="name"className="Register-Error" />
                     </div>
                     <div className="Register-Group">
-                        <Field name="email" className="Register-Field" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Field type="email" name="email" className="Register-Field" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <ErrorMessage component="span"name="email" className="Register-Error" />
                     </div>
                     <div className="Register-Group">
-                        <Field name="password"className="Register-Field" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <Field type="password" name="password"className="Register-Field" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <ErrorMessage component="span"name="password"className="Register-Error" />
                     </div>
                     <div className="Register-Group" id="Option-Group">
-                        <Field type="radio" name="option" value={optionHall} onClick={(e) => setOptionHall(e.target.value)} />Sou garçonete ou garçom
-                        <Field type="radio" name="option" value={optionKitchen} onClick={(e) => setOptionKitchen(e.target.value)} />Sou cozinheira ou cozinheiro
+                        <Field type="radio" name="option" value={option, "hall"} onClick={(e) => setOption(e.target.value)} />Sou garçonete ou garçom
+                        <Field type="radio" name="option" value={option, "kitchen"} onClick={(e) => setOption(e.target.value)} />Sou cozinheira ou cozinheiro
+                        <ErrorMessage component="span"name="email" className="Register-Error" />
                     </div>
                     <button className="Register-Btn" type="submit" onClick={handleSubmit}>Cadastrar</button>
                     <p className="question-login"> Já tem uma conta? <span className="button-back-login" onClick={routerLogin}>Faça Login aqui!</span></p>
@@ -62,7 +89,7 @@ const Register = () => {
             </Formik>
         </>
     );
-            }    
+    }    
 
 
 export default Register;

@@ -40,8 +40,7 @@ import './Login.css'
                         <ErrorMessage component="span"name="password"className="Login-Error"/>
                     </div>
                     <button className="Login-Btn" type="submit">Entrar</button>
-                    <p className="question-register"> Primeiro dia aqui? <Link to ="/register" className="button-back-register" 
-                    onClick={routerRegister}>Cadastre-se !</Link></p>                     
+                    <p className="question-register"> Primeiro dia aqui? <Link to ="/register" className="button-back-register" onClick={routerRegister}>Cadastre-se !</Link></p>                     
                 </Form>
             </Formik>
         </>

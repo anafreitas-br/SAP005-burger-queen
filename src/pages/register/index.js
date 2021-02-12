@@ -1,9 +1,9 @@
 import React, { useState } from 'react' 
-import { useHistory } from 'react-router-dom' 
+import { useHistory, Link } from 'react-router-dom' 
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
-import LogoVector from '../../img/LogoVector.png'
+import LogoVector from '../../img/LogoVector.png'' 
 
 const Register = () => { 
 
@@ -62,6 +62,7 @@ const Register = () => {
             </Formik>
         </>
     );
-};
+            }    
+
 
 export default Register;

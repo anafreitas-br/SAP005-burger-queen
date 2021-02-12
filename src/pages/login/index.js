@@ -1,23 +1,27 @@
-
 import React from 'react'
 import {useHistory} from 'react-router-dom'
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
-import LogoVector from '../login/LogoVector.png'
-
-import './Login.css'
+import LogoVector from '../../img/LogoVector.png'
 
     const Login = () => {
         
-    const history = useHistory();    
-    const handleSubmit = values => console.log(values)
+    const history = useHistory(); 
+
+    const handleSubmit = values => {
+        console.log(values)
+    }
         
-    const routerRegister = () => { history.push('/register') } 
+    const routerRegister = () => { 
+        history.push('/register') 
+    }
+
     const validations = yup.object().shape({
         email: yup.string().email().required(),
         password: yup.string().min(6).required()
     })
+
     return (
         <>
             <img className="Logo" src = { LogoVector }/>
@@ -26,11 +30,11 @@ import './Login.css'
             <Formik initialValues={{}} onSubmit={handleSubmit} validationSchema={validations}>
                 <Form className="Login">
                     <div className="Login-Group">
-                        <Field name="email" className="Login-Field"/>
-                        <ErrorMessage component="span"name="email"className="Login-Error"/>
+                        <Field name="email" className="Login-Field" placeholder="Email" />
+                        <ErrorMessage component="span"name="email"className="Login-Error" />
                     </div>
                     <div className="Login-Group">
-                        <Field name="password"className="Login-Field"/>
+                        <Field name="password"className="Login-Field" placeholder="Senha" />
                         <ErrorMessage component="span"name="password"className="Login-Error"/>
                     </div>
                     <button className="Login-Btn" type="submit">Entrar</button>

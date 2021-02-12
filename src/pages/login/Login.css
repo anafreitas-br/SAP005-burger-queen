@@ -1,4 +1,4 @@
-.Login-Field {
+.Field {
     border: none;
     background: rgba(0, 0, 0, .25);
     color: #000000;
@@ -8,15 +8,17 @@
     font-size: 1.2rem;
     width: 100%;
     transition: all .1.5s linear;
+    font-family: cursive;
+    cursor: pointer;
 }
 
-.Login-Field:focus {
+.Field:focus {
     box-shadow: 0.4px 4px rgba(0, 0, 0, .4);
     outline: none;
 }
 
-.Login-Error {
-    color: #ff8080
+.Error {
+    color: #ff8080;
 }
 
 .Logo {
@@ -24,18 +26,35 @@
     margin-top: 2rem;
 }
 
-.Login-Btn {
+.Button {
     padding: .5rem 2rem;
     margin-top: 2rem;
     border-radius: 7px;
-    
+    font-family: cursive;
+    font-size: 1.2em;
 }
 
-.Login-Btn:hover {
+.Button:hover {
     cursor: pointer;
-
 }
 
-.button-back-login {
+.Btn-Register {
+    margin-top: 0;
+}
+
+.Button-back {
     text-decoration: none;
+}
+
+.Title {
+    font-family: cursive;
+}
+
+.Option {
+    cursor: pointer;
+}
+
+.Texts {
+    font-size: 1.2rem;
+    font-family: cursive;
 }

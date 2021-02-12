@@ -1,8 +1,6 @@
 import React, { useState } from 'react' 
 import { useHistory, Link } from 'react-router-dom' 
 import { ErrorMessage, Formik, Form, Field } from 'formik'
-import * as yup from 'yup'
-import axios from 'axios'
 import LogoVector from '../../img/LogoVector.png'
 
 const Register = () => { 
@@ -19,12 +17,6 @@ const Register = () => {
         history.push('/')
     }
 
-    const validations = yup.object().shape({
-        email: yup.string().email().required(),
-        password: yup.string().min(6).required(),
-        name: yup.string().required(),
-        option: yup.string().required()
-    })
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -61,21 +53,26 @@ const Register = () => {
 
     return (
         <>
+  
             <img className="Logo" src = { LogoVector }/>
             <h1>Crie sua conta</h1>
             <p>preencha os campos abaixo</p>
-            <Formik initialValues={{}} onSubmit={handleSubmit} validationSchema={validations}>
+            <Formik initialValues={{}} onSubmit={handleSubmit} >
                 <Form className="Register">
                     <div className="Register-Group">
-                        <Field name="name" className="Register-Field" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} />
+                        Nome Completo
+                        <Field name="name" className="Register-Field" value={name} onChange={(e) => setName(e.target.value)} />
                         <ErrorMessage component="span"name="name"className="Register-Error" />
                     </div>
                     <div className="Register-Group">
-                        <Field type="email" name="email" className="Register-Field" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        Email
+                        <Field type="email" name="email" className="Register-Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <ErrorMessage component="span"name="email" className="Register-Error" />
                     </div>
+
                     <div className="Register-Group">
-                        <Field type="password" name="password"className="Register-Field" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        Senha
+                        <Field type="password" name="password"className="Register-Field" placeholder="min. 6 digitos" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <ErrorMessage component="span"name="password"className="Register-Error" />
                     </div>
                     <div className="Register-Group" id="Option-Group">
@@ -84,7 +81,7 @@ const Register = () => {
                         <ErrorMessage component="span"name="email" className="Register-Error" />
                     </div>
                     <button className="Register-Btn" type="submit" onClick={handleSubmit}>Cadastrar</button>
-                    <p className="question-login"> Já tem uma conta? <span className="button-back-login" onClick={routerLogin}>Faça Login aqui!</span></p>
+                    <p className="question-login"> Já tem uma conta? <Link to="/" className="button-back-login" onClick={routerLogin}>Faça Login aqui!</Link></p>
                 </Form>
             </Formik>
         </>

@@ -1,13 +1,16 @@
-import React, { useState } from 'react' 
+import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { ErrorMessage, Formik, Form, Field } from 'formik'
 import LogoVector from '../../img/LogoVector.png'
 import './Login.css'
 
-const Login = () => { 
-    const history = useHistory();
+const Login = () => {
 
-    const routerWorkerHall= () => {
+    const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const routerWorkerHall = () => {
         history.push('/hall')
     }
 
@@ -15,36 +18,32 @@ const Login = () => {
         history.push('/kitchen')
     }
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            fetch('https://lab-api-bq.herokuapp.com/auth', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify ({
-                    "email": `${email}`,
-                    "password": `${password}`,
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        fetch('https://lab-api-bq.herokuapp.com/auth', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "email": `${email}`,
+                "password": `${password}`,
             })
         })
             .then((response) => response.json())
             .then((json) => {
                 console.log(json);
-            // if(json.role === "hall") {
-            // routerWorkerHall();
-            // }
-            // if(json.role === "kitchen") {
-            // routerWorkerKitchen();
-            // }
+                // if(json.role === "hall") {
+                // routerWorkerHall();
+                // }
+                // if(json.role === "kitchen") {
+                // routerWorkerKitchen();
+                // }
 
-            setEmail('');
-            setPassword('');
+                setEmail('');
+                setPassword('');
 
-        })
+            })
     }
 
     const routerRegister = () => {
@@ -57,7 +56,7 @@ const Login = () => {
     // })
 
     return (
-        <>          
+        <>
             <img className="Logo" src={LogoVector} />
             <h1 className="Title">Faça seu login</h1>
             <p className="Texts">Preencha os campos abaixo</p>
@@ -65,7 +64,7 @@ const Login = () => {
                 <Form className="Login">
                     <div className="Group">
                         E-mail
-                        <Field type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <Field type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <ErrorMessage component="span" name="email" className="Error" />
                     </div>
                     <div className="Group">

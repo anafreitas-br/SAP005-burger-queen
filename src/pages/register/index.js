@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
-import { ErrorMessage, Formik, Form, Field } from 'formik'
 import LogoVector from '../../img/LogoVector.png'
 
 const Register = () => {
@@ -34,6 +33,7 @@ const Register = () => {
         })
             .then((response) => response.json())
             .then((json) => {
+                console.log (json)
                 if(json.message !== undefined){
                     alert(json.message)
                 } else {
@@ -49,32 +49,30 @@ const Register = () => {
             <img className="Logo" src={LogoVector} />
             <h1 className="Title">Crie sua conta</h1>
             <p className="Texts">Preencha os campos abaixo</p>
-            <Formik initialValues={{}} onSubmit={handleSubmit}>
-                <Form className="Register">
+                <form className="Register">
                     <div className="Group">
-                        Nome Completo
-                        <Field name="name" className="Field" placeholder="ex: Fulano de Tal" value={name} onChange={(e) => setName(e.target.value)} />
-                        <ErrorMessage component="span" name="name" className="Error" />
+                        <p>Nome Completo<span className='required'> *</span></p>
+                        <input name="name" className="Field" placeholder="ex: Fulano de Tal" value={name} onChange={(e) => setName(e.target.value)} />
+                    <div className="Group">
+                        <p>Email<span className='required'> *</span></p>
+                        <input type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />                   
                     </div>
                     <div className="Group">
-                        Email
-                        <Field type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <ErrorMessage component="span" name="email" className="Error" />
-                    </div>
-                    <div className="Group">
-                        Senha
-                        <Field type="password" name="password" className="Field" placeholder="mínimo 6 digitos" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <ErrorMessage component="span" name="password" className="Error" />
+                    <p>Senha<span className='required'> *</span></p>
+                        <input type="password" name="password" className="Field" placeholder="mínimo 6 digitos" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className="Group" id="Option-Group">
-                        <p className="Texts"><Field type="radio" name="option" className="Option" value={option, "hall"} onClick={(e) => setOption(e.target.value)} /> Sou garçonete ou garçom
-                        <Field type="radio" name="option" className="Option" value={option, "kitchen"} onClick={(e) => setOption(e.target.value)} /> Sou cozinheira ou cozinheiro</p>
-                        <ErrorMessage component="span" name="email" className="Error" />
+                        <form className="Texts">
+                            <p >Selecione a sua áerea de trabalho<span className='required'>*</span>
+                            <input type="radio" name="option" className="Option" value={option, "hall"} onClick={(e) => setOption(e.target.value)}/> Salão 
+                            <input type="radio" name="option" className="Option" value={option, "kitchen"} onClick={(e) => setOption(e.target.value)} /> Cozinha     
+                            </p>
+                        </form>
                     </div>
                     <button className="Button Btn-Register" type="submit" onClick={handleSubmit}>Cadastrar</button>
                     <p className="Texts"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
-                </Form>
-            </Formik>
+                    </div>
+                </form>
         </>
     );
 }

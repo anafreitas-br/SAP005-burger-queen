@@ -5,7 +5,7 @@ import Hall from '../pages/hall'
 import Kitchen from '../pages/kitchen'
 import NotFound from './NotFound'
 import PrivateRoute from './PrivateRoute'
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
-import { ErrorMessage, Formik, Form, Field } from 'formik'
 import LogoVector from '../../img/LogoVector.png'
 import './Login.css'
 
@@ -33,12 +32,15 @@ const Login = () => {
             .then((response) => response.json())
             .then((json) => {
                 console.log(json);
-                // if(json.role === "hall") {
-                // routerWorkerHall();
-                // }
-                // if(json.role === "kitchen") {
-                // routerWorkerKitchen();
-                // }
+
+                
+                if(json.role === "hall") {
+                routerWorkerHall();
+
+                }
+                if(json.role === "kitchen") {
+                routerWorkerKitchen();
+                }
 
                 setEmail('');
                 setPassword('');
@@ -50,32 +52,25 @@ const Login = () => {
         history.push('/register')
     }
 
-    // const validations = yup.object().shape({
-    //     email: yup.string().email().required(),
-    //     password: yup.string().min(6).required()
-    // })
-
     return (
         <>
             <img className="Logo" src={LogoVector} />
+            
             <h1 className="Title">Faça seu login</h1>
             <p className="Texts">Preencha os campos abaixo</p>
-            <Formik initialValues={{}} onSubmit={handleSubmit}>
-                <Form className="Login">
+                <form className="Login">
                     <div className="Group">
-                        E-mail
-                        <Field type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <ErrorMessage component="span" name="email" className="Error" />
+                       <p> E-mail <span className='required'> *</span> </p>
+                        <input type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className="Group">
-                        Senha
-                        <Field type="password" name="password" className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <ErrorMessage component="span" name="password" className="Error" />
+                       <p> Senha  <span className='required'> *</span> </p>
+                        <input type="password" name="password" className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)} />
+
                     </div>
                     <button className="Button" type="submit" onClick={handleSubmit}>Entrar</button>
                     <p className="Texts"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>
-                </Form>
-            </Formik>
+                </form>
         </>
     )
 }

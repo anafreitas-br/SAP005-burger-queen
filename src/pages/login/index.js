@@ -1,11 +1,8 @@
 import React, { useState } from 'react' 
 import { useHistory, Link } from 'react-router-dom'
 import { ErrorMessage, Formik, Form, Field } from 'formik'
-// import * as yup from 'yup'
 import LogoVector from '../../img/LogoVector.png'
-
 import './Login.css'
-
 
 const Login = () => { 
     const history = useHistory();
@@ -49,9 +46,9 @@ const Login = () => {
 
         })
     }
-        
-    const routerRegister = () => { 
-        history.push('/register') 
+
+    const routerRegister = () => {
+        history.push('/register')
     }
 
     // const validations = yup.object().shape({
@@ -60,22 +57,24 @@ const Login = () => {
     // })
 
     return (
-        <>
-            <img className="Logo" src = { LogoVector }/>
-            <h1>Faça seu login</h1>
-            <p>preencha os campos abaixo</p>
+        <>          
+            <img className="Logo" src={LogoVector} />
+            <h1 className="Title">Faça seu login</h1>
+            <p className="Texts">Preencha os campos abaixo</p>
             <Formik initialValues={{}} onSubmit={handleSubmit}>
                 <Form className="Login">
-                    <div className="Login-Group">
-                        <Field name="email" className="Login-Field" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}  />
-                        <ErrorMessage component="span"name="email"className="Login-Error" />
+                    <div className="Group">
+                        E-mail
+                        <Field type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <ErrorMessage component="span" name="email" className="Error" />
                     </div>
-                    <div className="Login-Group">
-                        <Field name="password"className="Login-Field" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <ErrorMessage component="span"name="password"className="Login-Error"/>
+                    <div className="Group">
+                        Senha
+                        <Field type="password" name="password" className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <ErrorMessage component="span" name="password" className="Error" />
                     </div>
-                    <button className="Login-Btn" type="submit" onClick={handleSubmit}>Entrar</button>
-                    <p className="question-register"> Primeiro dia aqui? <Link to ="/register" className="button-back-register" onClick={routerRegister}>Cadastre-se !</Link></p>                     
+                    <button className="Button" type="submit" onClick={handleSubmit}>Entrar</button>
+                    <p className="Texts"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>
                 </Form>
             </Formik>
         </>

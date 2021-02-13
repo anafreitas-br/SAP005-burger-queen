@@ -6,7 +6,6 @@ import LogoVector from '../../img/LogoVector.png'
 const Register = () => {
 
     const history = useHistory();
-
     const [name, setName] = useState('');
     const [option, setOption] = useState('');
     const [email, setEmail] = useState('');
@@ -35,27 +34,19 @@ const Register = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                console.log(json);
-                // if(json.id !== null) {
-                //     event.preventDefault();
-                //     alert("cadastro realizado com sucesso!")
-                //     routerLogin();
-                // } 
-                // if (json.email === `${email}`) {
-                //     event.preventDefault();
-                //     alert("houve um erro no cadastro")
-                // }
-                setName('');
-                setEmail('');
-                setPassword('');
-                alert('conta criada')
-                routerLogin();
+                if(json.message !== undefined){
+                    alert(json.message)
+                } else {
+                    alert("Conta criada com sucesso !")
+                    routerLogin();
+                }
+
             })
     }
 
     return (
         <>
-            <img className="Logo" src={ LogoVector } />
+            <img className="Logo" src={LogoVector} />
             <h1 className="Title">Crie sua conta</h1>
             <p className="Texts">Preencha os campos abaixo</p>
             <Formik initialValues={{}} onSubmit={handleSubmit}>
@@ -71,12 +62,12 @@ const Register = () => {
                         <ErrorMessage component="span" name="email" className="Error" />
                     </div>
                     <div className="Group">
-                        Senha                 
+                        Senha
                         <Field type="password" name="password" className="Field" placeholder="mínimo 6 digitos" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <ErrorMessage component="span" name="password" className="Error" />
                     </div>
                     <div className="Group" id="Option-Group">
-                        <p className="Texts"><Field type="radio" name="option" className="Option" value={option, "hall"} onClick={(e) => setOption(e.target.value)} /> Sou garçonete ou garçom 
+                        <p className="Texts"><Field type="radio" name="option" className="Option" value={option, "hall"} onClick={(e) => setOption(e.target.value)} /> Sou garçonete ou garçom
                         <Field type="radio" name="option" className="Option" value={option, "kitchen"} onClick={(e) => setOption(e.target.value)} /> Sou cozinheira ou cozinheiro</p>
                         <ErrorMessage component="span" name="email" className="Error" />
                     </div>

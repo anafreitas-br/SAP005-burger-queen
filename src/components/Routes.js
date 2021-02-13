@@ -1,12 +1,13 @@
 import React from 'react'
-import { Switch, Route } from 'react-router'
 import Login from '../pages/login'
 import Register from '../pages/register'
 import Hall from '../pages/hall'
 import Kitchen from '../pages/kitchen'
 import NotFound from './NotFound'
 import PrivateRoute from './PrivateRoute'
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
+
+
 
 
 

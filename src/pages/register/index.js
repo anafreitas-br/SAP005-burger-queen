@@ -63,7 +63,7 @@ const Register = () => {
                     </div>
                     <div className="Group" id="Option-Group">
                         <form className="Texts">
-                            <p >Selecione a sua áerea de trabalho<span className='required'>*</span>
+                            <p >Qual sua áerea de trabalho ? <span className='required'>*</span>
                             <input type="radio" name="option" className="Option" value={option, "hall"} onClick={(e) => setOption(e.target.value)}/> Salão 
                             <input type="radio" name="option" className="Option" value={option, "kitchen"} onClick={(e) => setOption(e.target.value)} /> Cozinha     
                             </p>

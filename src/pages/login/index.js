@@ -48,10 +48,6 @@ const Login = () => {
             })
     }
 
-    const routerRegister = () => {
-        history.push('/register')
-    }
-
     return (
         <>
             <img className="Logo" src={LogoVector} />

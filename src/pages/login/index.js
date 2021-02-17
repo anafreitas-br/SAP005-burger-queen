@@ -61,9 +61,11 @@ const Login = () => {
                        <p> E-mail <span className='required'> *</span> </p>
                         <input type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
-                    <div className="Group">
+                    <div method ="Post" className="Group">                        
                        <p> Senha  <span className='required'> *</span> </p>
-                        <input type="password" name="password" className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)} />
+
+                        <input type="password" name="password"  className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)}/>
+
 
                     </div>
                     <button className="Button" type="submit" onClick={handleSubmit}>Entrar</button>

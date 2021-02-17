@@ -1,0 +1,18 @@
+  import {FaEye} from "react-icons/fa"
+  
+  // const showPassword = () => {
+     //   const tipo = document.getElementsByClassName(".Field");
+       // if (tipo.type =="password") {
+       //     tipo.type = "text";
+       // }else {
+       //     tipo.type="password"
+       // }
+
+   // }
+ 
+  <i onClick={showPassword} ><FaEye/></i>
+
+
+     const routerRegister = () => {
+        history.push('/register')
+    }

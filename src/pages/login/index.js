@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import LogoVector from '../../img/LogoVector.png'
-import './Login.css'
 
 const Login = () => {
 
@@ -33,6 +32,9 @@ const Login = () => {
             .then((json) => {
                 console.log(json);
 
+                if(json.message !== undefined){
+                    alert(json.message)
+                }
                 
                 if(json.role === "hall") {
                 routerWorkerHall();
@@ -47,7 +49,6 @@ const Login = () => {
 
             })
     }
-
 
     return (
         <>

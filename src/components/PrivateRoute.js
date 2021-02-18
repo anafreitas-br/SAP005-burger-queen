@@ -4,7 +4,12 @@ import { Route, Redirect } from 'react-router'
 import { isAuthenticated} from './auth'
 
 const PrivateRoute = props => {
-    return isAuthenticated ? <Route  {...props}/> : <Redirect to={{pathname:"/", state: {from: props.location}}}/>
+    let autentication
+    if (isAuthenticated === true) {
+        autentication = <Route {...props}/>
+    } else { 
+        autentication = <Redirect to={{pathname:"/", state: {from: props.location}}}/>
+    }
+    return autentication
 }
-
 export default PrivateRoute

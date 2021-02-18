@@ -10,7 +10,6 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-
     const routerLogin = () => {
         history.push('/')
     }
@@ -46,7 +45,7 @@ const Register = () => {
 
     return (
         <>
-            <img className="Logo" src={LogoVector} />
+            <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector} />
             <h1 className="Title">Crie sua conta</h1>
             <p className="Texts">Preencha os campos abaixo</p>
                 <form className="Register">
@@ -64,8 +63,8 @@ const Register = () => {
                     <div className="Group" id="Option-Group">
                         <form className="Texts">
                             <p >Qual sua áerea de trabalho ? <span className='required'>*</span>
-                            <input type="radio" name="option" className="Option" value={option, "hall"} onClick={(e) => setOption(e.target.value)}/> Salão 
-                            <input type="radio" name="option" className="Option" value={option, "kitchen"} onClick={(e) => setOption(e.target.value)} /> Cozinha     
+                            <input type="radio" name="option" className="Option" id="hall" value={option} onClick={(e) => setOption(e.target.id)}/> Salão 
+                            <input type="radio" name="option" className="Option" id="kitchen" value={option} onClick={(e) => setOption(e.target.id)}/> Cozinha     
                             </p>
                         </form>
                     </div>

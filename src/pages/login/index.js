@@ -37,11 +37,13 @@ const Login = () => {
                 }
                 
                 if(json.role === "hall") {
-                routerWorkerHall();
+                    localStorage.setItem("token", json.token)
+                    routerWorkerHall();
 
                 }
                 if(json.role === "kitchen") {
-                routerWorkerKitchen();
+                    localStorage.setItem("token", json.token)
+                    routerWorkerKitchen();
                 }
 
                 setEmail('');
@@ -52,7 +54,7 @@ const Login = () => {
 
     return (
         <>
-            <img className="Logo" src={LogoVector} />
+            <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector} />
             
             <h1 className="Title">Faça seu login</h1>
             <p className="Texts">Preencha os campos abaixo</p>
@@ -65,7 +67,6 @@ const Login = () => {
                        <p> Senha  <span className='required'> *</span> </p>
 
                         <input type="password" name="password"  className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)}/>
-
 
                     </div>
                     <button className="Button" type="submit" onClick={handleSubmit}>Entrar</button>

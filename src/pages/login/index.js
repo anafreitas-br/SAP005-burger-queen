@@ -38,11 +38,13 @@ const Login = () => {
                 
                 if(json.role === "hall") {
                     localStorage.setItem("token", json.token)
+                    localStorage.setItem("id", json.id)
                     routerWorkerHall();
 
                 }
                 if(json.role === "kitchen") {
                     localStorage.setItem("token", json.token)
+                    localStorage.setItem("id", json.id)
                     routerWorkerKitchen();
                 }
 

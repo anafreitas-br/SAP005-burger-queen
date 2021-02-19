@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
-import LogoVector from '../../img/LogoVector.png'
+import OutHeader from '../../components/OutHeader'
 
 const Register = () => {
 
@@ -9,11 +9,6 @@ const Register = () => {
     const [option, setOption] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const routerLogin = () => {
-        history.push('/')
-    }
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -37,7 +32,7 @@ const Register = () => {
                     alert(json.message)
                 } else {
                     alert("Conta criada com sucesso !")
-                    routerLogin();
+                    history.push('/')
                 }
 
             })
@@ -45,9 +40,7 @@ const Register = () => {
 
     return (
         <>
-            <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector} />
-            <h1 className="Title">Crie sua conta</h1>
-            <p className="Texts">Preencha os campos abaixo</p>
+            <OutHeader message={"Crie sua conta"}/>
                 <form className="Register">
                     <div className="Group">
                         <p>Nome Completo<span className='required'> *</span></p>
@@ -62,12 +55,9 @@ const Register = () => {
                     </div>
                     <div className="Group" id="Option-Group">
                         <form className="Texts">
-
                             <p >Selecione a sua áerea de trabalho<span className='required'>*</span>
                             <input type="radio" name="option" className="Option" id="hall" value={option} onClick={(e) => setOption(e.target.id)}/> Salão 
-                            <input type="radio" name="option" className="Option" id="kitchen" value={option} onClick={(e) => setOption(e.target.id)}/> Cozinha    
-
-                            </p>
+                            <input type="radio" name="option" className="Option" id="kitchen" value={option} onClick={(e) => setOption(e.target.id)}/> Cozinha                                </p>
                         </form>
                     </div>
                     <button className="Button Btn-Register" type="submit" onClick={handleSubmit}>Cadastrar</button>

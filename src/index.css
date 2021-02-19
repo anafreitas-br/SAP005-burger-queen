@@ -32,6 +32,10 @@ body {
   margin-top: 1.5rem;
 }
 
+.LogoOrder {
+  width: 30%;
+}
+
 .Button {
   padding: .5rem 2rem;
   margin-top: 1rem;

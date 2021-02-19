@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
-import LogoVector from '../../img/LogoVector.png'
+import OutHeader from '../../components/OutHeader'
 
 const Login = () => {
 
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const routerWorkerHall = () => {
-        history.push('/hall')
-    }
-
-    const routerWorkerKitchen = () => {
-        history.push('/kitchen')
-    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -28,40 +20,30 @@ const Login = () => {
                 "password": `${password}`,
             })
         })
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json);
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json);
 
-                if(json.message !== undefined){
-                    alert(json.message)
-                }
-                
-                if(json.role === "hall") {
-                    localStorage.setItem("token", json.token)
-                    localStorage.setItem("id", json.id)
-                    routerWorkerHall();
-
-                }
-                if(json.role === "kitchen") {
-                    localStorage.setItem("token", json.token)
-                    localStorage.setItem("id", json.id)
-                    routerWorkerKitchen();
-                }
-
-                setEmail('');
-                setPassword('');
-
-            })
+            if(json.message !== undefined){
+                alert(json.message)
+            }
+            
+            if(json.role === "hall") {
+                localStorage.setItem("token", json.token)
+                localStorage.setItem("id", json.id)
+                history.push('/hall')
+            }
+            if(json.role === "kitchen") {
+                localStorage.setItem("token", json.token)
+                localStorage.setItem("id", json.id)
+                history.push('/kitchen')
+            }
+        })
     }
-
 
     return (
         <>
-             <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector} />
-
-            
-            <h1 className="Title">Faça seu login</h1>
-            <p className="Texts">Preencha os campos abaixo</p>
+            <OutHeader message={"Faça seu login"}/>
                 <form className="Login">
                     <div className="Group">
                        <p> E-mail <span className='required'> *</span> </p>
@@ -69,9 +51,7 @@ const Login = () => {
                     </div>
                     <div method ="Post" className="Group">                        
                        <p> Senha  <span className='required'> *</span> </p>
-
                         <input type="password" name="password"  className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)}/>
-
                     </div>
                     <button className="Button" type="submit" onClick={handleSubmit}>Entrar</button>
                     <p className="Texts"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>

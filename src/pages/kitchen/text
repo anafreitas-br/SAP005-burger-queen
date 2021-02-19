@@ -5,3 +5,18 @@
 //     history.push = '/';
 // }
 //aqui a gente cria um botão precisamos pensar onClick={routerLogout}
+
+        /* fetch('https://lab-api-bq.herokuapp.com/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "client": `${client}`,
+                "table": `${table}`,
+            })
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json);
+ */

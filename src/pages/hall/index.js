@@ -37,21 +37,6 @@ const Hall = () => {
     }) 
 
 
-        /* fetch('https://lab-api-bq.herokuapp.com/orders', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "client": `${client}`,
-                "table": `${table}`,
-            })
-        })
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json);
- */
-
     return (
         <>
             <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector}/>
@@ -69,9 +54,6 @@ const Hall = () => {
                     <button className="Button" type="submit" onClick={keepClient}>Ok</button>
                     <p className="Texts"> <Link to='/breakfast' className="Button-back" >Café da manhã</Link></p>
                     <p className="Texts"> <Link to='/burger'className="Button-back" >Lanches</Link></p>
-{/*                    <p className="Texts"> <Link to='/register'className="Button-back" >Acompanhamentos</Link></p>
-                    <p className="Texts"> <Link to='/register'className="Button-back" >Bebidas</Link></p>
-                    <p className="Texts"> <Link to='/register' className="Button-back" >Sobremesas</Link></p> */}
                 </form>
         </>
     )

@@ -1,7 +1,0 @@
-// const history = useHistory();
-
-// const routerLogout = () => {
-//     localStorage.clear();
-//     history.push = '/';
-// }
-//aqui a gente cria um botão precisamos pensar onClick={routerLogout}

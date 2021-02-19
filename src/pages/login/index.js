@@ -52,9 +52,11 @@ const Login = () => {
             })
     }
 
+
     return (
         <>
-            <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector} />
+             <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector} />
+
             
             <h1 className="Title">Faça seu login</h1>
             <p className="Texts">Preencha os campos abaixo</p>

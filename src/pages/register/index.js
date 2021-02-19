@@ -10,7 +10,6 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-
     const routerLogin = () => {
         history.push('/')
     }
@@ -63,9 +62,11 @@ const Register = () => {
                     </div>
                     <div className="Group" id="Option-Group">
                         <form className="Texts">
+
                             <p >Selecione a sua áerea de trabalho<span className='required'>*</span>
                             <input type="radio" name="option" className="Option" id="hall" value={option} onClick={(e) => setOption(e.target.id)}/> Salão 
                             <input type="radio" name="option" className="Option" id="kitchen" value={option} onClick={(e) => setOption(e.target.id)}/> Cozinha    
+
                             </p>
                         </form>
                     </div>

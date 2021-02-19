@@ -12,11 +12,9 @@ const Hall = () => {
     const id = localStorage.getItem("id");
 
     const keepClient = (event) => {
-        event.preventDefault();
-        const a = localStorage.setItem("client", client);
-        const b = localStorage.setItem("table", table)
+        localStorage.setItem("client", client);
+        localStorage.setItem("table", table)
     }
-
 
     const routerLogout = () => {
         const logoutConfirm = window.confirm('Deseja fazer logout ?');

@@ -21,7 +21,7 @@ const Breakfast = () => {
           const breakfast = json.filter(item => item.type === 'breakfast')
           setMenu(breakfast)
         })
-      }, [])
+      })
       
      
   

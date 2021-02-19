@@ -35,11 +35,13 @@ const Login = () => {
 
                 
                 if(json.role === "hall") {
-                routerWorkerHall();
+                    localStorage.setItem("token", json.token)
+                    routerWorkerHall();
 
                 }
                 if(json.role === "kitchen") {
-                routerWorkerKitchen();
+                    localStorage.setItem("token", json.token)
+                    routerWorkerKitchen();
                 }
 
                 setEmail('');
@@ -48,13 +50,10 @@ const Login = () => {
             })
     }
 
-    const routerRegister = () => {
-        history.push('/register')
-    }
 
     return (
         <>
-            <img className="Logo" src={LogoVector} />
+             <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector} />
             
             <h1 className="Title">Faça seu login</h1>
             <p className="Texts">Preencha os campos abaixo</p>

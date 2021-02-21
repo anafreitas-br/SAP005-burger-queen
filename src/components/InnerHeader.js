@@ -1,8 +1,9 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
 import LogoVector from '../img/LogoVector.png'
+import Client from '../components/Client'
 
-const InnerHeader = ({professional}) => {
+const InnerHeader = ({professional, client, table}) => {
 
     const routerLogout = () => {
         const logoutConfirm = window.confirm('Deseja fazer logout ?');
@@ -13,19 +14,19 @@ const InnerHeader = ({professional}) => {
             history.push('/')
         } 
     }
-    
-    const history = useHistory()
+
+    const history = useHistory();
 
     return (
         <>
             <img className="LogoOrder" alt ="logotipo Vegan Queen" src={LogoVector}/>
-                <form className="Order">
-                    <div className="Group">
-                    <p className="Texts">Olá, {professional}</p>
-                    <button className="Button" type="submit" onClick={routerLogout}>Sair</button>
-                    </div>
-                    <div id="area-client"/>
-                </form>
+            <form className="Order">
+                <div className="Group">
+                <p className="Texts">Olá, {professional}</p>
+                <button className="Button" type="submit" onClick={routerLogout}>Sair</button>
+                </div>
+                <Client/>
+            </form>
         </>
     )
 }

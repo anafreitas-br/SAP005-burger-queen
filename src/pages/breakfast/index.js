@@ -35,7 +35,7 @@ const Breakfast = () => {
             <button className="btnAdd"> Adicionar</button>
           </div>
         ))}             
-          <button className="btnFinal">Finalizar</button>
+        <button className="btnFinal">Finalizar</button>
       </div>
     </div>
     </>

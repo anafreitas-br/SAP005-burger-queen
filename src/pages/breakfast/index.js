@@ -6,7 +6,6 @@ const Breakfast = () => {
 
     const token = localStorage.getItem("token")
     const [menu, setMenu] = useState('');
-
     const professional = localStorage.getItem("name");
    
     useEffect (() => {
@@ -23,7 +22,7 @@ const Breakfast = () => {
             setMenu(breakfast)
         })
         })
-     
+
     return (
         <>
         <div className="Breakfast">
@@ -35,14 +34,11 @@ const Breakfast = () => {
             <h1 className="priceItem">R$ {item.price},00</h1>
             <button className="btnAdd"> Adicionar</button>
           </div>
-        ))}
-             
-          <button className="btnFinal">Finalizar</button>
-         
-          
-       
+        ))}             
+        <button className="btnFinal">Finalizar</button>
       </div>
     </div>
+    </>
   );
 }
 

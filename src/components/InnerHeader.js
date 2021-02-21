@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useHistory } from "react-router-dom";
 import LogoVector from '../img/LogoVector.png'
 import Client from '../components/Client'

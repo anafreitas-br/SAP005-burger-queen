@@ -7,9 +7,9 @@ const Breakfast = () => {
 
     const history = useHistory();
     const token = localStorage.getItem("token")
-    const [menu, setMenu] = useState('');
+    const [menu, setMenu] = useState('');    
     const professional = localStorage.getItem("name");
-  
+    
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
             method: 'GET',

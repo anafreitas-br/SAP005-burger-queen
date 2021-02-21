@@ -6,7 +6,7 @@ const Breakfast = () => {
 
     const token = localStorage.getItem("token")
     const [menu, setMenu] = useState('');
-    const [finalPrice] = useState(0);
+
     const professional = localStorage.getItem("name");
    
     useEffect (() => {
@@ -23,38 +23,27 @@ const Breakfast = () => {
             setMenu(breakfast)
         })
         })
-
+     
     return (
         <>
         <div className="Breakfast">
         <InnerHeader professional={professional}/>
         <div className="MenuBreakfast">
-
-            {menu && menu.map((item, menu) => (
-            <div className="printScreen" key={item.name} name={item.name} id={item.id} price={item.price}>
-                <h1 className="nameProduct">{item.name}</h1>
-                <h1 className="priceItem">R$ {item.price},00</h1>
-                <button className="btnAdd"> Adicionar</button>
-            </div>
-            ))}
-            <div className="divOrders">
-            <div className="divOrder">
-                <h1 className="divOrder">Pedido:</h1>
-                <div> 
-                <button  className='btnDelete'>X</button>                    
-                </div>         
-                        
-            <h3>{finalPrice}</h3>  
-            </div>
-            
-            <button className="btnFinal">Finalizar</button>
-            
-            
-            </div>
-        </div>
-        </div>
-        </>
-    );
+        {menu && menu.map((item) => (
+          <div className="printScreen" key={item.name} name={item.name} id={item.id} price={item.price}>
+            <h1 className="nameProduct">{item.name}</h1>
+            <h1 className="priceItem">R$ {item.price},00</h1>
+            <button className="btnAdd"> Adicionar</button>
+          </div>
+        ))}
+             
+          <button className="btnFinal">Finalizar</button>
+         
+          
+       
+      </div>
+    </div>
+  );
 }
 
 

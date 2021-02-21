@@ -20,9 +20,7 @@ const Burger = () => {
         .then((json) => {
             console.log (json)
           const burger = json.filter(item => item.type === 'all-day')
-        //   const burgerSlice = burger.slice([2,3])
-        //   let list = []
-        //   list = list.map(burgerSlice)
+      
           setMenuBurger(burger)
         })
       })
@@ -34,9 +32,9 @@ const Burger = () => {
 
             {menuBurger && menuBurger.map(function (item) {
                     return (
-                        <div className="printScreen" key={item.name} name={item.name} id={item.id} price={item.price}>
+                        <div className="printScreen"  name={item.name} id={item.id} price={item.price}>
                             <p className="nameProduct">{item.name} {item.flavor} {item.complement} R$ {item.price},00
-                            <button className="btnAdd"> Adicionar</button></p>
+                            <button className="btnAdd"> + </button></p>
                         
                         </div>
                     );

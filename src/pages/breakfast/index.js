@@ -34,12 +34,8 @@ const Breakfast = () => {
             <h1 className="priceItem">R$ {item.price},00</h1>
             <button className="btnAdd"> Adicionar</button>
           </div>
-        ))}
-             
+        ))}             
           <button className="btnFinal">Finalizar</button>
-         
-          
-       
       </div>
     </div>
     </>

@@ -19,7 +19,6 @@ const InnerHeader = ({professional}) => {
         } 
     }
 
-
     
 
     return (
@@ -39,6 +38,7 @@ const InnerHeader = ({professional}) => {
                 <Client/>
             </form>
             
+
         </>
     )
 }

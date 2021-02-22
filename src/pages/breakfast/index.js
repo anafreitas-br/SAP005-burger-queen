@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import InnerHeader from '../../components/InnerHeader';
+
+
+
 
 
 const Breakfast = () => {
@@ -8,6 +11,7 @@ const Breakfast = () => {
     const [menu, setMenu] = useState('');    
     const professional = localStorage.getItem("name");
 
+   
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
             method: 'GET',
@@ -42,7 +46,12 @@ const Breakfast = () => {
         <br></br>
         <br></br>
         <br></br>
+     
+             
           <button className="btnFinal" >Finalizar</button>          
+       
+
+
       </div>
     </div>
     </>

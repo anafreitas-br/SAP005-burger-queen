@@ -31,6 +31,7 @@ const Hall = () => {
             <InnerHeader professional={professional} client={client} table={table}/>
             <form className="Order">
                 <div className="Group">
+
                     <br></br>
                     <br></br>
                     <p className="Texts"> Cliente <span className='required'> *</span> 
@@ -41,6 +42,8 @@ const Hall = () => {
                     <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
                 </div>
                 <button className="Button" type="submit" onClick={keepClient}>Registrar</button>
+
+              
             </form>
         </>
     )

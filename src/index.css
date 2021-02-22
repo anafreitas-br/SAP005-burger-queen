@@ -1,72 +1,103 @@
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #ecfa9d;
-  color: #000000
+	 margin: 2rem; 
+	 margin-right: 100rem; 
+	font-family: Arial, Helvetica, sans-serif;
+	background: #ecfa9d;
+	color: #000000;
+	justify-items: center;
+	
 }
 
 .Field {
-  border: none;
-  background: rgba(0, 0, 0, .25);
-  color: #000000;
-  margin: 0.5rem ;
-  padding: 1rem;
-  border-radius: 7px;
-  font-size: 1rem;
-  width: 100%;
-  transition: all .1.5s linear;
-  cursor: pointer;
+	border: none;
+	background: rgba(0, 0, 0, .25);
+	color: #000000;
+	margin: 0.5rem;
+	padding: 1rem;
+	border-radius: 7px;
+	font-size: 1rem;
+	width: 100%;
+	transition: all .1.5s linear;
+	cursor: pointer;
 }
 
 .Field:focus {
-  box-shadow: 0.4px 4px rgba(0, 0, 0, .4);
-  outline: none;
+	box-shadow: 0.4px 4px rgba(0, 0, 0, .4);
+	outline: none;
 }
 
 .Error {
-  color: #ff8080;
+	color: #ff8080;
 }
 
 .Logo {
-  width: 50%;
-  margin-top: 1.5rem;
+	width: 20%;
+	margin-top: 1.5rem;
 }
 
 .LogoOrder {
-  width: 30%;
+	width: 30%;
+	margin: 0;
+	margin-right: 2rem;
+	text-align: left;
+	/* padding-left: 1.5rem; */
 }
 
 .Button {
-  padding: .5rem 2rem;
-  margin-top: 1rem;
-  border-radius: 7px;
-  font-family: 'Roboto Slab', serif;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: purple;
- color: white; 
+	padding: .5rem 2rem;
+	margin-top: 1rem;
+	border-radius: 7px;
+	font-family: 'Roboto Slab', serif;
+	font-size: 1rem;
+	cursor: pointer;
+	background-color: purple;
+	color: white;
 }
 
 .Btn-Register {
-  margin: 1rem;
+	margin: 1rem;
 }
 
 .Button-back {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .Title {
-  font-family: 'Crete Round', serif;
-  margin: 0;
+	font-family: 'Crete Round', serif;
+	margin: 0;
 }
 
 .Option {
-  cursor: pointer;
-  margin-left: 1.4rem;
+	cursor: pointer;
+	margin-left: 1.4rem;
 }
 
 .Texts,
 .Group {
-  font-size: 1rem;
-  font-family: 'Roboto Slab', serif;
+	font-size: 1rem;
+	font-family: 'Roboto Slab', serif;
+	align-items: center;
 }
+
+
+
+.divNavbar {
+	display: flex;
+	margin:3rem;
+	margin-top: 1rem;
+	background: linear-gradient (90 deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252, 1)100%);
+}
+
+.Order {
+	text-align: center;
+	margin-left: 18rem;
+	margin-top: 0rem;
+	font-weight: bold;
+}
+
+.MenuBreakfast {
+	text-align: center;
+	margin-left: 14rem;
+	width: 20rem;
+}
+

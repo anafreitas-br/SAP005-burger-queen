@@ -1,13 +1,17 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
+import { Button } from '../components/Button/Button';
 import LogoVector from '../img/LogoVector.png'
 import Client from '../components/Client'
+import NavBar from "./Navbar/Navbar"
 
-const InnerHeader = ({professional, client, table}) => {
 
-    const routerLogout = () => {
-        const logoutConfirm = window.confirm('Deseja fazer logout ?');
-        if (logoutConfirm === true) {
+const InnerHeader = ({professional}) => {
+    const history = useHistory();
+
+        const routerLogout = () => {
+            const logoutConfirm = window.confirm('Deseja fazer logout ?');
+            if (logoutConfirm === true) {
             localStorage.removeItem("token");
             localStorage.removeItem("id");
             localStorage.removeItem("professional")
@@ -15,18 +19,26 @@ const InnerHeader = ({professional, client, table}) => {
         } 
     }
 
-    const history = useHistory();
+    
 
     return (
         <>
-            <img className="LogoOrder" alt ="logotipo Vegan Queen" src={LogoVector}/>
+
+        <Button onClick={routerLogout}>Sair</Button>
+        <div className='divNavbar'>
+            <img className="LogoOrder" alt ="logotipo Vegan Queen" src={LogoVector}/> 
+            <NavBar/>
+            </div>
             <form className="Order">
                 <div className="Group">
-                <p className="Texts">Olá, {professional}</p>
-                <button className="Button" type="submit" onClick={routerLogout}>Sair</button>
+                    <p className="Texts">Olá, {professional}</p>
                 </div>
+                <br></br>
+                <br></br>
                 <Client/>
             </form>
+            
+
         </>
     )
 }

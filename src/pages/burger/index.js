@@ -15,12 +15,19 @@ const Burger = () => {
                 "Authorization": `${token}`
             },
         })
+        .then((response) => response.json())
+        .then((json) => {
+            console.log (json)
+          const burger = json.filter(item => item.type === 'all-day')
+      
+          setMenuBurger(burger)
+        })
             .then((response) => response.json())
             .then((json) => {
                 const burger = json.filter(item => item.type === 'all-day')
                 setMenuBurger(burger)
             })
-    })
+    });
 
     const adicionar = (event) => {
         event.preventDefault();
@@ -43,9 +50,8 @@ const Burger = () => {
         }
         pedido.push({objeto})
         localStorage.setItem("pedido", JSON.stringify(pedido))
-    }
+    };
 
-    
     return (
         <div className="Burger">
             <InnerHeader professional={professional} />
@@ -54,7 +60,7 @@ const Burger = () => {
                     return (
                         <div className="printScreen" name={item.name} id={item.id} price={item.price} complement={item.complement} flavor={item.flavor}>
                             <p className="nameProduct">{item.name} {item.flavor} {item.complement} R$ {item.price},00
-                            <button className="btnAdd" onClick={adicionar}> Adicionar</button></p>
+                            <button className="btnAdd" onClick={adicionar}> + </button></p>
                         </div>
                     );
                 })}
@@ -63,7 +69,5 @@ const Burger = () => {
         </div>
     );
 }
-
-
 
 export default Burger;

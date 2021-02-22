@@ -1,5 +1,6 @@
 :root {
-	--primary: #3acbf7;
+	--primary: purple;
+	margin-right: 50rem;
 }
 
 .btn {
@@ -11,6 +12,7 @@
 	cursor: pointer;
 	background-color: purple;
 	color: #fff;
+	margin-left: 40rem;
 }
 
 .btn:hover {

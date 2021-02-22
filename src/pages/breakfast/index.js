@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom'
 import InnerHeader from '../../components/InnerHeader';
 
 
 const Breakfast = () => {
 
-    const history = useHistory();
     const token = localStorage.getItem("token")
     const [menu, setMenu] = useState('');    
     const professional = localStorage.getItem("name");
-    
+
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
             method: 'GET',
@@ -28,24 +26,23 @@ const Breakfast = () => {
       })
 
 
-    return (
+  return (
         <>
         <div className="Breakfast">
         <InnerHeader professional={professional}/>
+        <br></br>
+        <br></br>
         <div className="MenuBreakfast">
         {menu && menu.map((item) => (
           <div className="printScreen" name={item.name} id={item.id} price={item.price}>
-            <h1 className="nameProduct">{item.name}</h1>
-            <h1 className="priceItem">R$ {item.price},00</h1>
-            <button className="btnAdd" > Adicionar </button>
+            <p className="nameProduct">{item.name} {item.flavor} {item.complement} R$ {item.price},00</p>
+            <button className="btnAdd" > + </button>
           </div>
         ))}
-          <div className="routePageBurger">
-            <button type="submit"
-            onClick={() => history.push('/burger')}
-            >Burger</button>
-          </div>
-          <button className="btnFinal" >Finalizar</button>
+        <br></br>
+        <br></br>
+        <br></br>
+          <button className="btnFinal" >Finalizar</button>          
       </div>
     </div>
     </>

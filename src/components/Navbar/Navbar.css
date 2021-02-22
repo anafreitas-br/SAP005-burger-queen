@@ -3,18 +3,19 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 1.2rem;
+	font-size: 0.8rem;
 }
 
 .nav-menu {
-	display: grid;
+	display: grid; 
 	grid-template-columns: repeat(5, auto);
-	grid-gap: 5rem;
+	grid-gap: 2rem;
 	list-style: none;
 	text-align: center;
-	width: 100vw;
+	width: 65vw;
 	justify-content: end;
-	margin-right: 2rem;
+	/* margin-right: 3.2rem; */
+	font-size: 1rem;
 }
 
 .nav-links {

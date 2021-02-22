@@ -24,13 +24,18 @@ const InnerHeader = ({professional}) => {
 
     return (
         <>
+
+        <Button onClick={routerLogout}>Sair</Button>
+        <div className='divNavbar'>
             <img className="LogoOrder" alt ="logotipo Vegan Queen" src={LogoVector}/> 
             <NavBar/>
+            </div>
             <form className="Order">
                 <div className="Group">
                     <p className="Texts">Olá, {professional}</p>
-                    <Button onClick={routerLogout}>Sair</Button> 
                 </div>
+                <br></br>
+                <br></br>
                 <Client/>
             </form>
             

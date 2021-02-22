@@ -1,8 +1,11 @@
 body {
-	margin: 0;
+	 margin: 2rem; 
+	 margin-right: 100rem; 
 	font-family: Arial, Helvetica, sans-serif;
 	background: #ecfa9d;
 	color: #000000;
+	justify-items: center;
+	
 }
 
 .Field {
@@ -28,12 +31,16 @@ body {
 }
 
 .Logo {
-	width: 50%;
+	width: 20%;
 	margin-top: 1.5rem;
 }
 
 .LogoOrder {
 	width: 30%;
+	margin: 0;
+	margin-right: 2rem;
+	text-align: left;
+	/* padding-left: 1.5rem; */
 }
 
 .Button {
@@ -69,4 +76,28 @@ body {
 .Group {
 	font-size: 1rem;
 	font-family: 'Roboto Slab', serif;
+	align-items: center;
 }
+
+
+
+.divNavbar {
+	display: flex;
+	margin:3rem;
+	margin-top: 1rem;
+	background: linear-gradient (90 deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252, 1)100%);
+}
+
+.Order {
+	text-align: center;
+	margin-left: 18rem;
+	margin-top: 0rem;
+	font-weight: bold;
+}
+
+.MenuBreakfast {
+	text-align: center;
+	margin-left: 14rem;
+	width: 20rem;
+}
+

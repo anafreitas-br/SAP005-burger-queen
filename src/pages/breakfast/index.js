@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import InnerHeader from '../../components/InnerHeader';
 
-
-
-
-
 const Breakfast = () => {
 
     const token = localStorage.getItem("token")
@@ -24,7 +20,6 @@ const Breakfast = () => {
         .then((json) => {
           console.log (json)
           const breakfast = json.filter(item => item.type === 'breakfast')
-          
           setMenu(breakfast)
         })
       })

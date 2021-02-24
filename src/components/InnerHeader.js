@@ -12,18 +12,13 @@ const InnerHeader = ({professional}) => {
         const routerLogout = () => {
             const logoutConfirm = window.confirm('Deseja fazer logout ?');
             if (logoutConfirm === true) {
-            localStorage.removeItem("token");
-            localStorage.removeItem("id");
-            localStorage.removeItem("professional")
+            localStorage.clear();
             history.push('/')
         } 
     }
 
-    
-
     return (
         <>
-
         <Button onClick={routerLogout}>Sair</Button>
         <div className='divNavbar'>
             <img className="LogoOrder" alt ="logotipo Vegan Queen" src={LogoVector}/> 

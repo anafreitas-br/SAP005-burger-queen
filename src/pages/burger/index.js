@@ -7,6 +7,7 @@ const Burger = () => {
     const [menuBurger, setMenuBurger] = useState('');
     const professional = localStorage.getItem("name");
 
+
     useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
             method: 'GET',
@@ -15,11 +16,13 @@ const Burger = () => {
                 "Authorization": `${token}`
             },
         })
-            .then((response) => response.json())
-            .then((json) => {
-                const burger = json.filter(item => item.type === 'all-day')
-                setMenuBurger(burger)
-            })
+
+
+        .then((response) => response.json())
+        .then((json) => {
+            const burger = json.filter(item => item.type === 'all-day')
+            setMenuBurger(burger)
+        })
     });
 
     const adicionar = (event) => {
@@ -33,24 +36,22 @@ const Burger = () => {
         
         const objeto ={
             id: id,
-            nome: name,
+            name: name,
             flavor: flavor,
             complement: complement,
             price: price
         }
-        
 
-        let order = new Array([0]);
-        if (localStorage.hasOwnProperty("order")) {
-            order = JSON.parse(localStorage.getItem("order"))
+
+        let pedido = [];
+        if (localStorage.hasOwnProperty("pedido")) {
+            pedido = JSON.parse(localStorage.getItem("pedido"))
         }
-        order.push({objeto})
-        localStorage.setItem("order", JSON.stringify(order))
-    };
+    
 
     return (
         <div className="Burger">
-            <InnerHeader professional={professional} />
+            <InnerHeader professional={professional}/>
             <div className="MenuBurger">
                 {menuBurger && menuBurger.map(function (item) {
                     return (

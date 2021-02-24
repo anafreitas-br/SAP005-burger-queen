@@ -16,7 +16,7 @@ export const MenuItems = [
 	},
 	{
 		title: 'Comanda',
-		url: '/order',
+		url: '/command',
 		clName: 'nav-links'
 	}
 ];

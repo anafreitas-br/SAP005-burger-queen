@@ -4,7 +4,6 @@ import './Navbar.css';
 
 class Navbar extends Component {
 	
-
 	render() {
 		return (
 			<nav className="NavbarItems">

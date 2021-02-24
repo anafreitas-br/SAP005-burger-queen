@@ -8,6 +8,7 @@ import Kitchen from '../pages/kitchen'
 import Command from '../pages/command'
 import NotFound from './NotFound'
 import PrivateRoute from './PrivateRoute'
+import Command from '../pages/command'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 

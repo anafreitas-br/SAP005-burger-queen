@@ -10,9 +10,14 @@ const Hall = () => {
     const token = localStorage.getItem("token");
     const id = localStorage.getItem("id");
 
-    const keepClient = () => {
-        localStorage.setItem("client", client);
-        localStorage.setItem("table", table);
+    const keepClient = (event) => {
+        if (client && table !== '') {
+            localStorage.setItem("client", client);
+            localStorage.setItem("table", table);
+        } else {
+            event.preventDefault();
+            alert("Digite o nome e mesa do cliente para registrar")
+        }
     }
 
     fetch(`https://lab-api-bq.herokuapp.com/users/${id}`,{
@@ -28,7 +33,7 @@ const Hall = () => {
 
     return (
         <>
-            <InnerHeader professional={professional} client={client} table={table}/>
+            <InnerHeader professional={professional}/>
             <form className="Order">
                 <div className="Group">
 
@@ -43,7 +48,6 @@ const Hall = () => {
                 </div>
                 <button className="Button" type="submit" onClick={keepClient}>Registrar</button>
 
-              
             </form>
         </>
     )

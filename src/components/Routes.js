@@ -5,6 +5,7 @@ import Hall from '../pages/hall'
 import Breakfast from '../pages/breakfast'
 import Burger from '../pages/burger'
 import Kitchen from '../pages/kitchen'
+import Command from '../pages/command'
 import NotFound from './NotFound'
 import PrivateRoute from './PrivateRoute'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -20,6 +21,7 @@ const Routes = () => (
             <PrivateRoute component={Kitchen} exact path='/kitchen'/>
             <PrivateRoute component={Breakfast} exact path='/breakfast'/>
             <PrivateRoute component={Burger} exact path='/burger'/>
+            <PrivateRoute component={Command} exact path='/command'/>
             <Route component={NotFound}/>
         </Switch>
     </BrowserRouter>    

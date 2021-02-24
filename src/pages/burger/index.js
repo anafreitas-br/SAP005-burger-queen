@@ -15,13 +15,6 @@ const Burger = () => {
                 "Authorization": `${token}`
             },
         })
-        .then((response) => response.json())
-        .then((json) => {
-            console.log (json)
-          const burger = json.filter(item => item.type === 'all-day')
-      
-          setMenuBurger(burger)
-        })
             .then((response) => response.json())
             .then((json) => {
                 const burger = json.filter(item => item.type === 'all-day')
@@ -37,6 +30,7 @@ const Burger = () => {
         const id = parent.getAttribute('id');
         const name = parent.getAttribute('name');
         const price = parent.getAttribute('price');
+        
         const objeto ={
             id: id,
             nome: name,
@@ -44,12 +38,14 @@ const Burger = () => {
             complement: complement,
             price: price
         }
-        let pedido = new Array([0]);
-        if (localStorage.hasOwnProperty("pedido")) {
-            pedido = JSON.parse(localStorage.getItem("pedido"))
+        
+
+        let order = new Array([0]);
+        if (localStorage.hasOwnProperty("order")) {
+            order = JSON.parse(localStorage.getItem("order"))
         }
-        pedido.push({objeto})
-        localStorage.setItem("pedido", JSON.stringify(pedido))
+        order.push({objeto})
+        localStorage.setItem("order", JSON.stringify(order))
     };
 
     return (

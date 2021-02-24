@@ -4,10 +4,13 @@ import InnerHeader from '../../components/InnerHeader';
 const Breakfast = () => {
 
     const token = localStorage.getItem("token")
-    const [menu, setMenu] = useState('');    
     const professional = localStorage.getItem("name");
+    const [menu, setMenu] = useState('');    
 
-   
+
+
+
+
     useEffect (() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
             method: 'GET',
@@ -27,6 +30,7 @@ const Breakfast = () => {
 
   return (
         <>
+
         <div className="Breakfast">
         <InnerHeader professional={professional}/>
         <br></br>
@@ -35,14 +39,15 @@ const Breakfast = () => {
         {menu && menu.map((item) => (
           <div className="printScreen" name={item.name} id={item.id} price={item.price}>
             <p className="nameProduct">{item.name} {item.flavor} {item.complement} R$ {item.price},00</p>
-            <button className="btnAdd" > + </button>
+          <button className="btnAdd" >+</button> 
           </div>
         ))}
+
+      
         <br></br>
         <br></br>
         <br></br>
-     
-             
+          
           <button className="btnFinal" >Finalizar</button>          
        
 

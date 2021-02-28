@@ -19,7 +19,7 @@ const Kitchen = () => {
                 console.log(json)
                 setOrder(json)
             })
-    }, [])
+    })
 
 
         

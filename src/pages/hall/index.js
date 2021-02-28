@@ -19,7 +19,7 @@ const Hall = () => {
             .then((json) => {
                 console.log(json)
             })
-    }, [])
+    })
 
     useEffect(() => {
         localStorage.setItem("client", client)

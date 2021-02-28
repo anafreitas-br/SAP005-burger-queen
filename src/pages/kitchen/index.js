@@ -1,14 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import InnerHeader from '../../components/InnerHeader';
 
 const Kitchen = () => {
     const token = localStorage.getItem("token")
-    const id = localStorage.getItem("id")
+    const [order, setOrder] = useState('')
+    console.log(order)
 
-
+    useEffect(() => {
+            fetch("https://lab-api-bq.herokuapp.com/orders", {
+                headers: {
+                    "accept": "application/json",
+                    "Authorization": `${token}`
+                },
+                
+            })
+            .then((response) => response.json())
+            .then((json) => {
+                //const order = json.filter(item => item.status === status)
+                console.log(json)
+                setOrder(json)
+            })
+    }, [])
+        
+        
     return (
         <>
-            <InnerHeader/>
+            <InnerHeader />
+            <div className="kitchen">
+                <div className="ordersList">
+                    {order && order.map(function (item) {
+                        return (
+                            <div className="EachOrder" onClick={console.log("clicou")}>
+                                <p>{item.status}</p>
+                                <p>Cliente: {item.client_name} Mesa: {item.table}</p>
+                                <p>{item.Products.name}</p>
+                                <p>{item.createdAt}</p>
+                                <button className="Button">Está Pronto</button>
+                            </div>
+                        )
+                    }
+                    )}\
+
+                </div>
+            </div>
         </>
     )
 }

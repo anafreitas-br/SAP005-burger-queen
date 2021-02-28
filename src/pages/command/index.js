@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import InnerHeader from '../../components/InnerHeader';
-import Burger from '../burger/index'
 
 const Command = () => {
 
     const professional = localStorage.getItem("name");
-    const pedido = JSON.parse(localStorage.getItem('pedido'));
+    const token = localStorage.getItem("token")
+    const pedido = JSON.parse(localStorage.getItem("pedido"));
     const [sum, setSum] = useState(0);
+    
+
+    // APAGAR DEPOIS DE VIRAR COMPONENTE
+    const client = localStorage.getItem("client");
+    const table = localStorage.getItem("table");
 
     const sumOrder = () => {
         const soma = document.getElementById("soma")
@@ -19,15 +24,31 @@ const Command = () => {
         })
     }
 
-    // const [orders, setOrders] = useState([]);
-
-    
-    // const addOrder= (item) => {
-    //     const listOrder = orders
-    //     listOrder.push(item)
-    //     setOrders(listOrder)
-    //     sumOrder()
-    // }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        fetch(`https://lab-api-bq.herokuapp.com/orders`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            },
+            body: JSON.stringify({
+                "client": client,
+                "table": table, 
+                "products": 
+                pedido.map((item) => (
+                    {
+                        "id": Number(item.objeto.id),
+                        "qtd": 1
+                    }
+                ))
+            })
+        })
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json)
+        })
+    }
 
     return (
         <>
@@ -49,6 +70,7 @@ const Command = () => {
                 <button onclick={sumOrder}>Somar</button>
                 <button className="btnFinal">Finalizar</button>
             </div>
+            <button className="Button" type="submit" onClick={handleSubmit}>Finalizar pedido</button> 
         </div>
         </>
     )

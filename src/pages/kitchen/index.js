@@ -4,7 +4,6 @@ import InnerHeader from '../../components/InnerHeader';
 const Kitchen = () => {
     const token = localStorage.getItem("token")
     const [order, setOrder] = useState('')
-    console.log(order)
 
     useEffect(() => {
             fetch("https://lab-api-bq.herokuapp.com/orders", {
@@ -21,6 +20,8 @@ const Kitchen = () => {
                 setOrder(json)
             })
     }, [])
+
+
         
         
     return (
@@ -31,16 +32,15 @@ const Kitchen = () => {
                     {order && order.map(function (item) {
                         return (
                             <div className="EachOrder" onClick={console.log("clicou")}>
-                                <p>{item.status}</p>
+                                <p>Status: {item.status}</p>
                                 <p>Cliente: {item.client_name} Mesa: {item.table}</p>
-                                <p>{item.Products.name}</p>
-                                <p>{item.createdAt}</p>
+                                <p>Data e hora: {item.createdAt}</p>
                                 <button className="Button">Está Pronto</button>
+                                ______________________________________________________
                             </div>
                         )
                     }
-                    )}\
-
+                    )}
                 </div>
             </div>
         </>

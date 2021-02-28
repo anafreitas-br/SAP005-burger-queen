@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InnerHeader from '../../components/InnerHeader'
 import './Hall.css'
 
@@ -8,27 +8,33 @@ const Hall = () => {
     const token = localStorage.getItem("token");
     const id = localStorage.getItem("id");
 
-    fetch(`https://lab-api-bq.herokuapp.com/users/${id}`, {
-        headers: {
-            "accept": "application/json",
-            "Authorization": `${token}`
-        },
-    })
-        .then((response) => response.json())
-        .then((json) => {
-            console.log(json)
+    useEffect(() => {
+        fetch(`https://lab-api-bq.herokuapp.com/users/${id}`, {
+            headers: {
+                "accept": "application/json",
+                "Authorization": `${token}`
+            },
         })
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json)
+            })
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("client", client)
+        localStorage.setItem("table", table)
+    }, [client, table])
 
     return (
         <>
-            <InnerHeader/>
+            <InnerHeader />
             <div className="Group">
-                    <p className="Texts">Cliente: {client}</p>
-                    <p className="Texts">Mesa: {table}</p>
+                <p className="Texts">Cliente: {client}</p>
+                <p className="Texts">Mesa: {table}</p>
             </div>
             <form className="Order">
                 <div className="Group">
-
                     <br></br>
                     <br></br>
                     <p className="Texts"> Cliente <span className='required'> *</span>

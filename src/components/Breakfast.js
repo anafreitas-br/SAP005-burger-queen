@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import InnerHeader from '../../components/InnerHeader';
 
 const Breakfast = () => {
 
     const token = localStorage.getItem("token")
-    const professional = localStorage.getItem("name");
     const [menu, setMenu] = useState('');    
-
-
-
 
 
     useEffect (() => {
@@ -27,12 +22,10 @@ const Breakfast = () => {
         })
       })
 
-
   return (
         <>
 
         <div className="Breakfast">
-        <InnerHeader professional={professional}/>
         <br></br>
         <br></br>
         <div className="MenuBreakfast">
@@ -49,8 +42,6 @@ const Breakfast = () => {
         <br></br>
           
           <button className="btnFinal" >Finalizar</button>          
-       
-
 
       </div>
     </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import InnerHeader from '../../components/InnerHeader'
+import Burger from '../../components/Burger'
 import './Hall.css'
 
 const Hall = () => {
@@ -10,15 +12,6 @@ const Hall = () => {
     const token = localStorage.getItem("token");
     const id = localStorage.getItem("id");
 
-    const keepClient = (event) => {
-        if (client && table !== '') {
-            localStorage.setItem("client", client);
-            localStorage.setItem("table", table);
-        } else {
-            event.preventDefault();
-            alert("Digite o nome e mesa do cliente para registrar")
-        }
-    }
 
     fetch(`https://lab-api-bq.herokuapp.com/users/${id}`,{
     headers:{ 
@@ -33,7 +26,7 @@ const Hall = () => {
 
     return (
         <>
-            <InnerHeader professional={professional}/>
+            <InnerHeader professional={professional} client= {client} table={table}/>
             <form className="Order">
                 <div className="Group">
 
@@ -46,9 +39,17 @@ const Hall = () => {
                     <p className="Texts"> Mesa  <span className='required'> *</span>  
                     <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
                 </div>
-                <button className="Button" type="submit" onClick={keepClient}>Registrar</button>
 
             </form>
+            <div className="orderDay">
+
+             <Link to='/burger'>
+     
+                <button className="Button" type="submit" onClick={()=><Burger/>}>Lanches</button>
+                
+        </Link>   
+            </div>
+
         </>
     )
 }

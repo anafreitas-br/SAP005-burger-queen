@@ -1,15 +1,15 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from '../pages/login'
 import Register from '../pages/register'
 import Hall from '../pages/hall'
-import Breakfast from '../pages/breakfast'
-import Burger from '../pages/burger'
+import Breakfast from './Breakfast'
+import Burger from './Burger'
 import Kitchen from '../pages/kitchen'
-import Command from '../pages/command'
 import NotFound from './NotFound'
 import PrivateRoute from './PrivateRoute'
-import Command from '../pages/command'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+
 
 
 const Routes = () => (
@@ -22,14 +22,12 @@ const Routes = () => (
             <PrivateRoute component={Kitchen} exact path='/kitchen'/>
             <PrivateRoute component={Breakfast} exact path='/breakfast'/>
             <PrivateRoute component={Burger} exact path='/burger'/>
-            <PrivateRoute component={Command} exact path='/command'/>
+            
             <Route component={NotFound}/>
         </Switch>
     </BrowserRouter>    
     </>
 )
-
-
 
 export default Routes
 

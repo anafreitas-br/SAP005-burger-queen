@@ -1,12 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import { Button } from '../components/Button/Button';
 import LogoVector from '../img/LogoVector.png'
-import Client from '../components/Client'
 import NavBar from "./Navbar/Navbar"
 
 
-const InnerHeader = ({professional}) => {
+const InnerHeader = ({professional, client, table}) => {
     const history = useHistory();
 
         const routerLogout = () => {
@@ -16,6 +15,10 @@ const InnerHeader = ({professional}) => {
             history.push('/')
         } 
     }
+
+    useEffect(() => {
+        document.title= "Vegan Queen"
+    }, [])
 
     return (
         <>
@@ -28,9 +31,10 @@ const InnerHeader = ({professional}) => {
                 <div className="Group">
                     <p className="Texts">Olá, {professional}</p>
                 </div>
-                <br></br>
-                <br></br>
-                <Client/>
+                <div className="Group">
+                    <p className="Texts">Cliente: {client}</p>
+                    <p className="Texts">Mesa: {table}</p>
+                </div>
             </form>
             
 

@@ -3,52 +3,43 @@ import InnerHeader from '../../components/InnerHeader'
 import './Hall.css'
 
 const Hall = () => {
-
-    const [professional, setProfessional] = useState('');
     const [client, setClient] = useState('');
     const [table, setTable] = useState('');
     const token = localStorage.getItem("token");
     const id = localStorage.getItem("id");
 
-    const keepClient = (event) => {
-        if (client && table !== '') {
-            localStorage.setItem("client", client);
-            localStorage.setItem("table", table);
-        } else {
-            event.preventDefault();
-            alert("Digite o nome e mesa do cliente para registrar")
-        }
-    }
-
-    fetch(`https://lab-api-bq.herokuapp.com/users/${id}`,{
-    headers:{ 
-    "accept": "application/json",
-    "Authorization":`${token}`},    
+    fetch(`https://lab-api-bq.herokuapp.com/users/${id}`, {
+        headers: {
+            "accept": "application/json",
+            "Authorization": `${token}`
+        },
     })
-    .then((response) => response.json())
-    .then((json) => {  
-        setProfessional(json.name)
-        localStorage.setItem("name", json.name)
-    }) 
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json)
+        })
 
     return (
         <>
-            <InnerHeader professional={professional}/>
+            <InnerHeader/>
+            <div className="Group">
+                    <p className="Texts">Cliente: {client}</p>
+                    <p className="Texts">Mesa: {table}</p>
+            </div>
             <form className="Order">
                 <div className="Group">
 
                     <br></br>
                     <br></br>
-                    <p className="Texts"> Cliente <span className='required'> *</span> 
-                    <input name="client" className="FieldOrder" placeholder="nome" value={client} onChange={(e) => setClient(e.target.value)}/></p>
+                    <p className="Texts"> Cliente <span className='required'> *</span>
+                        <input name="client" className="FieldOrder" placeholder="nome" value={client} onChange={(e) => setClient(e.target.value)} /></p>
                 </div>
                 <div className="Group">
-                    <p className="Texts"> Mesa  <span className='required'> *</span>  
-                    <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
+                    <p className="Texts"> Mesa  <span className='required'> *</span>
+                        <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
                 </div>
-                <button className="Button" type="submit" onClick={keepClient}>Registrar</button>
+                {/* <button className="Button" type="submit">Registrar</button> */}
 
-              
             </form>
         </>
     )

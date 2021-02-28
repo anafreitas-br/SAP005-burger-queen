@@ -23,19 +23,18 @@ const Login = () => {
         .then((response) => response.json())
         .then((json) => {
             console.log(json);
+            localStorage.setItem("token", json.token)
+            localStorage.setItem("id", json.id)
+            localStorage.setItem("name", json.name)
 
             if(json.message !== undefined){
                 alert(json.message)
             }
             
             if(json.role === "hall") {
-                localStorage.setItem("token", json.token)
-                localStorage.setItem("id", json.id)
                 history.push('/hall')
             }
             if(json.role === "kitchen") {
-                localStorage.setItem("token", json.token)
-                localStorage.setItem("id", json.id)
                 history.push('/kitchen')
             }
         })

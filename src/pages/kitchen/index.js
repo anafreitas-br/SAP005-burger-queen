@@ -37,10 +37,10 @@ const Kitchen = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                const order = json.filter(item => item.status == `pending`)
+                const order = json.filter(item => item.status === `pending`)
                 setOrder(order)
             })
-    }, [setOrder, order])
+    }, [setOrder, token])
 
     useEffect(() => {
         if (!ordersList.current) {

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import InnerHeader from './InnerHeader';
-import Order from './Order';
+import InnerHeader from  '../components/InnerHeader'
+import Command from './Command';
 
 const Burger = () => {
 
     const token = localStorage.getItem('token')
     const [menuBurger, setMenuBurger] = useState('');
     const professional = localStorage.getItem("name");
-   
-
 
 
     useEffect(() => {
@@ -26,60 +24,65 @@ const Burger = () => {
         })
     });
 
-    const AddOrder = (event) => {
+    const adicionar = (event) => {
         event.preventDefault();
         const parent = event.target.parentNode.parentNode;
-        const complement = parent.getAttribute('complement');
+        const complement = parent.getAttribute("complement");
         const flavor = parent.getAttribute('flavor');
         const id = parent.getAttribute('id');
         const name = parent.getAttribute('name');
         const price = parent.getAttribute('price');
-        
-        const objeto ={
+       
+        const objeto = {
             id: id,
             name: name,
             flavor: flavor,
             complement: complement,
             price: price
         }
+
         let pedido = [];
         if (localStorage.hasOwnProperty("pedido")) {
             pedido = JSON.parse(localStorage.getItem("pedido"))
-            console.log(pedido)
+            pedido.push({objeto})
+            console.log(objeto)
         }
-        pedido.push({objeto})
+        
         localStorage.setItem("pedido", JSON.stringify(pedido))
+        
     };
+    
 
 
     return (
-        <>
         <div className="Burger">
-            <InnerHeader professional={professional} />
+            <InnerHeader professional={professional}/>
             <div className="MenuBurger">
                 {menuBurger && menuBurger.map(function (item) {
                     return (
                         <div className="printScreen" name={item.name} id={item.id} price={item.price} complement={item.complement} flavor={item.flavor}>
-                        
-                            <p className="nameProduct">{item.name} {item.flavor} {item.complement} R$ {item.price},00 </p>
-                            <button className="btnAdd" onClick={AddOrder}> + </button>
-                    
+                            <p className="nameProduct">{item.name} {item.flavor} {item.complement} R$ {item.price},00
+                            <button className="btnAdd" onClick={adicionar}> + </button></p>
                         </div>
-                        
                     );
                 })}
-                <Order/>
-                <button className="btnFinal">Finalizar</button>
-            
+
+                <Command/>
+
             </div>
         </div>
-    
-        </>
     );
-
 }
 
-
-
 export default Burger;
+
+
+
+
+
+
+
+
+
+
 

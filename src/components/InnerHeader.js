@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react'
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { Button } from '../components/Button/Button';
 import LogoVector from '../img/LogoVector.png'
-import NavBar from "./Navbar/Navbar"
+
 
 
 const InnerHeader = ({professional, client, table}) => {
     const history = useHistory();
 
-        const routerLogout = () => {
-            const logoutConfirm = window.confirm('Deseja fazer logout ?');
-            if (logoutConfirm === true) {
+    const routerLogout = () => {
+        const logoutConfirm = window.confirm('Deseja fazer logout ?');
+        if (logoutConfirm === true) {
             localStorage.clear();
             history.push('/')
-        } 
+        }
     }
 
     useEffect(() => {
@@ -22,10 +22,13 @@ const InnerHeader = ({professional, client, table}) => {
 
     return (
         <>
-        <Button onClick={routerLogout}>Sair</Button>
-        <div className='divNavbar'>
-            <img className="LogoOrder" alt ="logotipo Vegan Queen" src={LogoVector}/> 
-            <NavBar/>
+            <Button onClick={routerLogout}>Sair</Button>
+            <Link to = './hall'>
+            <Button type="submit">Voltar</Button>
+            </Link>
+
+            <div className='divNavbar'>
+                <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
             </div>
             <form className="Order">
                 <div className="Group">
@@ -36,8 +39,6 @@ const InnerHeader = ({professional, client, table}) => {
                     <p className="Texts">Mesa: {table}</p>
                 </div>
             </form>
-            
-
         </>
     )
 }

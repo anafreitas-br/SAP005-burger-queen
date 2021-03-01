@@ -27,8 +27,8 @@ const Register = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                console.log (json)
-                if(json.message !== undefined){
+                console.log(json)
+                if (json.message !== undefined) {
                     alert(json.message)
                 } else {
                     alert("Conta criada com sucesso !")
@@ -40,30 +40,30 @@ const Register = () => {
 
     return (
         <>
-            <OutHeader message={"Crie sua conta"}/>
-                <form className="Register">
-                    <div className="Group">
-                        <p>Nome Completo<span className='required'> *</span></p>
-                        <input name="name" className="Field" placeholder="ex: Fulano de Tal" value={name} onChange={(e) => setName(e.target.value)} />
+            <OutHeader message={"Crie sua conta"} />
+            <form className="Register">
+                <div className="Group">
+                    <p>Nome Completo<span className='required'> *</span></p>
+                    <input name="name" className="Field" placeholder="ex: Fulano de Tal" value={name} onChange={(e) => setName(e.target.value)} />
                     <div className="Group">
                         <p>Email<span className='required'> *</span></p>
-                        <input type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />                   
+                        <input type="email" name="email" className="Field" placeholder="ex: myname@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="Group">
-                    <p>Senha<span className='required'> *</span></p>
+                        <p>Senha<span className='required'> *</span></p>
                         <input type="password" name="password" className="Field" placeholder="mínimo 6 digitos" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className="Group" id="Option-Group">
                         <form className="Texts">
                             <p >Selecione a sua áerea de trabalho<span className='required'>*</span>
-                            <input type="radio" name="option" className="Option" id="hall" value={option} onClick={(e) => setOption(e.target.id)}/> Salão 
-                            <input type="radio" name="option" className="Option" id="kitchen" value={option} onClick={(e) => setOption(e.target.id)}/> Cozinha                                </p>
+                                <input type="radio" name="option" className="Option" id="hall" value={option} onClick={(e) => setOption(e.target.id)} /> Salão
+                            <input type="radio" name="option" className="Option" id="kitchen" value={option} onClick={(e) => setOption(e.target.id)} /> Cozinha                                </p>
                         </form>
                     </div>
                     <button className="Button Btn-Register" type="submit" onClick={handleSubmit}>Cadastrar</button>
                     <p className="Texts"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
-                    </div>
-                </form>
+                </div>
+            </form>
         </>
     );
 }

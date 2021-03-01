@@ -1,29 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import InnerHeader from '../../components/InnerHeader';
 
 const Kitchen = () => {
     const token = localStorage.getItem("token")
     const [order, setOrder] = useState('')
+    const ordersList = useRef(false);
 
-    useEffect(() => {
-            fetch("https://lab-api-bq.herokuapp.com/orders", {
-                headers: {
-                    "accept": "application/json",
-                    "Authorization": `${token}`
-                },
-                
+    const handleSubmit = (itemId) => {
+        console.log(itemId)
+        fetch(`https://lab-api-bq.herokuapp.com/orders/${itemId}`, {
+            method: "PUT",
+            headers: {
+                "accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": `${token}`
+            },
+            body: JSON.stringify({
+                "status": `pronto`
             })
+        })
             .then((response) => response.json())
             .then((json) => {
-                //const order = json.filter(item => item.status === status)
                 console.log(json)
-                setOrder(json)
+                console.log(order)
+
+                setOrder(prevUnidade => [...prevUnidade, json])
             })
-    })
+    }
 
+    const getOrders = useCallback(async () => {
+        fetch("https://lab-api-bq.herokuapp.com/orders", {
+            headers: {
+                "accept": "application/json",
+                "Authorization": `${token}`
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                const order = json.filter(item => item.status == `pending`)
+                setOrder(order)
+            })
+    }, [setOrder, order])
 
-        
-        
+    useEffect(() => {
+        if (!ordersList.current) {
+            getOrders();
+            ordersList.current = true;
+        }
+        return () => { ordersList.current = false }
+    }, [getOrders]);
+
     return (
         <>
             <InnerHeader />
@@ -31,11 +57,19 @@ const Kitchen = () => {
                 <div className="ordersList">
                     {order && order.map(function (item) {
                         return (
-                            <div className="EachOrder" onClick={console.log("clicou")}>
+                            <div className="EachOrder">
                                 <p>Status: {item.status}</p>
                                 <p>Cliente: {item.client_name} Mesa: {item.table}</p>
                                 <p>Data e hora: {item.createdAt}</p>
-                                <button className="Button">Está Pronto</button>
+                                <div>Produtos: {item.Products.map(function (product) {
+                                    return (
+                                        <div>
+                                            <p>{product.name} {product.flavor} {product.complement} - Quantidade: {product.qtd}</p>
+                                        </div>
+                                    )
+                                })}
+                                </div>
+                                <button className="Button" onClick={() => handleSubmit(item.id)}>Está Pronto</button>
                                 ______________________________________________________
                             </div>
                         )

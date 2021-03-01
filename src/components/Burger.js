@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import InnerHeader from '../../components/InnerHeader';
+import InnerHeader from  '../components/InnerHeader'
+import Command from './Command';
 
 const Burger = () => {
 
@@ -31,20 +32,27 @@ const Burger = () => {
         const id = parent.getAttribute('id');
         const name = parent.getAttribute('name');
         const price = parent.getAttribute('price');
-        const objeto ={
+       
+        const objeto = {
             id: id,
             name: name,
             flavor: flavor,
             complement: complement,
             price: price
         }
+
         let pedido = [];
         if (localStorage.hasOwnProperty("pedido")) {
             pedido = JSON.parse(localStorage.getItem("pedido"))
+            pedido.push({objeto})
+            console.log(objeto)
         }
-        pedido.push({objeto})
+        
         localStorage.setItem("pedido", JSON.stringify(pedido))
+        
     };
+    
+
 
     return (
         <div className="Burger">
@@ -58,10 +66,23 @@ const Burger = () => {
                         </div>
                     );
                 })}
-                <button className="btnFinal">Finalizar</button>
+
+                <Command/>
+
             </div>
         </div>
     );
 }
 
 export default Burger;
+
+
+
+
+
+
+
+
+
+
+

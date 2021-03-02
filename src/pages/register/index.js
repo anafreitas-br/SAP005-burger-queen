@@ -27,7 +27,6 @@ const Register = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                console.log(json)
                 if (json.message !== undefined) {
                     alert(json.message)
                 } else {

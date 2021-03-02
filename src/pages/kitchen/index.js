@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import InnerHeader from '../../components/InnerHeader';
 
 const Kitchen = () => {
+    const professional = localStorage.getItem("name")
     const token = localStorage.getItem("token")
     const [order, setOrder] = useState('')
     const ordersList = useRef(false);
 
     const handleSubmit = (itemId) => {
-        console.log(itemId)
         fetch(`https://lab-api-bq.herokuapp.com/orders/${itemId}`, {
             method: "PUT",
             headers: {
@@ -22,9 +22,6 @@ const Kitchen = () => {
             .then((response) => response.json())
             .then((json) => {
                 console.log(json)
-                console.log(order)
-
-                setOrder(prevUnidade => [...prevUnidade, json])
             })
     }
 
@@ -40,7 +37,8 @@ const Kitchen = () => {
                 const order = json.filter(item => item.status === `pending`)
                 setOrder(order)
             })
-    }, [setOrder, token])
+            // eslint-disable-next-line
+    }, [ order, token])
 
     useEffect(() => {
         if (!ordersList.current) {
@@ -52,12 +50,12 @@ const Kitchen = () => {
 
     return (
         <>
-            <InnerHeader />
+            <InnerHeader professional={professional}/>
             <div className="kitchen">
                 <div className="ordersList">
                     {order && order.map(function (item) {
                         return (
-                            <div className="EachOrder">
+                            <div className="EachOrder" key={item.id}>
                                 <p>Status: {item.status}</p>
                                 <p>Cliente: {item.client_name} Mesa: {item.table}</p>
                                 <p>Data e hora: {item.createdAt}</p>

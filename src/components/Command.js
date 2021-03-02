@@ -1,28 +1,34 @@
 import React, { useState } from 'react'
 
-const Command = () => {
+const Command = ({pedido}) => {
 
-    
+
     const token = localStorage.getItem("token")
-    const pedido = JSON.parse(localStorage.getItem("pedido"));
     const [sum, setSum] = useState(0);
-
-    // APAGAR DEPOIS DE VIRAR COMPONENTE
     const client = localStorage.getItem("client");
     const table = localStorage.getItem("table");
 
     const sumOrder = () => {
         let somar = 0;
         pedido.forEach(item => {
-            console.log(pedido)
-            let add = Number(item.objeto.price)
-            console.log(add)
+            let add = Number(item.price)
             somar += add;
         })
-
-        setSum( somar )
-        console.log(somar)
+        setSum(somar)
     }
+
+    // const reduceItem = item => {
+    //     const a = pedido.map(function(item) {
+    //         {item.id}
+    //     })
+
+    //     console.log("clicou", item)
+    //     a.includes(item.id) &&
+    //     item.count--;
+    //     item.count <= 0 &&
+    //     pedido.splice(pedido.indexOf(item), 1)
+    //     setPedido([...pedido]);
+    // }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -34,48 +40,50 @@ const Command = () => {
             },
             body: JSON.stringify({
                 "client": client,
-                "table": table, 
-                "products": 
-                pedido.map((item) => (
-                    {
-                        "id": Number(item.objeto.id),
-                        "qtd": 1
-                    }
-                ))
+                "table": table,
+                "products":
+                    pedido.map((item) => (
+                        {
+                            "id": Number(item.id),
+                            "qtd": 1
+                        }
+                    ))
             })
         })
-        .then((response) => response.json())
-        .then((json) => {
-            console.log(json)
-        })
-
+            .then((response) => response.json())
+            .then((json) => {
+                localStorage.removeItem("pedido")
+                localStorage.removeItem("client")
+                localStorage.removeItem("table")
+                console.log(json)
+            })
     }
-
 
     return (
         <>
-        <div className="Command">
-        <h3>Comanda</h3>
-            <div className="CommandDetails">
-                {pedido && pedido.map(function (item) {
-                    return (
-                        <div className="commandScreen">
-                            <p className="eachDetail">{item.objeto.name}</p> 
-                            <p className="eachDetail">{item.objeto.flavor} </p>
-                            <p className="eachDetail">{item.objeto.complement}</p>
-                            <p className="eachDetail">R$ {item.objeto.price},00</p>
-                        </div>
-                    );
-                })}
-               
-                <p className="sumTotal">{sum}</p>
-                <br></br>
-                <br></br>
-        
+            <div className="Command">
+                <h3>Comanda</h3>
+                <div className="CommandDetails">
+                    {pedido && pedido.map(function (item) {
+                        return (
+                            <div className="commandScreen" key={item.id}>
+                                <p className="eachDetail">{item.name}</p>
+                                <p className="eachDetail">{item.flavor} </p>
+                                <p className="eachDetail">{item.complement}</p>
+                                <p className="eachDetail">R$ {item.price},00</p>
+                                {/* <button className="Button" type="submit" onClick={() => reduceItem(item)}>tirar</button> */}
+                            </div>
+                        );
+                    })}
+
+                    <p className="sumTotal">{sum}</p>
+                    <br></br>
+                    <br></br>
+
+                </div>
+                <button className="Button" type="submit" onClick={sumOrder}>Somar</button>
+                <button className="Button" type="submit" onClick={handleSubmit}>Finalizar pedido</button>
             </div>
-            <button className="Button" type="submit" onClick={sumOrder}>Somar</button> 
-            <button className="Button" type="submit" onClick={handleSubmit}>Finalizar pedido</button> 
-        </div>
         </>
     )
 }
@@ -83,9 +91,15 @@ const Command = () => {
 export default Command
 
 
-
-
-
+//     const [valueDelect, setValueDelect] = useState ()
+//     const [totalValor, setTotalValor] = useState ()
+//     const delProduct = (item, pedido) => {
+//     pedido.splice(pedido.indexOf(item), 1)
+//     const value = item.price
+//     console.log(value)
+//     setValueDelect(valueDelect - value)
+//     setTotalValor(totalValor - Number(item.price))
+// }
 
 
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-const Command = ({pedido}) => {
-
+const Command = ({ pedido, setPedido }) => {
 
     const token = localStorage.getItem("token")
     const [sum, setSum] = useState(0);
@@ -18,16 +17,12 @@ const Command = ({pedido}) => {
     }
 
     // const reduceItem = item => {
-    //     const a = pedido.map(function(item) {
-    //         {item.id}
-    //     })
-
-    //     console.log("clicou", item)
-    //     a.includes(item.id) &&
-    //     item.count--;
-    //     item.count <= 0 &&
+    //     pedido.includes(item.id) &&
+    //     item.qtd--;
+    //     item.qtd <= 0 &&
     //     pedido.splice(pedido.indexOf(item), 1)
     //     setPedido([...pedido]);
+    //     console.log(item, pedido)
     // }
 
     const handleSubmit = (event) => {
@@ -71,15 +66,13 @@ const Command = ({pedido}) => {
                                 <p className="eachDetail">{item.flavor} </p>
                                 <p className="eachDetail">{item.complement}</p>
                                 <p className="eachDetail">R$ {item.price},00</p>
-                                {/* <button className="Button" type="submit" onClick={() => reduceItem(item)}>tirar</button> */}
+                                <button className="Button" type="submit" onClick={() => reduceItem(item)}>tirar</button>
                             </div>
                         );
                     })}
-
                     <p className="sumTotal">{sum}</p>
                     <br></br>
                     <br></br>
-
                 </div>
                 <button className="Button" type="submit" onClick={sumOrder}>Somar</button>
                 <button className="Button" type="submit" onClick={handleSubmit}>Finalizar pedido</button>
@@ -90,7 +83,6 @@ const Command = ({pedido}) => {
 
 export default Command
 
-
 //     const [valueDelect, setValueDelect] = useState ()
 //     const [totalValor, setTotalValor] = useState ()
 //     const delProduct = (item, pedido) => {
@@ -100,14 +92,3 @@ export default Command
 //     setValueDelect(valueDelect - value)
 //     setTotalValor(totalValor - Number(item.price))
 // }
-
-
-
-
-
-
-
-
-
-
-

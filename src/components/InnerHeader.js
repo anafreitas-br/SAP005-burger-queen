@@ -3,8 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import { Button } from '../components/Button/Button';
 import LogoVector from '../img/LogoVector.png'
 
-
-
 const InnerHeader = ({professional, client, table}) => {
     const history = useHistory();
 

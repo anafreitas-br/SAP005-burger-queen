@@ -7,7 +7,8 @@ const Burger = () => {
     const token = localStorage.getItem('token')
     const [menuBurger, setMenuBurger] = useState('');
     const professional = localStorage.getItem("name");
-    const [pedido, setPedido] = useState(JSON.parse(localStorage.getItem("pedido")));
+    //const [pedido, setPedido] = useState(JSON.parse(localStorage.getItem("pedido")));
+    const [pedido, setPedido] = useState([])
 
     useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -24,6 +25,10 @@ const Burger = () => {
             })
     }, [token]);
 
+    useEffect(() => {
+        console.log(pedido)
+    }, [pedido])
+
     const adicionar = (event) => {
         event.preventDefault();
         const parent = event.target.parentNode.parentNode;
@@ -38,20 +43,21 @@ const Burger = () => {
             name: name,
             flavor: flavor,
             complement: complement,
-            price: price
+            price: price,
+            qtd: 1
         }
-
-        if (localStorage.hasOwnProperty("pedido")) {
-            let novoPedido = JSON.parse(localStorage.getItem("pedido"))
-            novoPedido.push({ ...objeto })
-            localStorage.setItem("pedido", JSON.stringify(novoPedido))
-            setPedido(novoPedido)
-            console.log(novoPedido)
-        } else {
-            localStorage.setItem("pedido", JSON.stringify([{...objeto}]))
-            setPedido([{...objeto}])
-        }
+        setPedido(obj => [...obj, objeto])
     };
+
+    const qtdAdd = (novoPedido, objeto) => {
+        if (novoPedido.includes(objeto)) {
+            objeto.qtd ++
+            setPedido([...novoPedido])
+        } else {
+            objeto.qtd = 1
+            setPedido([...novoPedido])
+        }
+    }
 
     return (
         <div className="Burger">
@@ -66,7 +72,7 @@ const Burger = () => {
                     );
                 })}
 
-                <Command pedido={pedido}/>
+                <Command pedido={pedido} setPedido={setPedido} />
 
             </div>
         </div>

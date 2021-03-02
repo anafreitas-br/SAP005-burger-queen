@@ -28,12 +28,11 @@ const Hall = () => {
     useEffect(() => {
         localStorage.setItem("client", client)
         localStorage.setItem("table", table)
-        localStorage.setItem("professional", professional)
-    }, [client, table, professional])
+    }, [client, table])
 
     return (
         <>
-            <InnerHeader professional={professional} client={client} table={table}/>
+            <InnerHeader professional={professional} client={client} table={table} />
             <form className="Order">
                 <div className="Group">
                     <p className="Texts"> Cliente <span className='required'> *</span>
@@ -46,14 +45,13 @@ const Hall = () => {
 
             </form>
             <div className="orderDay">
-        <Link to= '/burger'>   
-                <button className="Button" type="submit" onClick={(()=><Burger/>)}>Lanches</button>  
-        </Link>    
+                <Link to='/burger'>
+                    <button className="Button" type="submit" onClick={(() => <Burger />)}>Lanches</button>
+                </Link>
 
-        <Link to='/breakfast'>
-                <button className="Button" type="submit" onClick={(()=><Breakfast/>)}>Café da Manhã</button>
-                
-        </Link>   
+                <Link to='/breakfast'>
+                    <button className="Button" type="submit" onClick={(() => <Breakfast />)}>Café da Manhã</button>
+                </Link>
             </div>
 
         </>

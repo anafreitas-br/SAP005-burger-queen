@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import InnerHeader from  '../components/InnerHeader'
+import InnerHeader from '../components/InnerHeader'
 import Command from './Command';
 
 const Burger = () => {
@@ -7,7 +7,7 @@ const Burger = () => {
     const token = localStorage.getItem('token')
     const [menuBurger, setMenuBurger] = useState('');
     const professional = localStorage.getItem("name");
-
+    const [pedido, setPedido] = useState(JSON.parse(localStorage.getItem("pedido")));
 
     useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -17,12 +17,12 @@ const Burger = () => {
                 "Authorization": `${token}`
             },
         })
-        .then((response) => response.json())
-        .then((json) => {
-            const burger = json.filter(item => item.type === 'all-day')
-            setMenuBurger(burger)
-        })
-    });
+            .then((response) => response.json())
+            .then((json) => {
+                const burger = json.filter(item => item.type === 'all-day')
+                setMenuBurger(burger)
+            })
+    }, [token]);
 
     const adicionar = (event) => {
         event.preventDefault();
@@ -32,7 +32,7 @@ const Burger = () => {
         const id = parent.getAttribute('id');
         const name = parent.getAttribute('name');
         const price = parent.getAttribute('price');
-       
+
         const objeto = {
             id: id,
             name: name,
@@ -41,33 +41,32 @@ const Burger = () => {
             price: price
         }
 
-        let pedido = [];
         if (localStorage.hasOwnProperty("pedido")) {
-            pedido = JSON.parse(localStorage.getItem("pedido"))
-            pedido.push({objeto})
-            console.log(objeto)
+            let novoPedido = JSON.parse(localStorage.getItem("pedido"))
+            novoPedido.push({ ...objeto })
+            localStorage.setItem("pedido", JSON.stringify(novoPedido))
+            setPedido(novoPedido)
+            console.log(novoPedido)
+        } else {
+            localStorage.setItem("pedido", JSON.stringify([{...objeto}]))
+            setPedido([{...objeto}])
         }
-        
-        localStorage.setItem("pedido", JSON.stringify(pedido))
-        
     };
-    
-
 
     return (
         <div className="Burger">
-            <InnerHeader professional={professional}/>
+            <InnerHeader professional={professional} />
             <div className="MenuBurger">
                 {menuBurger && menuBurger.map(function (item) {
                     return (
-                        <div className="printScreen" name={item.name} id={item.id} price={item.price} complement={item.complement} flavor={item.flavor}>
+                        <div className="printScreen" key={item.id} id={item.id} name={item.name} flavor={item.flavor} complement={item.complement} price={item.price} >
                             <p className="nameProduct">{item.name} {item.flavor} {item.complement} R$ {item.price},00
                             <button className="btnAdd" onClick={adicionar}> + </button></p>
                         </div>
                     );
                 })}
 
-                <Command/>
+                <Command pedido={pedido}/>
 
             </div>
         </div>

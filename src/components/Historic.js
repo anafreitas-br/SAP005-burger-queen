@@ -1,31 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import InnerHeader from '../../components/InnerHeader';
-import Historic from '../../components/Historic'
-import { Link } from 'react-router-dom';
+import InnerHeader from './InnerHeader';
 
-const Kitchen = () => {
+const Historic = () => {
     const professional = localStorage.getItem("name")
     const token = localStorage.getItem("token")
     const [order, setOrder] = useState('')
     const ordersList = useRef(false);
 
-    const handleSubmit = (itemId) => {
-        fetch(`https://lab-api-bq.herokuapp.com/orders/${itemId}`, {
-            method: "PUT",
-            headers: {
-                "accept": "application/json",
-                "Content-Type": "application/json",
-                "Authorization": `${token}`
-            },
-            body: JSON.stringify({
-                "status": `pronto`
-            })
-        })
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json)
-            })
-    }
 
     const getOrders = useCallback(async () => {
         fetch("https://lab-api-bq.herokuapp.com/orders", {
@@ -36,7 +17,7 @@ const Kitchen = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                const order = json.filter(item => item.status === `pending`)
+                const order = json.filter(item => item.status === `Entregue`)
                 setOrder(order)
             })
             // eslint-disable-next-line
@@ -54,9 +35,6 @@ const Kitchen = () => {
         <>
             <InnerHeader professional={professional}/>
             <div className="kitchen">
-            <Link to='/historic'>
-                    <button className="Button" type="submit" onClick={(() => <Historic />)}>Histórico</button>
-                </Link>
                 <div className="ordersList">
                     {order && order.map(function (item) {
                         return (
@@ -72,7 +50,6 @@ const Kitchen = () => {
                                     )
                                 })}
                                 </div>
-                                <button className="Button" onClick={() => handleSubmit(item.id)}>Está Pronto</button>
                                 ______________________________________________________
                             </div>
                         )
@@ -84,4 +61,4 @@ const Kitchen = () => {
     )
 }
 
-export default Kitchen;
+export default Historic;

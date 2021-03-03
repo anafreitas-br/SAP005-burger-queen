@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import InnerHeader from '../components/InnerHeader'
+import { Link } from 'react-router-dom';
+import { Button } from '../components/Button/Button';
+import InnerHeader from '../components/InnerHeader';
 import Command from './Command';
 
 const Burger = () => {
+
 
     const token = localStorage.getItem('token')
     const [menuBurger, setMenuBurger] = useState('');
@@ -44,35 +47,42 @@ const Burger = () => {
         setPedido(obj => [...obj, objeto])
     };
 
-    return (
-        <div className="Burger">
-            <InnerHeader professional={professional} />
-            <div className="MenuBurger">
-                {menuBurger && menuBurger.map(function (item) {
-                    return (
-                        <div className="printScreen" key={item.id} id={item.id} name={item.name} flavor={item.flavor} complement={item.complement} price={item.price} >
-                            <p className="nameProduct">{item.name} {item.flavor} {item.complement} R$ {item.price},00
-                            <button className="btnAdd" onClick={adicionar}> + </button></p>
-                        </div>
-                    );
-                })}
 
-                <Command pedido={pedido} setPedido={setPedido} />
+	return (
+		<div className="Burger">
+			<InnerHeader professional={professional} />
+			<Link to="./hall">
+				<Button type="submit">Home</Button>
+			</Link>
+			<div className="MenuBurger">
+				{menuBurger &&
+					menuBurger.map(function(item) {
+						return (
+							<div
+								className="printScreen"
+								key={item.id}
+								id={item.id}
+								name={item.name}
+								flavor={item.flavor}
+								complement={item.complement}
+								price={item.price}
+							>
+								<p className="nameProduct">
+									{item.name} {item.flavor} {item.complement} R$ {item.price},00
+									<button className="btnAdd" onClick={adicionar}>
+										{' '}
+										+{' '}
+									</button>
+								</p>
+							</div>
+						);
+					})}
 
-            </div>
-        </div>
-    );
-}
+				<Command pedido={pedido} />
+			</div>
+		</div>
+	);
+};
+
 
 export default Burger;
-
-
-
-
-
-
-
-
-
-
-

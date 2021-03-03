@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 
-const Command = ({ pedido, setPedido }) => {
+
+const Command = ({pedido}) => {
+
 
     const token = localStorage.getItem("token")
     const [sum, setSum] = useState(0);
     const client = localStorage.getItem("client");
     const table = localStorage.getItem("table");
-
     const sumOrder = () => {
         let somar = 0;
         pedido.forEach(item => {
@@ -64,6 +65,7 @@ const Command = ({ pedido, setPedido }) => {
                     <br></br>
                     <br></br>
                 </div>
+               
                 <button className="Button" type="submit" onClick={sumOrder}>Somar</button>
                 <button className="Button" type="submit" onClick={handleSubmit}>Finalizar pedido</button>
             </div>
@@ -72,13 +74,3 @@ const Command = ({ pedido, setPedido }) => {
 }
 
 export default Command
-
-//     const [valueDelect, setValueDelect] = useState ()
-//     const [totalValor, setTotalValor] = useState ()
-//     const delProduct = (item, pedido) => {
-//     pedido.splice(pedido.indexOf(item), 1)
-//     const value = item.price
-//     console.log(value)
-//     setValueDelect(valueDelect - value)
-//     setTotalValor(totalValor - Number(item.price))
-// }

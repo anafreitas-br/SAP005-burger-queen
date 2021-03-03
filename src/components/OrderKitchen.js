@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import InnerHeader from '../../components/InnerHeader';
-import Historic from '../../components/Historic'
-import { Link } from 'react-router-dom';
+import { Button } from '../components/Button/Button';
+import InnerHeader from './InnerHeader';
+import { Link } from 'react-router-dom'
 
-const Kitchen = () => {
+const OrderKitchen = () => {
     const professional = localStorage.getItem("name")
     const token = localStorage.getItem("token")
     const [order, setOrder] = useState('')
@@ -18,7 +18,7 @@ const Kitchen = () => {
                 "Authorization": `${token}`
             },
             body: JSON.stringify({
-                "status": `pronto`
+                "status": `Entregue`
             })
         })
             .then((response) => response.json())
@@ -36,7 +36,7 @@ const Kitchen = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                const order = json.filter(item => item.status === `pending`)
+                const order = json.filter(item => item.status === `pronto`)
                 setOrder(order)
             })
             // eslint-disable-next-line
@@ -52,11 +52,12 @@ const Kitchen = () => {
 
     return (
         <>
+
+            <Link to = './hall'>
+            <Button type="submit">Home</Button>
+            </Link>
             <InnerHeader professional={professional}/>
             <div className="kitchen">
-            <Link to='/historic'>
-                    <button className="Button" type="submit" onClick={(() => <Historic />)}>Histórico</button>
-                </Link>
                 <div className="ordersList">
                     {order && order.map(function (item) {
                         return (
@@ -72,7 +73,7 @@ const Kitchen = () => {
                                     )
                                 })}
                                 </div>
-                                <button className="Button" onClick={() => handleSubmit(item.id)}>Está Pronto</button>
+                                <button className="Button" onClick={() => handleSubmit(item.id)}>Pedido Entregue</button>
                                 ______________________________________________________
                             </div>
                         )
@@ -84,4 +85,4 @@ const Kitchen = () => {
     )
 }
 
-export default Kitchen;
+export default OrderKitchen;

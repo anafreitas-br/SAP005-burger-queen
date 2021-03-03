@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Button } from '../components/Button/Button';
 import LogoVector from '../img/LogoVector.png'
 
@@ -13,7 +13,6 @@ const InnerHeader = ({professional}) => {
             history.push('/')
         }
     }
-
     useEffect(() => {
         document.title= "Vegan Queen"
     }, [])
@@ -21,9 +20,7 @@ const InnerHeader = ({professional}) => {
     return (
         <>
             <Button onClick={routerLogout}>Sair</Button>
-            <Link to = './hall'>
-            <Button type="submit">Voltar</Button>
-            </Link>
+            
 
             <div className='divNavbar'>
                 <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />

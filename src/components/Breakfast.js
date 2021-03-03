@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from '../components/Button/Button';
 import InnerHeader from './InnerHeader';
 import Command from './Command';
+
 
 const Breakfast = () => {
 
     const token = localStorage.getItem("token")
     const [menu, setMenu] = useState('');
     const professional = localStorage.getItem("name");
+    const [pedido, setPedido] = useState(JSON.parse(localStorage.getItem("pedido")));
 
     useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -35,32 +39,44 @@ const Breakfast = () => {
             name: name,
             price: price
         }
-        let pedido = [];
+
         if (localStorage.hasOwnProperty("pedido")) {
-            pedido = JSON.parse(localStorage.getItem("pedido"))
-            pedido.push({ ...objeto })
+            let novoPedido = JSON.parse(localStorage.getItem("pedido"))
+            novoPedido.push({ ...objeto })
+            localStorage.setItem("pedido", JSON.stringify(novoPedido))
+            setPedido(novoPedido)
+            console.log(novoPedido)
+        } else {
+            localStorage.setItem("pedido", JSON.stringify([{...objeto}]))
+            setPedido([{...objeto}])
         }
-        localStorage.setItem("pedido", JSON.stringify(pedido))
     };
 
     return (
         <>
             <div className="Breakfast">
                 <InnerHeader professional={professional} />
+                <Link to = './hall'>
+                <Button type="submit">Home</Button>
+                </Link>
                 <br></br>
                 <br></br>
                 <div className="MenuBreakfast">
-                    {menu && menu.map((item) => (
-                        <div className="printScreen" key={item.id} name={item.name} id={item.id} price={item.price}>
-                            <p className="nameProduct">{item.name}   R$ {item.price},00</p>
-                            <button className="btnAdd" onClick={adicionar}>  + </button>
+                    {menu && menu.map( function (item) {
+                        return (
+
+                            <div className="printScreen" key={item.id} name={item.name} id={item.id} price={item.price}>
+                            <p className="nameProduct">{item.name}   R$ {item.price},00
+                            <button className="btnAdd" onClick={adicionar}>  + </button> </p>
                         </div>
-                    ))}
+
+                        );
+                    })}
                     <br></br>
                     <br></br>
                     <br></br>
 
-                    <Command />
+                    <Command pedido={pedido} />
                 </div>
             </div>
         </>

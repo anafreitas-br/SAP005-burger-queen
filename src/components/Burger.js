@@ -5,57 +5,48 @@ import InnerHeader from '../components/InnerHeader';
 import Command from './Command';
 
 const Burger = () => {
-	const token = localStorage.getItem('token');
-	const [ menuBurger, setMenuBurger ] = useState('');
-	const professional = localStorage.getItem('name');
-	const [ pedido, setPedido ] = useState(JSON.parse(localStorage.getItem('pedido')));
 
-	useEffect(
-		() => {
-			fetch('https://lab-api-bq.herokuapp.com/products', {
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `${token}`
-				}
-			})
-				.then((response) => response.json())
-				.then((json) => {
-					const burger = json.filter((item) => item.type === 'all-day');
-					setMenuBurger(burger);
-				});
-		},
-		[ token ]
-	);
 
-	const adicionar = (event) => {
-		event.preventDefault();
-		const parent = event.target.parentNode.parentNode;
-		const complement = parent.getAttribute('complement');
-		const flavor = parent.getAttribute('flavor');
-		const id = parent.getAttribute('id');
-		const name = parent.getAttribute('name');
-		const price = parent.getAttribute('price');
+    const token = localStorage.getItem('token')
+    const [menuBurger, setMenuBurger] = useState('');
+    const professional = localStorage.getItem("name");
+    const [pedido, setPedido] = useState([])
 
-		const objeto = {
-			id: id,
-			name: name,
-			flavor: flavor,
-			complement: complement,
-			price: price
-		};
+    useEffect(() => {
+        fetch('https://lab-api-bq.herokuapp.com/products', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `${token}`
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                const burger = json.filter(item => item.type === 'all-day')
+                setMenuBurger(burger)
+            })
+    }, [token]);
 
-		if (localStorage.hasOwnProperty('pedido')) {
-			let novoPedido = JSON.parse(localStorage.getItem('pedido'));
-			novoPedido.push({ ...objeto });
-			localStorage.setItem('pedido', JSON.stringify(novoPedido));
-			setPedido(novoPedido);
-			console.log(novoPedido);
-		} else {
-			localStorage.setItem('pedido', JSON.stringify([ { ...objeto } ]));
-			setPedido([ { ...objeto } ]);
-		}
-	};
+    const adicionar = (event) => {
+        event.preventDefault();
+        const parent = event.target.parentNode.parentNode;
+        const complement = parent.getAttribute("complement");
+        const flavor = parent.getAttribute('flavor');
+        const id = parent.getAttribute('id');
+        const name = parent.getAttribute('name');
+        const price = parent.getAttribute('price');
+
+        const objeto = {
+            id: id,
+            name: name,
+            flavor: flavor,
+            complement: complement,
+            price: price,
+            qtd: 1
+        }
+        setPedido(obj => [...obj, objeto])
+    };
+
 
 	return (
 		<div className="Burger">
@@ -92,5 +83,6 @@ const Burger = () => {
 		</div>
 	);
 };
+
 
 export default Burger;

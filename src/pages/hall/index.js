@@ -35,7 +35,7 @@ const Hall = () => {
 
     return (
         <>
-            <InnerHeader professional={professional} client={client} table={table} />
+            <InnerHeader professional={professional}/>
             <form className="Order">
             <div className="Group">
                     <p className="Texts">Cliente: {client}</p>
@@ -44,10 +44,11 @@ const Hall = () => {
                 <div className="Group">
                     <p className="Texts"> Cliente <span className='required'> *</span>
                         <input name="client" className="FieldOrder" placeholder="nome" value={client} onChange={(e) => setClient(e.target.value)} /></p>
-                    <p className="Texts"> Mesa  <span className='required'> *</span>
+
+                    <p className="Texts"> Mesa <span className='required'> *</span>
                         <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
                 </div>
-
+     
             </form>
             <div className="orderDay">
                 <Link to='/burger'>

@@ -17,7 +17,6 @@ const Command = ({pedido}) => {
         setSum(somar)
     }
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
         fetch(`https://lab-api-bq.herokuapp.com/orders`, {
@@ -59,15 +58,12 @@ const Command = ({pedido}) => {
                                 <p className="eachDetail">{item.flavor} </p>
                                 <p className="eachDetail">{item.complement}</p>
                                 <p className="eachDetail">R$ {item.price},00</p>
-                                {/* <button className="Button" type="submit" onClick={() => reduceItem(item)}>tirar</button> */}
                             </div>
                         );
                     })}
-
                     <p className="sumTotal">{sum}</p>
                     <br></br>
                     <br></br>
-
                 </div>
                
                 <button className="Button" type="submit" onClick={sumOrder}>Somar</button>
@@ -78,37 +74,3 @@ const Command = ({pedido}) => {
 }
 
 export default Command
-
-
-//     const [valueDelect, setValueDelect] = useState ()
-//     const [totalValor, setTotalValor] = useState ()
-//     const delProduct = (item, pedido) => {
-//     pedido.splice(pedido.indexOf(item), 1)
-//     const value = item.price
-//     console.log(value)
-//     setValueDelect(valueDelect - value)
-//     setTotalValor(totalValor - Number(item.price))
-// }
-
-
-
-
-
-
-
-
-    // const reduceItem = item => {
-    //     const a = pedido.map(function(item) {
-    //         {item.id}
-    //     })
-
-    //     console.log("clicou", item)
-    //     a.includes(item.id) &&
-    //     item.count--;
-    //     item.count <= 0 &&
-    //     pedido.splice(pedido.indexOf(item), 1)
-    //     setPedido([...pedido]);
-    // }
-
-
-

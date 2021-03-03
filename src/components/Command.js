@@ -16,15 +16,6 @@ const Command = ({ pedido, setPedido }) => {
         setSum(somar)
     }
 
-    // const reduceItem = item => {
-    //     pedido.includes(item.id) &&
-    //     item.qtd--;
-    //     item.qtd <= 0 &&
-    //     pedido.splice(pedido.indexOf(item), 1)
-    //     setPedido([...pedido]);
-    //     console.log(item, pedido)
-    // }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         fetch(`https://lab-api-bq.herokuapp.com/orders`, {
@@ -66,7 +57,6 @@ const Command = ({ pedido, setPedido }) => {
                                 <p className="eachDetail">{item.flavor} </p>
                                 <p className="eachDetail">{item.complement}</p>
                                 <p className="eachDetail">R$ {item.price},00</p>
-                                <button className="Button" type="submit" onClick={() => reduceItem(item)}>tirar</button>
                             </div>
                         );
                     })}

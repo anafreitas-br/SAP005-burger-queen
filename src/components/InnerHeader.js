@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import { Button } from '../components/Button/Button';
 import LogoVector from '../img/LogoVector.png'
 
-const InnerHeader = ({professional, client, table}) => {
+const InnerHeader = ({professional}) => {
     const history = useHistory();
 
     const routerLogout = () => {
@@ -31,10 +31,6 @@ const InnerHeader = ({professional, client, table}) => {
             <form className="Order">
                 <div className="Group">
                     <p className="Texts">Olá, {professional}</p>
-                </div>
-                <div className="Group">
-                    <p className="Texts">Cliente: {client}</p>
-                    <p className="Texts">Mesa: {table}</p>
                 </div>
             </form>
         </>

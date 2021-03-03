@@ -7,7 +7,6 @@ const Burger = () => {
     const token = localStorage.getItem('token')
     const [menuBurger, setMenuBurger] = useState('');
     const professional = localStorage.getItem("name");
-    //const [pedido, setPedido] = useState(JSON.parse(localStorage.getItem("pedido")));
     const [pedido, setPedido] = useState([])
 
     useEffect(() => {
@@ -24,10 +23,6 @@ const Burger = () => {
                 setMenuBurger(burger)
             })
     }, [token]);
-
-    useEffect(() => {
-        console.log(pedido)
-    }, [pedido])
 
     const adicionar = (event) => {
         event.preventDefault();
@@ -48,16 +43,6 @@ const Burger = () => {
         }
         setPedido(obj => [...obj, objeto])
     };
-
-    const qtdAdd = (novoPedido, objeto) => {
-        if (novoPedido.includes(objeto)) {
-            objeto.qtd ++
-            setPedido([...novoPedido])
-        } else {
-            objeto.qtd = 1
-            setPedido([...novoPedido])
-        }
-    }
 
     return (
         <div className="Burger">

@@ -1,5 +1,5 @@
 :root {
-	--primary: purple;
+	--primary: #880085;
 	margin-right: 50rem;
 }
 
@@ -10,9 +10,8 @@
 	font-family: 'Roboto Slab', serif;
 	font-size: 1rem;
 	cursor: pointer;
-	background-color: purple;
+	background-color: #880085;
 	color: #fff;
-	margin-left: 40rem;
 }
 
 .btn:hover {

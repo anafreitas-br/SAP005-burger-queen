@@ -11,9 +11,6 @@ import Historic from '../components/Historic'
 import OrderKitchen from '../components/OrderKitchen'
 import PrivateRoute from './PrivateRoute'
 
-
-
-
 const Routes = () => (
     <>
     <BrowserRouter>  
@@ -26,7 +23,6 @@ const Routes = () => (
             <PrivateRoute component={Burger} exact path='/burger'/>
             <PrivateRoute component={Historic} exact path='/historic'/>
             <PrivateRoute component={OrderKitchen} exact path='/orderkitchen'/>
-            
             <Route component={NotFound}/>
         </Switch>
     </BrowserRouter>    

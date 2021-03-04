@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom";
 import { Button } from '../components/Button/Button';
 import LogoVector from '../img/LogoVector.png'
 
-const InnerHeader = ({professional}) => {
+const InnerHeader = () => {
     const history = useHistory();
+    const professional = localStorage.getItem("name");
 
     const routerLogout = () => {
         const logoutConfirm = window.confirm('Deseja fazer logout ?');
@@ -13,23 +14,18 @@ const InnerHeader = ({professional}) => {
             history.push('/')
         }
     }
+
     useEffect(() => {
-        document.title= "Vegan Queen"
+        document.title = "Vegan Queen"
     }, [])
 
     return (
         <>
-            <Button onClick={routerLogout}>Sair</Button>
-            
-
-            <div className='divNavbar'>
-                <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
+            <div className='divNavbar Group'>
+                <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector}/>
+                <p className="Texts">Olá, {professional}</p>
+                <Button onClick={routerLogout}>Sair</Button>
             </div>
-            <form className="Order">
-                <div className="Group">
-                    <p className="Texts">Olá, {professional}</p>
-                </div>
-            </form>
         </>
     )
 }

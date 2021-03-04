@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import OutHeader from '../../components/OutHeader'
+import { Button } from '../../components/Button/Button';
 
 const Login = () => {
 
@@ -23,17 +24,15 @@ const Login = () => {
             .then((response) => response.json())
             .then((json) => {
                 localStorage.setItem("token", json.token)
-                localStorage.setItem("id", json.id)
                 localStorage.setItem("name", json.name)
-
                 if (json.message !== undefined) {
                     alert(json.message)
                 }
-
                 if (json.role === "hall") {
                     history.push('/hall')
                 }
                 if (json.role === "kitchen") {
+                    localStorage.setItem("id", json.id)
                     history.push('/kitchen')
                 }
             })
@@ -51,7 +50,7 @@ const Login = () => {
                     <p> Senha  <span className='required'> *</span> </p>
                     <input type="password" name="password" className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <button className="Button" type="submit" onClick={handleSubmit}>Entrar</button>
+                <Button type="submit" onClick={handleSubmit}>Entrar</Button>
                 <p className="Texts"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>
             </form>
         </>

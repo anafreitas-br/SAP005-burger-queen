@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Button } from '../components/Button/Button';
 
-
-const Command = ({pedido}) => {
-
-
+const Command = ({ pedido }) => {
     const token = localStorage.getItem("token")
     const [sum, setSum] = useState(0);
     const client = localStorage.getItem("client");
     const table = localStorage.getItem("table");
+    
     const sumOrder = () => {
         let somar = 0;
         pedido.forEach(item => {
@@ -39,9 +38,13 @@ const Command = ({pedido}) => {
         })
             .then((response) => response.json())
             .then((json) => {
-                localStorage.removeItem("pedido")
-                localStorage.removeItem("client")
-                localStorage.removeItem("table")
+                if (json.message === undefined) {
+                    localStorage.removeItem("client")
+                    localStorage.removeItem("table")
+                    alert("pedido criado com sucesso")
+                } else {
+                    alert(json.message)
+                }
                 console.log(json)
             })
     }
@@ -61,13 +64,12 @@ const Command = ({pedido}) => {
                             </div>
                         );
                     })}
-                    <p className="sumTotal">{sum}</p>
+                    <p className="sumTotal">Total: {sum}</p>
                     <br></br>
                     <br></br>
                 </div>
-               
-                <button className="Button" type="submit" onClick={sumOrder}>Somar</button>
-                <button className="Button" type="submit" onClick={handleSubmit}>Finalizar pedido</button>
+                <Button type="submit" onClick={sumOrder}>Somar</Button>
+                <Button type="submit" onClick={handleSubmit}>Finalizar pedido</Button>
             </div>
         </>
     )

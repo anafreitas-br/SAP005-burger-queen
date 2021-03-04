@@ -2,7 +2,7 @@ body {
 	margin: 2rem;
 	margin-right: 100rem;
 	font-family: Arial, Helvetica, sans-serif;
-	background: #ecfa9d;
+	background-color: #dbd7d2;
 	color: #000000;
 	justify-items: center;
 }
@@ -39,19 +39,18 @@ body {
 	margin: 0;
 	margin-right: 2rem;
 	text-align: left;
-	/* padding-left: 1.5rem; */
 }
 
-.Button {
+/* .Button {
 	padding: .5rem 2rem;
 	margin-top: 1rem;
 	border-radius: 7px;
 	font-family: 'Roboto Slab', serif;
 	font-size: 1rem;
 	cursor: pointer;
-	background-color: purple;
+	background-color: #880085;
 	color: white;
-}
+} */
 
 .Btn-Register {
 	margin: 1rem;
@@ -76,28 +75,22 @@ body {
 	font-size: 1rem;
 	font-family: 'Roboto Slab', serif;
 	align-items: center;
+    font-weight: bold;
 }
 
 .divNavbar {
 	display: flex;
 	margin: 3rem;
 	margin-top: 1rem;
-	background: linear-gradient (90 deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252, 1)100%);
 }
-
 
 .btnAdd {
-	
 	text-align: center;
 }
-
-
 
 .Order {
 	text-align: center;
-	margin-left: 18rem;
 	margin-top: 0rem;
-	font-weight: bold;
 }
 
 .MenuBreakfast {
@@ -107,12 +100,8 @@ body {
 }
 
 .MenuBurger {
-	
-	
 	width: 100%;
 	height: 40vh;
-
-
 }
 
 .printScreen {
@@ -131,7 +120,5 @@ body {
 }
 
 .Command {
-	background-color: rgba(99, 226, 105, 0.25);
-	
-	
+	background-color: #96CF4A
 }

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { useHistory, Link } from 'react-router-dom'
-import OutHeader from '../../components/OutHeader'
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
+import OutHeader from '../../components/OutHeader';
+import { Button } from '../../components/Button/Button'
 
 const Register = () => {
 
@@ -59,7 +60,7 @@ const Register = () => {
                             <input type="radio" name="option" className="Option" id="kitchen" value={option} onClick={(e) => setOption(e.target.id)} /> Cozinha                                </p>
                         </form>
                     </div>
-                    <button className="Button Btn-Register" type="submit" onClick={handleSubmit}>Cadastrar</button>
+                    <Button type="submit" onClick={handleSubmit}>Cadastrar</Button>
                     <p className="Texts"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
                 </div>
             </form>

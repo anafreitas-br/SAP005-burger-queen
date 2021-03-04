@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import InnerHeader from '../../components/InnerHeader';
-import Historic from '../../components/Historic'
+import Historic from '../../components/Historic';
 import { Link } from 'react-router-dom';
+import Loading from '../../components/Loading';
+import { Button } from '../../components/Button/Button';
 
 const Kitchen = () => {
-    const professional = localStorage.getItem("name")
     const token = localStorage.getItem("token")
     const [order, setOrder] = useState('')
     const ordersList = useRef(false);
+    const [loading, setLoading] = useState(true)
 
     const handleSubmit = (itemId) => {
         fetch(`https://lab-api-bq.herokuapp.com/orders/${itemId}`, {
@@ -22,9 +24,6 @@ const Kitchen = () => {
             })
         })
             .then((response) => response.json())
-            .then((json) => {
-                console.log(json)
-            })
     }
 
     const getOrders = useCallback(async () => {
@@ -38,9 +37,10 @@ const Kitchen = () => {
             .then((json) => {
                 const order = json.filter(item => item.status === `pending`)
                 setOrder(order)
+                setLoading(false)
             })
-            // eslint-disable-next-line
-    }, [ order, token])
+        // eslint-disable-next-line
+    }, [order, token])
 
     useEffect(() => {
         if (!ordersList.current) {
@@ -48,37 +48,43 @@ const Kitchen = () => {
             ordersList.current = true;
         }
         return () => { ordersList.current = false }
-    }, [getOrders]);
+        // eslint-disable-next-line
+    }, [ordersList]);
 
     return (
         <>
-            <InnerHeader professional={professional}/>
-            <div className="kitchen">
+            <InnerHeader />
             <Link to='/historic'>
-                    <button className="Button" type="submit" onClick={(() => <Historic />)}>Histórico</button>
-                </Link>
-                <div className="ordersList">
-                    {order && order.map(function (item) {
-                        return (
-                            <div className="EachOrder" key={item.id}>
-                                <p>Status: {item.status}</p>
-                                <p>Cliente: {item.client_name} Mesa: {item.table}</p>
-                                <p>Data e hora: {item.createdAt}</p>
-                                <div>Produtos: {item.Products.map(function (product) {
-                                    return (
-                                        <div>
-                                            <p>{product.name} {product.flavor} {product.complement} - Quantidade: {product.qtd}</p>
+                <Button type="submit" onClick={(() => <Historic />)}>Histórico</Button>
+            </Link>
+            <div className="kitchen">
+                {loading ?
+                    (
+                        <Loading />
+                    ) : (
+                        <div className="ordersList">
+                            {order && order.map(function (item) {
+                                return (
+                                    <div className="EachOrder" key={item.id}>
+                                        <p>Status: {item.status}</p>
+                                        <p>Cliente: {item.client_name} Mesa: {item.table}</p>
+                                        <p>Data e hora: {item.createdAt}</p>
+                                        <div>Produtos: {item.Products.map(function (product) {
+                                            return (
+                                                <div key={item.id}>
+                                                    <p>{product.name} {product.flavor} {product.complement} - Quantidade: {product.qtd}</p>
+                                                </div>
+                                            )
+                                        })}
                                         </div>
-                                    )
-                                })}
-                                </div>
-                                <button className="Button" onClick={() => handleSubmit(item.id)}>Está Pronto</button>
+                                        <Button onClick={() => handleSubmit(item.id)}>Está Pronto</Button>
                                 ______________________________________________________
-                            </div>
-                        )
-                    }
+                                    </div>
+                                )
+                            }
+                            )}
+                        </div>
                     )}
-                </div>
             </div>
         </>
     )

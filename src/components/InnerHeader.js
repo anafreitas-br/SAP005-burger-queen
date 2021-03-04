@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom";
 import LogoVector from '../img/LogoVector.png'
 import logout from '../img/logout.png'
 
-const InnerHeader = ({professional}) => {
+const InnerHeader = () => {
     const history = useHistory();
+    const professional = localStorage.getItem("name");
 
     const routerLogout = () => {
         const logoutConfirm = window.confirm('Deseja fazer logout ?');
@@ -14,21 +15,16 @@ const InnerHeader = ({professional}) => {
         }
     }
 
-
     return (
         <>
             <img className="btnLogout" src={logout} alt='Sair' onClick={routerLogout} />
-            
-
             <div className='divNavbar'>
-                <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
-            
-            <form className="Order">
-                <div className="Group">
-                    <p className="Texts">Olá, {professional}</p>
-                </div>
-
-            </form>
+                  <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
+              <form className="Order">
+                  <div className="Group">
+                      <p className="Texts">Olá, {professional}</p>
+                  </div>
+              </form>
             </div>
         </>
     )

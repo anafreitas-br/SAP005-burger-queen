@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/Button/Button';
 import InnerHeader from './InnerHeader';
 import Command from './Command';
-
+import Loading from '../components/Loading';
 
 const Breakfast = () => {
 
     const token = localStorage.getItem("token")
     const [menu, setMenu] = useState('');
-    const professional = localStorage.getItem("name");
-    const [pedido, setPedido] = useState(JSON.parse(localStorage.getItem("pedido")));
+    const [pedido, setPedido] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -23,9 +23,21 @@ const Breakfast = () => {
             .then((response) => response.json())
             .then((json) => {
                 const breakfast = json.filter(item => item.type === 'breakfast')
+                breakfast.forEach(item => {
+                    if (item.name === "Café com leite") {
+                        item.name = "Café com leite vegetal"
+                    } else if (item.name === "Misto quente") {
+                        item.name = "Sanduiche natural"
+                    } else if (item.name === "Café americano") {
+                        item.name = "Café puro"
+                    }
+                })
                 setMenu(breakfast)
+                setLoading(false)
             })
     }, [token])
+
+
 
     const adicionar = (event) => {
         event.preventDefault();
@@ -37,47 +49,43 @@ const Breakfast = () => {
         const objeto = {
             id: id,
             name: name,
-            price: price
+            price: price,
+            qtd: 1
         }
-
-        if (localStorage.hasOwnProperty("pedido")) {
-            let novoPedido = JSON.parse(localStorage.getItem("pedido"))
-            novoPedido.push({ ...objeto })
-            localStorage.setItem("pedido", JSON.stringify(novoPedido))
-            setPedido(novoPedido)
-            console.log(novoPedido)
-        } else {
-            localStorage.setItem("pedido", JSON.stringify([{...objeto}]))
-            setPedido([{...objeto}])
-        }
+        setPedido(obj => [...obj, objeto])
     };
 
     return (
         <>
-            <div className="Breakfast">
-                <InnerHeader professional={professional} />
-                <Link to = './hall'>
+            <InnerHeader />
+            <Link to='./hall'>
                 <Button type="submit">Home</Button>
-                </Link>
-                <br></br>
-                <br></br>
-                <div className="MenuBreakfast">
-                    {menu && menu.map( function (item) {
-                        return (
-
-                            <div className="printScreen" key={item.id} name={item.name} id={item.id} price={item.price}>
-                            <p className="nameProduct">{item.name}   R$ {item.price},00
-                            <button className="btnAdd" onClick={adicionar}>  + </button> </p>
+            </Link>
+            <div className="Breakfast">
+                {loading ?
+                    (
+                        <Loading />
+                    ) : (
+                        <div className="MenuBreakfast">
+                            {menu &&
+                                menu.map(function (item) {
+                                    return (
+                                        <div
+                                            className="printScreen nameProduct"
+                                            key={item.id}
+                                            id={item.id}
+                                            name={item.name}
+                                            price={item.price}
+                                        >
+                                            <p>{item.name}</p>
+                                            <p>R$ {item.price},00 {' '}
+                                                <Button type="submit" onClick={adicionar}>+</Button></p>
+                                        </div>
+                                    );
+                                })}
+                            <Command pedido={pedido} />
                         </div>
-
-                        );
-                    })}
-                    <br></br>
-                    <br></br>
-                    <br></br>
-
-                    <Command pedido={pedido} />
-                </div>
+                    )}
             </div>
         </>
     );

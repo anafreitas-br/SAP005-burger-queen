@@ -1,25 +1,15 @@
+
 import React, { useState } from 'react'
 import Modal from './Modal/Modal'
 import { Button } from '../components/Button/Button';
 
-
-
-
-
-
-const Command = ({pedido}) => {
-
-
+const Command = ({ pedido }) => {
     const token = localStorage.getItem("token")
     const [sum, setSum] = useState(0);
     const client = localStorage.getItem("client");
     const table = localStorage.getItem("table");
-	const [isModalVisible, setIsModalVisible] = useState(true);
+	  const [isModalVisible, setIsModalVisible] = useState(true);
     const [warning, setWarning] =useState('');
-
-    
-    
-
 
     const sumOrder = () => {
         let somar = 0;
@@ -61,21 +51,8 @@ const Command = ({pedido}) => {
                     setWarning(json.message)
                     setIsModalVisible(true)
                     } 
-                console.log(json)
             })
     }
-//  const warning = (props) => {
-//     <div className="modalC">
-//     <Button onClick={() => setIsModalVisible(true)}>Open</Button>
-//     {isModalVisible ? (
-//         <Modal onClose={()=> setIsModalVisible(false)}>
-//             <h1>Pedido enviado para cozinha!</h1>
-//             <Button>Ok</Button>
-//         </Modal>
-//     ) : null}
-// </div> 
-
-//  }
 
     return (
         <>
@@ -92,15 +69,12 @@ const Command = ({pedido}) => {
                             </div>
                         );
                     })}
-                    <p className="sumTotal">{sum}</p>
+                    <p className="sumTotal">Total: {sum}</p>
                     <br></br>
                     <br></br>
-                </div>
-                
-                <Button className="Button" type="submit" onClick={sumOrder}>Somar</Button>
-                
+                </div>         
+                <Button type="submit" onClick={sumOrder}>Somar</Button>
                 <Button type="submit" onClick={handleSubmit}>Finalizar pedido</Button>
-						
             </div>
             <div className="modalC">
 					{isModalVisible ? (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InnerHeader from '../../components/InnerHeader'
 import Burger from '../../components/Burger'
@@ -6,30 +6,16 @@ import Breakfast from '../../components/Breakfast'
 import Historic from '../../components/Historic'
 import OrderKitchen from '../../components/OrderKitchen'
 import lanches from '../../img/lanches.png'
-// import lanches from '../../img/lanches.png'
 import historico from '../../img/historico.png'
+import { Button } from '../../components/Button/Button'
+
 
 import './Hall.css'
 
 const Hall = () => {
+
     const [client, setClient] = useState('');
     const [table, setTable] = useState('');
-    const professional = localStorage.getItem("name");
-    const token = localStorage.getItem("token");
-    const id = localStorage.getItem("id");
-
-    useEffect(() => {
-        fetch(`https://lab-api-bq.herokuapp.com/users/${id}`, {
-            headers: {
-                "accept": "application/json",
-                "Authorization": `${token}`
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json)
-            })
-    })
 
     useEffect(() => {
         localStorage.setItem("client", client)
@@ -38,20 +24,18 @@ const Hall = () => {
 
     return (
         <>
-            <InnerHeader professional={professional}/>
+            <InnerHeader/>
             <form className="Order">
-            <div className="Group">
+                <div className="Group">
                     <p className="Texts">Cliente: {client}</p>
                     <p className="Texts">Mesa: {table}</p>
                 </div>
                 <div className="Group">
                     <p className="Texts"> Cliente <span className='required'> *</span>
                         <input name="client" className="FieldOrder" placeholder="nome" value={client} onChange={(e) => setClient(e.target.value)} /></p>
-
                     <p className="Texts"> Mesa <span className='required'> *</span>
                         <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
-                </div>
-    
+                </div>    
             </form>
             <div className="orderDay">
                 <Link to='/burger'>
@@ -59,11 +43,11 @@ const Hall = () => {
                 </Link>
 
                 <Link to='/breakfast'>
-                    <button className="Button" type="submit" onClick={(() => <Breakfast />)}>Café da Manhã</button>
+                    <Button type="submit" onClick={(() => <Breakfast />)}>Café da Manhã</Button>
                 </Link>
 
                 <Link to='/orderkitchen'>
-                    <button className="Button" type="submit" onClick={(() => <OrderKitchen />)}>Pedidos</button>
+                    <Button type="submit" onClick={(() => <OrderKitchen />)}>Pedidos Prontos</Button>
                 </Link>
 
                 <Link to='/historic'>

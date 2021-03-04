@@ -40,9 +40,7 @@ body {
 	margin: 0;
 	margin-right: 2rem;
 	text-align: left;
-
 }
-
 
 .divNavbar {
 	display: flex;
@@ -51,17 +49,16 @@ body {
 	background: linear-gradient (90 deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252, 1)100%);
 }
 
-
-.Button {
+/* .Button {
 	padding: .5rem 2rem;
 	margin-top: 1rem;
 	border-radius: 7px;
 	font-family: 'Roboto Slab', serif;
 	font-size: 1rem;
 	cursor: pointer;
-	background-color: purple;
+	background-color: #880085;
 	color: white;
-}
+} */
 
 .Btn-Register {
 	margin: 1rem;
@@ -86,19 +83,14 @@ body {
 	font-size: 1rem;
 	font-family: 'Roboto Slab', serif;
 	align-items: center;
+    font-weight: bold;
 }
 
 .Title {
 	text-align: center;
-	
-
-
 }
 
-
-
 .btnAdd {
-
 	text-align: center;
 }
 
@@ -115,9 +107,7 @@ body {
 
 .Order {
 	text-align: center;
-	margin-left: 18rem;
 	margin-top: 0rem;
-	font-weight: bold;
 }
 
 .MenuBreakfast {
@@ -127,12 +117,8 @@ body {
 }
 
 .MenuBurger {
-
-
 	width: 100%;
 	height: 40vh;
-
-
 }
 
 .printScreen {
@@ -151,9 +137,7 @@ body {
 }
 
 .Command {
-	background-color: rgba(99, 226, 105, 0.25);
-
-
+  background-color: #96CF4A;
 }
 
 .modal {
@@ -182,7 +166,6 @@ body {
 	outline: none;
 	width: 32px;
 	height: 32px;
-	
 }
 
 

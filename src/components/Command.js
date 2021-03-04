@@ -1,4 +1,10 @@
 import React, { useState } from 'react'
+import Modal from './Modal/Modal'
+import { Button } from '../components/Button/Button';
+
+
+
+
 
 
 const Command = ({pedido}) => {
@@ -8,6 +14,13 @@ const Command = ({pedido}) => {
     const [sum, setSum] = useState(0);
     const client = localStorage.getItem("client");
     const table = localStorage.getItem("table");
+	const [isModalVisible, setIsModalVisible] = useState(true);
+    const [warning, setWarning] =useState('');
+
+    
+    
+
+
     const sumOrder = () => {
         let somar = 0;
         pedido.forEach(item => {
@@ -39,12 +52,30 @@ const Command = ({pedido}) => {
         })
             .then((response) => response.json())
             .then((json) => {
-                localStorage.removeItem("pedido")
-                localStorage.removeItem("client")
-                localStorage.removeItem("table")
+                if (json.message === undefined) {
+                     localStorage.removeItem("client")
+                     localStorage.removeItem("table")
+                     setWarning("pedido enviado com sucesso")
+                     setIsModalVisible(true)
+                    } else {
+                    setWarning(json.message)
+                    setIsModalVisible(true)
+                    } 
                 console.log(json)
             })
     }
+//  const warning = (props) => {
+//     <div className="modalC">
+//     <Button onClick={() => setIsModalVisible(true)}>Open</Button>
+//     {isModalVisible ? (
+//         <Modal onClose={()=> setIsModalVisible(false)}>
+//             <h1>Pedido enviado para cozinha!</h1>
+//             <Button>Ok</Button>
+//         </Modal>
+//     ) : null}
+// </div> 
+
+//  }
 
     return (
         <>
@@ -65,10 +96,20 @@ const Command = ({pedido}) => {
                     <br></br>
                     <br></br>
                 </div>
-               
-                <button className="Button" type="submit" onClick={sumOrder}>Somar</button>
-                <button className="Button" type="submit" onClick={handleSubmit}>Finalizar pedido</button>
+                
+                <Button className="Button" type="submit" onClick={sumOrder}>Somar</Button>
+                
+                <Button type="submit" onClick={handleSubmit}>Finalizar pedido</Button>
+						
             </div>
+            <div className="modalC">
+					{isModalVisible ? (
+						<Modal value={warning} onClose={()=> setIsModalVisible(false)}>
+							<h1>{warning}</h1>
+                            <Button>Ok</Button>
+						</Modal>
+					) : null}
+				</div> 
         </>
     )
 }

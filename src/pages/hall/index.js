@@ -5,6 +5,9 @@ import Burger from '../../components/Burger'
 import Breakfast from '../../components/Breakfast'
 import Historic from '../../components/Historic'
 import OrderKitchen from '../../components/OrderKitchen'
+import lanches from '../../img/lanches.png'
+// import lanches from '../../img/lanches.png'
+import historico from '../../img/historico.png'
 
 import './Hall.css'
 
@@ -48,11 +51,11 @@ const Hall = () => {
                     <p className="Texts"> Mesa <span className='required'> *</span>
                         <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
                 </div>
-     
+    
             </form>
             <div className="orderDay">
                 <Link to='/burger'>
-                    <button className="Button" type="submit" onClick={(() => <Burger />)}>Lanches</button>
+                    <img className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)}/>
                 </Link>
 
                 <Link to='/breakfast'>
@@ -64,7 +67,7 @@ const Hall = () => {
                 </Link>
 
                 <Link to='/historic'>
-                    <button className="Button" type="submit" onClick={(() => <Historic />)}>Histórico</button>
+                    <img className="Button" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)}/>
                 </Link>
             </div>
 

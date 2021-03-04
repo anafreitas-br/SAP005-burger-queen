@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom";
-import { Button } from '../components/Button/Button';
 import LogoVector from '../img/LogoVector.png'
+import logout from '../img/logout.png'
 
 const InnerHeader = () => {
     const history = useHistory();
@@ -15,16 +15,16 @@ const InnerHeader = () => {
         }
     }
 
-    useEffect(() => {
-        document.title = "Vegan Queen"
-    }, [])
-
     return (
         <>
-            <div className='divNavbar Group'>
-                <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector}/>
-                <p className="Texts">Olá, {professional}</p>
-                <Button onClick={routerLogout}>Sair</Button>
+            <img className="btnLogout" src={logout} alt='Sair' onClick={routerLogout} />
+            <div className='divNavbar'>
+                  <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
+              <form className="Order">
+                  <div className="Group">
+                      <p className="Texts">Olá, {professional}</p>
+                  </div>
+              </form>
             </div>
         </>
     )

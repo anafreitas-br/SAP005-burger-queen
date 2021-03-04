@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+
+import React, { useState } from 'react'
+import Modal from './Modal/Modal'
 import { Button } from '../components/Button/Button';
 
 const Command = ({ pedido }) => {
@@ -6,7 +8,9 @@ const Command = ({ pedido }) => {
     const [sum, setSum] = useState(0);
     const client = localStorage.getItem("client");
     const table = localStorage.getItem("table");
-    
+	  const [isModalVisible, setIsModalVisible] = useState(true);
+    const [warning, setWarning] =useState('');
+
     const sumOrder = () => {
         let somar = 0;
         pedido.forEach(item => {
@@ -39,13 +43,14 @@ const Command = ({ pedido }) => {
             .then((response) => response.json())
             .then((json) => {
                 if (json.message === undefined) {
-                    localStorage.removeItem("client")
-                    localStorage.removeItem("table")
-                    alert("pedido criado com sucesso")
-                } else {
-                    alert(json.message)
-                }
-                console.log(json)
+                     localStorage.removeItem("client")
+                     localStorage.removeItem("table")
+                     setWarning("pedido enviado com sucesso")
+                     setIsModalVisible(true)
+                    } else {
+                    setWarning(json.message)
+                    setIsModalVisible(true)
+                    } 
             })
     }
 
@@ -67,10 +72,18 @@ const Command = ({ pedido }) => {
                     <p className="sumTotal">Total: {sum}</p>
                     <br></br>
                     <br></br>
-                </div>
+                </div>         
                 <Button type="submit" onClick={sumOrder}>Somar</Button>
                 <Button type="submit" onClick={handleSubmit}>Finalizar pedido</Button>
             </div>
+            <div className="modalC">
+					{isModalVisible ? (
+						<Modal value={warning} onClose={()=> setIsModalVisible(false)}>
+							<h1>{warning}</h1>
+                            <Button>Ok</Button>
+						</Modal>
+					) : null}
+				</div> 
         </>
     )
 }

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import InnerHeader from '../../components/InnerHeader';
-import Burger from '../../components/Burger';
-import Breakfast from '../../components/Breakfast';
-import Historic from '../../components/Historic';
-import OrderKitchen from '../../components/OrderKitchen';
+import InnerHeader from '../../components/InnerHeader'
+import Burger from '../../components/Burger'
+import Breakfast from '../../components/Breakfast'
+import Historic from '../../components/Historic'
+import OrderKitchen from '../../components/OrderKitchen'
+import lanches from '../../img/lanches.png'
+import historico from '../../img/historico.png'
 import { Button } from '../../components/Button/Button'
+
 
 import './Hall.css'
 
@@ -32,11 +35,11 @@ const Hall = () => {
                         <input name="client" className="FieldOrder" placeholder="nome" value={client} onChange={(e) => setClient(e.target.value)} /></p>
                     <p className="Texts"> Mesa <span className='required'> *</span>
                         <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
-                </div>
+                </div>    
             </form>
             <div className="orderDay">
                 <Link to='/burger'>
-                    <Button type="submit" onClick={(() => <Burger />)}>Lanches</Button>
+                    <img className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)}/>
                 </Link>
 
                 <Link to='/breakfast'>
@@ -48,7 +51,7 @@ const Hall = () => {
                 </Link>
 
                 <Link to='/historic'>
-                    <Button type="submit" onClick={(() => <Historic />)}>Histórico de Pedidos</Button>
+                    <img className="Button" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)}/>
                 </Link>
             </div>
 

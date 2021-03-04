@@ -115,7 +115,5 @@ const Burger = () => {
             </div>
         </>
     );
-};
-
 
 export default Burger;

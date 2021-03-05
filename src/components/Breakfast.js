@@ -33,23 +33,17 @@ const Breakfast = () => {
                     }
                 })
                 setMenu(breakfast)
-                setLoading(false)
+                setTimeout(() => {
+                    setLoading(false)
+                }, 2000);
             })
     }, [token])
 
-
-
-    const adicionar = (event) => {
-        event.preventDefault();
-        const parentOrder = event.target.parentNode.parentNode;
-        const id = parentOrder.getAttribute('id');
-        const name = parentOrder.getAttribute('name');
-        const price = parentOrder.getAttribute('price');
-
+    const adicionar = (item) => {
         const objeto = {
-            id: id,
-            name: name,
-            price: price,
+            id: item.id,
+            name: item.name,
+            price: item.price,
             qtd: 1
         }
         setPedido(obj => [...obj, objeto])
@@ -73,13 +67,10 @@ const Breakfast = () => {
                                         <div
                                             className="printScreen nameProduct"
                                             key={item.id}
-                                            id={item.id}
-                                            name={item.name}
-                                            price={item.price}
                                         >
                                             <p>{item.name}</p>
-                                            <p>R$ {item.price},00 {' '}
-                                                <Button type="submit" onClick={adicionar}>+</Button></p>
+                                            <p>R$ {item.price},00 {' '} 
+                                                <Button type="submit" onClick={() => adicionar(item)}>+</Button></p>
                                         </div>
                                     );
                                 })}

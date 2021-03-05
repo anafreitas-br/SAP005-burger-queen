@@ -1,15 +1,14 @@
-
-import React, { useState } from 'react'
-import Modal from './Modal/Modal'
+import React, { useState } from 'react';
+import Modal from './Modal/Modal';
 import { Button } from '../components/Button/Button';
 
-const Command = ({ pedido }) => {
+const Command = ({ pedido, setPedido }) => {
     const token = localStorage.getItem("token")
     const [sum, setSum] = useState(0);
     const client = localStorage.getItem("client");
     const table = localStorage.getItem("table");
-	  const [isModalVisible, setIsModalVisible] = useState(true);
-    const [warning, setWarning] =useState('');
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [warning, setWarning] = useState('');
 
     const sumOrder = () => {
         let somar = 0;
@@ -35,7 +34,7 @@ const Command = ({ pedido }) => {
                     pedido.map((item) => (
                         {
                             "id": Number(item.id),
-                            "qtd": 1
+                            "qtd": Number(item.qtd)
                         }
                     ))
             })
@@ -43,14 +42,15 @@ const Command = ({ pedido }) => {
             .then((response) => response.json())
             .then((json) => {
                 if (json.message === undefined) {
-                     localStorage.removeItem("client")
-                     localStorage.removeItem("table")
-                     setWarning("pedido enviado com sucesso")
-                     setIsModalVisible(true)
-                    } else {
+                    localStorage.removeItem("client")
+                    localStorage.removeItem("table")
+                    setWarning("Pedido enviado com sucesso")
+                    setIsModalVisible(true)
+                    setPedido('')
+                } else {
                     setWarning(json.message)
                     setIsModalVisible(true)
-                    } 
+                }
             })
     }
 
@@ -63,7 +63,7 @@ const Command = ({ pedido }) => {
                         return (
                             <div className="commandScreen" key={item.id}>
                                 <p className="eachDetail">{item.name}</p>
-                                <p className="eachDetail">{item.flavor} </p>
+                                <p className="eachDetail">{item.flavor}</p>
                                 <p className="eachDetail">{item.complement}</p>
                                 <p className="eachDetail">R$ {item.price},00</p>
                             </div>
@@ -72,18 +72,17 @@ const Command = ({ pedido }) => {
                     <p className="sumTotal">Total: {sum}</p>
                     <br></br>
                     <br></br>
-                </div>         
+                </div>
                 <Button type="submit" onClick={sumOrder}>Somar</Button>
                 <Button type="submit" onClick={handleSubmit}>Finalizar pedido</Button>
             </div>
             <div className="modalC">
-					{isModalVisible ? (
-						<Modal value={warning} onClose={()=> setIsModalVisible(false)}>
-							<h1>{warning}</h1>
-                            <Button>Ok</Button>
-						</Modal>
-					) : null}
-				</div> 
+                {isModalVisible ? (
+                    <Modal onClose={() => setIsModalVisible(false)}>
+                        <h1>{warning}</h1>
+                    </Modal>
+                ) : null}
+            </div>
         </>
     )
 }

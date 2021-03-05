@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
-import { useHistory, Link } from 'react-router-dom'
-import OutHeader from '../../components/OutHeader'
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
+import OutHeader from '../../components/OutHeader';
 import { Button } from '../../components/Button/Button';
+import Modal from '../../components/Modal/Modal.js'
 
 const Login = () => {
 
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [warning, setWarning] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -26,7 +29,8 @@ const Login = () => {
                 localStorage.setItem("token", json.token)
                 localStorage.setItem("name", json.name)
                 if (json.message !== undefined) {
-                    alert(json.message)
+                    setWarning(json.message)
+                    setIsModalVisible(true)
                 }
                 if (json.role === "hall") {
                     history.push('/hall')
@@ -53,6 +57,13 @@ const Login = () => {
                 <Button type="submit" onClick={handleSubmit}>Entrar</Button>
                 <p className="Texts"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>
             </form>
+            <div className="modalC">
+                {isModalVisible ? (
+                    <Modal onClose={() => setIsModalVisible(false)}>
+                        <h1>{warning}</h1>
+                    </Modal>
+                ) : null}
+            </div>
         </>
     )
 }

@@ -8,7 +8,7 @@ const Command = ({ pedido }) => {
     const [sum, setSum] = useState(0);
     const client = localStorage.getItem("client");
     const table = localStorage.getItem("table");
-	  const [isModalVisible, setIsModalVisible] = useState(true);
+	const [isModalVisible, setIsModalVisible] = useState(false);
     const [warning, setWarning] =useState('');
 
     const sumOrder = () => {
@@ -43,10 +43,10 @@ const Command = ({ pedido }) => {
             .then((response) => response.json())
             .then((json) => {
                 if (json.message === undefined) {
-                     localStorage.removeItem("client")
-                     localStorage.removeItem("table")
-                     setWarning("pedido enviado com sucesso")
-                     setIsModalVisible(true)
+                    localStorage.removeItem("client")
+                    localStorage.removeItem("table")
+                    setWarning("pedido enviado com sucesso")
+                    setIsModalVisible(true)
                     } else {
                     setWarning(json.message)
                     setIsModalVisible(true)

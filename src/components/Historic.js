@@ -34,7 +34,7 @@ const Historic = () => {
             ordersList.current = true;
         }
         return () => { ordersList.current = false }
-    }, [ordersList, getOrders]);
+    }, [getOrders]);
 
 
     useEffect(() => {

@@ -50,7 +50,7 @@ const OrderKitchen = () => {
         }
         return () => { ordersList.current = false }
         // eslint-disable-next-line
-    }, [ordersList]);
+    }, [getOrders]);
 
     return (
         <>

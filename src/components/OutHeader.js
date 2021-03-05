@@ -7,7 +7,7 @@ const OutHeader = ({message}) => {
         <>
             <img className="Logo" alt ="logotipo Vegan Queen" src={LogoVector}/>
             <h1 className="Title">{message}</h1>
-            <p className="Texts">Preencha os campos abaixo</p>
+            <p className="TextsRegister">Preencha os campos abaixo</p>
         </>
     )
 }

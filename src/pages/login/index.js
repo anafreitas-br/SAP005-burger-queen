@@ -51,7 +51,7 @@ const Login = () => {
                     <input type="password" name="password" className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <Button type="submit" onClick={handleSubmit}>Entrar</Button>
-                <p className="Texts"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>
+                <p className="TextsRegister"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>
             </form>
         </>
     )

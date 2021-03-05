@@ -7,7 +7,9 @@ import Historic from '../../components/Historic'
 import OrderKitchen from '../../components/OrderKitchen'
 import lanches from '../../img/lanches.png'
 import historico from '../../img/historico.png'
-import { Button } from '../../components/Button/Button'
+import prontos from '../../img/prontos.png'
+import café from '../../img/café.png'
+
 
 
 import './Hall.css'
@@ -26,32 +28,38 @@ const Hall = () => {
         <>
             <InnerHeader/>
             <form className="Order">
-                <div className="Group">
-                    <p className="Texts">Cliente: {client}</p>
-                    <p className="Texts">Mesa: {table}</p>
-                </div>
-                <div className="Group">
+
+            <div className="Inputs">
                     <p className="Texts"> Cliente <span className='required'> *</span>
                         <input name="client" className="FieldOrder" placeholder="nome" value={client} onChange={(e) => setClient(e.target.value)} /></p>
                     <p className="Texts"> Mesa <span className='required'> *</span>
                         <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
-                </div>    
+                </div> 
+                <div className="ClientsTable">            
+                    <p className="Client">Cliente: {client}</p>
+                    <p className="Table">Mesa: {table}</p>
+                </div>
             </form>
             <div className="orderDay">
+
                 <Link to='/burger'>
-                    <img className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)}/>
+                    <img id="VQ" className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)}/> 
+                    <figcaption><strong>Lanches</strong></figcaption>
                 </Link>
 
                 <Link to='/breakfast'>
-                    <Button type="submit" onClick={(() => <Breakfast />)}>Café da Manhã</Button>
+                    <img className="Button" alt="botão para menu Café" src={café} type="submit" onClick={(() => <Breakfast />)}/>
+                    <figcaption><strong>Café-da-Manhã</strong></figcaption>
                 </Link>
 
                 <Link to='/orderkitchen'>
-                    <Button type="submit" onClick={(() => <OrderKitchen />)}>Pedidos Prontos</Button>
+                    <img className="Button" alt="botão para os pedidos prontos" src={prontos} type="submit" onClick={(() => <OrderKitchen />)}/>
+                        <figcaption><strong>Está Pronto!</strong></figcaption>
                 </Link>
 
                 <Link to='/historic'>
                     <img className="Button" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)}/>
+                    <figcaption><strong>Histórico</strong></figcaption>
                 </Link>
             </div>
 

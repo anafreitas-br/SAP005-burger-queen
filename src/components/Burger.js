@@ -67,6 +67,7 @@ const Burger = () => {
 
         const objeto = {
             id: id,
+            // idItem: Math.floor((Math.random()*999)+1),
             name: name,
             flavor: flavor,
             complement: complement,
@@ -114,6 +115,7 @@ const Burger = () => {
                     )}
             </div>
         </>
-    );
+  );
+}
 
 export default Burger;

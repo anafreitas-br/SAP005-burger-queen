@@ -54,14 +54,14 @@ const Register = () => {
                         <input type="password" name="password" className="Field" placeholder="mínimo 6 digitos" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className="Group" id="Option-Group">
-                        <form className="Texts">
+                        <form className="TextsRegister">
                             <p >Selecione a sua áerea de trabalho<span className='required'>*</span>
                                 <input type="radio" name="option" className="Option" id="hall" value={option} onClick={(e) => setOption(e.target.id)} /> Salão
                             <input type="radio" name="option" className="Option" id="kitchen" value={option} onClick={(e) => setOption(e.target.id)} /> Cozinha                                </p>
                         </form>
                     </div>
                     <Button type="submit" onClick={handleSubmit}>Cadastrar</Button>
-                    <p className="Texts"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
+                    <p className="TextsRegister"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
                 </div>
             </form>
         </>

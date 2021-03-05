@@ -2,7 +2,7 @@ body {
 	margin: 2rem;
 	margin-right: 100rem;
 	font-family: Arial, Helvetica, sans-serif;
-	background: #DBD7D2;
+	background: #dbd7d2;
 	color: #000000;
 	justify-items: center;
 }
@@ -36,8 +36,7 @@ body {
 
 .LogoOrder {
 	width: 25%;
-	
-	margin: 0;
+	margin-top: -6rem;
 	margin-right: 2rem;
 	text-align: left;
 }
@@ -46,19 +45,46 @@ body {
 	display: flex;
 	margin: 3rem;
 	margin-top: 1rem;
-	background: linear-gradient (90 deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252, 1)100%);
 }
 
-/* .Button {
-	padding: .5rem 2rem;
+.Button {
+	padding: .5rem;
+	width: 60%;
+	border: solid #000;
+	border-radius: 10px;
 	margin-top: 1rem;
 	border-radius: 7px;
 	font-family: 'Roboto Slab', serif;
 	font-size: 1rem;
 	cursor: pointer;
-	background-color: #880085;
 	color: white;
-} */
+	margin: 0 auto;
+	grid-gap: 10px;
+}
+
+.Button:hover {
+	background: #f4ca16;
+}
+
+#VQ {
+	width: 16vw;
+	margin-right: 30px;
+	margin-left: 30px;
+}
+
+.orderDay {
+	display: flex;
+	margin-top: 3rem;
+	grid-gap: 8px;
+}
+
+figcaption {
+	text-decoration: none;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-left: 30px;
+}
 
 .Btn-Register {
 	margin: 1rem;
@@ -79,11 +105,42 @@ body {
 }
 
 .Texts,
+.TextsRegister,
 .Group {
-	font-size: 1rem;
+	font-size: 1.3rem;
 	font-family: 'Roboto Slab', serif;
 	align-items: center;
-    font-weight: bold;
+	font-weight: bold;
+}
+.Texts {
+	font-size: 1.1rem;
+	display: flex;
+	font-family: 'Roboto Slab', serif;
+	text-align: center;
+	font-weight: bold;
+	margin-left: 2rem;
+}
+
+.ClientsTable {
+	margin-left: 2rem;
+	font-size: 1.1rem;
+	font-family: 'Roboto Slab', serif;
+	text-align: center;
+	font-weight: bold;
+}
+
+.TextsProf {
+	margin-left: 1rem;
+	font-size: 1.3rem;
+	display: flex;
+	font-family: 'Roboto Slab', serif;
+	text-align: center;
+	font-weight: bold;
+	align-items: center;
+}
+
+.Inputs {
+	margin-top: .1rem;
 }
 
 .Title {
@@ -95,19 +152,21 @@ body {
 }
 
 .btnLogout {
-	width: 5%;
-	height:7%;
+	width: 7%;
+	height: 9%;
+	margin-top: 3rem;
+	margin-left: 30px;
 	border: none;
-	background: #DBD7D2;
+	background: #dbd7d2;
 	cursor: pointer;
-	margin-top: 2rem;
 	margin-left: 85%;
-
 }
 
 .Order {
 	text-align: center;
-	margin-top: 0rem;
+	margin-top: -2rem;
+	display: flex;
+	margin-left: 10rem;
 }
 
 .MenuBreakfast {
@@ -137,25 +196,25 @@ body {
 }
 
 .Command {
-  background-color: #96CF4A;
+	background-color: #96cf4a;
 }
 
 .modal {
-   width: 100%;
-   height: 100vh;
-   position: absolute;
-   top: 0;
-   left: 0;
-   z-index:10;
-   background-color: rgba(0, 0, 0, 0.8);
-   display: flex;
-   justify-content: center;
-   align-items: center;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.container{
+.container {
 	background-color: #fff;
-	color:#000;
+	color: #000;
 	width: 60%;
 	height: 60%;
 	align-items: center;
@@ -167,5 +226,3 @@ body {
 	width: 32px;
 	height: 32px;
 }
-
-

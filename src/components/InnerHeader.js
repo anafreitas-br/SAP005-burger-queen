@@ -21,8 +21,9 @@ const InnerHeader = () => {
             <div className='divNavbar'>
                 <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
                 <form className="Order">
-                    <div className="Group">
-                        <p className="Texts Group Order">Olá, {professional}</p>
+                    <div className="Professional">
+                        <p className="TextsProf">Olá, {professional}</p>
+
                     </div>
                 </form>
             </div>

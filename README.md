@@ -1,4 +1,3 @@
-
 # Vegan Queen
 
 ## Índice
@@ -25,7 +24,7 @@
 
 ## Temática
 
-A temática escolhida para definição do cliente foi de restaurante vegano, cujos procedimentos internos e produtos servidos pela empresa seguem a cultura do veganismo. De acordo com a <a href=“https://veganismo.org.br/Associação“>Associação Brasileira de Veganismo</a>, o significado deste conceito é:
+A temática escolhida para definição do cliente foi de restaurante vegano, cujos procedimentos internos e produtos servidos pela empresa seguem a cultura do veganismo. De acordo com a [Associação Brasileira de Veganismo](https://veganismo.org.br/Associação), o significado deste conceito é:
 
                       “ Veganismo é uma filosofia e estilo de vida que busca excluir, na medida do possível
                         e praticável, todas as formas de exploração e crueldade contra animais na alimentação,
@@ -41,11 +40,11 @@ Os protótipos da página foram realizados através do MarvelApp, segue imagens 
 
 IMAGEM PROTÓTIPO LOGIN
 
-<a href=“https://marvelapp.com/prototype/fg13c84/screen/76693657“>Teste aqui</a>
+[Teste aqui](https://marvelapp.com/prototype/fg13c84/screen/76693657)
 
 IMAGEM PROTOTIPO HALL
 
-<a href=“https://marvelapp.com/prototype/fg13c84/screen/76905175“>Teste aqui</a>
+[Teste aqui](https://marvelapp.com/prototype/fg13c84/screen/76905175)
 
 ## Testes
 
@@ -73,6 +72,7 @@ O aplicativo foi realizado baseado nas seguintes histórias de usuários e suas 
 
 1. Usuário deve ter seu perfil (login/senha) para acessar o sistema </br>
 Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.</br>
+</br>
 Critérios de aceitação:</br>
 Criar login e senha.</br>
 Registar tipo de usuário (cozinha / salão), login e senha.</br>
@@ -80,6 +80,7 @@ Entrar na tela correta para cada usuário.
 
 2. Garçom/Garçonete deve poder anotar o seu pedido</br>
 Eu como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada produto e poder enviar o pedido para a cozinha para ser preparado.</br>
+</br>
 Critérios de aceitação:</br>
 Anotar o nome e mesa.</br>
 Adicionar produtos aos pedidos.</br>
@@ -90,6 +91,7 @@ Funcionar bem e se adequar a um tablet.</br>
 
 3. Chefe de cozinha deve ver os pedidos</br>
 Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.</br>
+</br>
 Critérios de aceitação:</br>
 Ver os pedidos à medida em que são feitos.</br>
 Marcar os pedidos que foram preparados e estão prontos para serem servidos.</br>
@@ -97,6 +99,7 @@ Ver o tempo que levou para preparar o pedido desde que chegou, até ser marcado 
 
 4. Garçom/Garçonete deve ver os pedidos prontos para servir</br>
 Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.</br>
+</br>
 Critérios de aceitação:</br>
 Ver a lista de pedidos prontos para servir.</br>
 Marque os pedidos que foram entregues.</br>
@@ -107,7 +110,7 @@ O layout da aplicação foi pensado da seguinte forma:
 
 ### Cores
 
-A paleta de cores foi decidica baseando-se nos alimentos que o restaurante serve, ilustração feita pela ferramenta <a href=“https://coolors.co/“>Coolors</a>:
+A paleta de cores foi decidica baseando-se nos alimentos que o restaurante serve, ilustração feita pela ferramenta Coolors:
 
 FOTO PALETA
 
@@ -115,7 +118,7 @@ Sendo amarelo do pão, roxo de beterraba, verde das verduras, cinza esbranquiça
 
 ### Logotipo
 
-O logo foi criado pelo <a href=“https://www.canva.com/pt_br/“>Canva</a>, seguindo a paleta de cores e a temática realeza.
+O logo foi criado pelo Canva, seguindo a paleta de cores e a temática realeza.
 
 FOTO DO LOGO
 
@@ -137,7 +140,7 @@ FOTO TRELLO
 
 ## Desenvolvimento
 
-Para desenvolvimento deste projeto foi utilizado HTML5, CSS3, Vanilla JavaScript, React, Vercel e a API Burger Queen fornecida por Swagger, acessivel <a href=“https://lab-api-bq.herokuapp.com/api-docs/#/“>clicando aqui</a>. A aplicação foi realizada com conceito de tablet first e Single Page Application (SPA).
+Para desenvolvimento deste projeto foi utilizado HTML5, CSS3, Vanilla JavaScript, React, Vercel e a API Burger Queen fornecida por Swagger, acessivel [clicando aqui](https://lab-api-bq.herokuapp.com/api-docs/#/). A aplicação foi realizada com conceito de tablet first e Single Page Application (SPA).
 
 ## Pontos de melhoria
 
@@ -151,7 +154,6 @@ Contagem de tempo do preparo de cada pedido
 
 Este projeto foi desenvolvido com muito carinho pelas desenvolvedoras:
 
-<a href=“https://www.github.com/BiancaSherika“> Bianca Sherika</a><br/>
-<a href=“https://www.github.com/anafreitas-brAna“> Ana Freitas</a>
-
+[Bianca Sherika](https://www.github.com/BiancaSherika)<br/>
+[Ana Freitas](https://www.github.com/anafreitas-brAna)
 

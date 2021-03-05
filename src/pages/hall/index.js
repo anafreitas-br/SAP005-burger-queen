@@ -12,6 +12,7 @@ import café from '../../img/café.png'
 
 
 
+
 import './Hall.css'
 
 const Hall = () => {
@@ -43,7 +44,7 @@ const Hall = () => {
             <div className="orderDay">
                 <Link to='/burger'>
                     <img id="VQ" className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)}/> 
-                    <figcaption><strong>Lanches</strong></figcaption>
+                    <figcaption className="legend"><strong>Lanches</strong></figcaption>
                 </Link>
                 <Link to='/breakfast'>
                     <img className="Button" alt="botão para menu Café" src={café} type="submit" onClick={(() => <Breakfast />)}/>
@@ -56,7 +57,6 @@ const Hall = () => {
                 <Link to='/historic'>
                     <img className="Button" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)}/>
                     <figcaption><strong>Histórico</strong></figcaption>
-
                 </Link>
             </div>
 

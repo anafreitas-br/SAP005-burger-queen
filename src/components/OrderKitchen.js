@@ -3,6 +3,7 @@ import { Button } from '../components/Button/Button';
 import InnerHeader from './InnerHeader';
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
+import home from '../img/home.png'
 import Modal from './Modal/Modal';
 
 
@@ -64,8 +65,8 @@ const OrderKitchen = () => {
     return (
         <>
             <InnerHeader professional={professional} />
-            <Link to='./hall'>
-                <Button type="submit">Home</Button>
+            <Link to="/hall">
+            <img className="btnHome" alt="botão para salão" src={home} type="submit" onClick={(() => "/hall")}/>
             </Link>
             <div className="kitchen">
                 {loading ?
@@ -88,7 +89,6 @@ const OrderKitchen = () => {
                                         })}
                                         </div>
                                         <Button onClick={() => handleSubmit(item.id)}>Pedido Entregue</Button>
-                                ______________________________________________________
                                     </div>
                                 )
                             }

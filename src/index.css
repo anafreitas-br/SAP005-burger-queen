@@ -47,10 +47,11 @@ body {
 	margin-top: 1rem;
 }
 
-.Button {
+.Button,
+.ButtonHistoric {
 	padding: .5rem;
 	width: 60%;
-	border: solid #000;
+	border: 1vw solid #fff;
 	border-radius: 10px;
 	margin-top: 1rem;
 	border-radius: 7px;
@@ -63,6 +64,15 @@ body {
 }
 
 .Button:hover {
+	background: #f4ca16;
+}
+
+.ButtonHistoric {
+	width: 10%;
+	margin-left: 2%;
+}
+
+.ButtonHistoric:hover {
 	background: #f4ca16;
 }
 
@@ -79,7 +89,6 @@ body {
 }
 
 figcaption {
-	text-decoration: none;
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: center;
@@ -155,11 +164,34 @@ figcaption {
 	width: 7%;
 	height: 9%;
 	margin-top: 3rem;
-	margin-left: 30px;
 	border: none;
 	background: #dbd7d2;
 	cursor: pointer;
 	margin-left: 85%;
+}
+
+.btnLogout:hover {
+	background: #f4ca16;
+	border-radius: 0.8rem;
+}
+
+.btnHome {
+	width: 7%;
+	height: 9%;
+	margin-top: 2%;
+	margin-left: 30px;
+	background: #dbd7d2;
+	cursor: pointer;
+	margin-left: 85%;
+	border: solid #000;
+	border-radius: 20px;
+	align-items: center;
+	margin-top: -5rem;
+	margin-bottom: auto;
+}
+
+.btnHome:hover {
+	background: #f4ca16;
 }
 
 .Order {
@@ -169,34 +201,76 @@ figcaption {
 	margin-left: 10rem;
 }
 
-.MenuBreakfast {
-	text-align: center;
-	margin-left: 14rem;
-	width: 20rem;
+
+.printScreennameProduct {
+	border: solid #fff;
+	
+	margin-left: 12rem;
+	margin-right: 12rem;
+	padding: 1.5rem;
+	border-radius: 10px;
+	margin-top: 2.5rem;
+	align-items: center;
+
+
+	
+
 }
 
-.MenuBurger {
-	width: 100%;
-	height: 40vh;
+.orderList {
+	padding: 5rem;
+	align-items: center;
+}
+
+.EachOrder {
+	border: solid #fff;
+	background-color: #96cf4a;
+	margin-left: 12rem;
+	margin-right: 12rem;
+	padding: 1.5rem;
+	border-radius: 10px;
+	margin-top: 2.5rem;
+	align-items: center;
+	font-family: 'Roboto Slab', serif;
+}
+
+.EachOrderHistoric {
+	border: solid #fff;
+	background-color: #bec4f5;
+	margin-left: 12rem;
+	margin-right: 12rem;
+	padding: 1.5rem;
+	border-radius: 10px;
+	margin-top: 2.5rem;
+	align-items: center;
 }
 
 .printScreen {
-	background-color: rgba(118, 72, 161, 0.85);
-	text-align: center;
+	background-color: #f4ca16;
+	border: solid #fff;
+	font-size: 1.2rem;
+	font-family: 'Roboto Slab', serif;
 	align-items: center;
-	flex-direction: column;
-	border-color: darkmagenta;
+	font-weight: bold;
+	margin-left: 20rem;
+	margin-right: 20rem;
+	margin-top: 2rem;
 	border-width: medium;
-	border-style: solid;
-	margin: 2rem;
-	border-radius: 5px;
-	margin-bottom: 3rem;
-	width: 50%;
-	padding: 1rem;
+	border-radius: 15px;
+	padding: 2rem;
 }
 
 .Command {
 	background-color: #96cf4a;
+	font-family: 'Roboto Slab', serif;
+	font-size: 1.2rem;
+	margin-left: 18rem;
+	margin-right: 18rem;
+	border-radius: 15px;
+	margin-top: 2rem;
+	padding: 2rem;
+	display: grid;
+
 }
 
 .modal {

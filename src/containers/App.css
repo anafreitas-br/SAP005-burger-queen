@@ -1,5 +1,5 @@
 .App {
-	margin: 0 auto;
+	margin: 3rem auto;
 	padding: 0;
 	text-align: center;
 	position: absolute;
@@ -8,6 +8,8 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	
+	
 }
 
 .App-logo {

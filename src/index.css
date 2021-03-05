@@ -243,6 +243,7 @@ figcaption {
 	border-radius: 10px;
 	margin-top: 2.5rem;
 	align-items: center;
+	font-family: 'Roboto Slab', serif;
 }
 
 .printScreen {
@@ -274,29 +275,38 @@ figcaption {
 }
 
 .modal {
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 10;
 	background-color: rgba(0, 0, 0, 0.8);
-	display: flex;
+	display: flex; 
 	justify-content: center;
 	align-items: center;
+	overflow:auto;
+	
+
 }
 
 .container {
 	background-color: #fff;
 	color: #000;
-	width: 60%;
-	height: 60%;
+	width: 55%;
+	height: 55%;
 	align-items: center;
 	border-radius: 20px;
+	overflow:auto;
+}
+.content {
+	margin-top: 10rem;
+	align-items: center;
 }
 
 .close {
 	outline: none;
 	width: 32px;
 	height: 32px;
+	float: right;
 }

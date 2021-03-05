@@ -2,23 +2,34 @@
 
 ## Índice
 
-- [Apresentação](#1-apresentação)
-- [Objetivo](#2-objetivo)
-- [Usuários](#3-usuários)
-- [Interface de Usuário](#4-interface-de-usuário)
-- [Desenvolvimento](#5-desenvolvimento)
-- [Pontos de Melhoria](#6-pontos-de-melhoria)
-- [Devas](#7-devas)
+- [Apresentação](#apresentação)
+- [Temática](#temática)
+- [Protótipos](#protótipos)
+- [Testes](#testes)
+- [Usuários](#usuários)
+   * [1](#usuário-deve-ter-seu-perfil-(login/senha)-para-acessar-o-sistema)
+   * [2](#garçom/garçonete-deve-poder-anotar-o-seu-pedido)
+   * [3](#chefe-de-cozinha-deve-ver-os-pedidos)
+   * [4](#garçom/garçonete deve ver os pedidos prontos para servir)
+- [Design](#design)
+   * [Cores](#cores)
+   * [Logotipo](#logotipo)
+   * [Interface](#interface)
+- [Planejamento](#planejamento)
+- [Desenvolvimento](#desenvolvimento)
+- [Pontos de Melhoria](#pontos-de-melhoria)
+- [Devas](#devas)
 
 ---
 
 ## Apresentação
 
-*Vegan Queen* é uma aplicação web desenvolvida sob demanda do cliente fictício Restaurande Vegan Queen, seu objetivo é automatizar o sistema interno do restaurante e melhorar os procedimentos de solicitação de pedido, envio para preparo e entrega ao cliente final. Ele se dá no formato de cardápio e comanda digital, acompanhamento do preparo e entrega de cada solicitação e histórico de todos pedidos entregues ao cliente final. Este projeto foi desenvolvido durante o bootcamp da Laboratória, com finalidade de aprendizagem e enriquecimento dos conhecimentos das alunas.
+*Vegan Queen* é uma aplicação web desenvolvida sob demanda do cliente fictício Restaurande Vegan Queen, seu objetivo é automatizar o sistema interno do restaurante e melhorar os procedimentos de solicitação de pedido, envio para preparo e entrega ao cliente final. Ele se dá no formato de cardápio e comanda digital, acompanhamento do preparo e entrega de cada solicitação e histórico de todos pedidos entregues ao cliente final. Este projeto foi desenvolvido durante o bootcamp da <a href=“https://www.laboratoria.la/brLaboratória“>Laboratória</a>, com finalidade de aprendizagem e enriquecimento dos conhecimentos das alunas.
 
 ## Temática
 
-A temática escolhida para definição do cliente foi de restaurante vegano, cujos procedimentos internos e produtos servidos pela empresa seguem a cultura do veganismo. De acordo com a Associação Brasileira de Veganismo, o significado deste conceito é:
+A temática escolhida para definição do cliente foi de restaurante vegano, cujos procedimentos internos e produtos servidos pela empresa seguem a cultura do veganismo. De acordo com a <a href=“https://veganismo.org.br/Associação“>Associação Brasileira de Veganismo</a>, o significado deste conceito é:
+
 
                           “ Veganismo é uma filosofia e estilo de vida que busca excluir, na medida do possível
                             e praticável, todas as formas de exploração e crueldade contra animais na alimentação,
@@ -34,11 +45,11 @@ Os protótipos da página foram realizados através do MarvelApp, segue imagens 
 
 IMAGEM PROTÓTIPO LOGIN
 
-Teste aqui: https://marvelapp.com/prototype/fg13c84/screen/76693657
+<a href=“https://marvelapp.com/prototype/fg13c84/screen/76693657“>Teste aqui</a>
 
 IMAGEM PROTOTIPO HALL
 
-Teste aqui: https://marvelapp.com/prototype/fg13c84/screen/76905175
+<a href=“https://marvelapp.com/prototype/fg13c84/screen/76905175“>Teste aqui</a>
 
 ## Testes
 
@@ -102,7 +113,25 @@ Critérios de aceitação:
 Ver a lista de pedidos prontos para servir.
 Marque os pedidos que foram entregues.
 
-### Interface de Usuário
+## Design 
+
+O layout da aplicação foi pensado da seguinte forma:
+
+### Cores
+
+A paleta de cores foi decidica baseando-se nos alimentos que o restaurante serve, ilustração feita pela ferramenta <a href=“https://coolors.co/“>Coolors</a>:
+
+FOTO PALETA
+
+Sendo amarelo do pão, roxo de beterraba, verde das verduras, cinza esbranquiçado dos cogumelos shimeji e paris e preto do gergelim
+
+### Logotipo
+
+O logo foi criado pelo <a href=“https://www.canva.com/pt_br/“>Canva</a>, seguindo a paleta de cores e a temática realeza.
+
+FOTO DO LOGO
+
+### Interface
 
 A interface da aplicação finalizou da seguinte maneira:
 
@@ -120,11 +149,11 @@ FOTO TRELLO
 
 ## Desenvolvimento
 
-Para desenvolvimento deste projeto foi utilizado HTML5, CSS3, Vanilla JavaScript, React e a API Burger Queen fornecida por Swagger, acessivel <a href=“https://lab-api-bq.herokuapp.com/api-docs/#/“>clicando aqui</a>. A aplicação foi realizada com conceito de tablet first e Single Page Application (SPA).
+Para desenvolvimento deste projeto foi utilizado HTML5, CSS3, Vanilla JavaScript, React, Vercel e a API Burger Queen fornecida por Swagger, acessivel <a href=“https://lab-api-bq.herokuapp.com/api-docs/#/“>clicando aqui</a>. A aplicação foi realizada com conceito de tablet first e Single Page Application (SPA).
 
-## Ponto de melhoria
+## Pontos de melhoria
 
-Para as próximas refatorações desejamos implementar:
+Para as próximas refatorações iremos implementar:
 
 Funcionalidade de deletar item na comanda
 Funcionalidade de aumentar quantidade de itens específicos na comanda
@@ -134,6 +163,6 @@ Contagem de tempo do preparo de cada pedido
 
 Este projeto foi desenvolvido com muito carinho pelas desenvolvedoras:
 
-Bianca Sherika 
-Ana Freitas 
+<a href=“www.github.com/BiancaSherika“> Bianca Sherika</a><br/>
+<a href=“www.github.com/anafreitas-brAna“> Ana Freitas</a>
 

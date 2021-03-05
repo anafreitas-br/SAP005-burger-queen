@@ -4,6 +4,7 @@ import { Button } from '../components/Button/Button';
 import InnerHeader from './InnerHeader';
 import Command from './Command';
 import Loading from '../components/Loading';
+import home from '../img/home.png'
 
 const Breakfast = () => {
 
@@ -52,8 +53,8 @@ const Breakfast = () => {
     return (
         <>
             <InnerHeader />
-            <Link to='./hall'>
-                <Button type="submit">Home</Button>
+            <Link to="/hall">
+            <img className="btnHome" alt="botão para salão" src={home} type="submit" onClick={(() => "/hall")}/>
             </Link>
             <div className="Breakfast">
                 {loading ?
@@ -69,8 +70,9 @@ const Breakfast = () => {
                                             key={item.id}
                                         >
                                             <p>{item.name}</p>
-                                            <p>R$ {item.price},00 {' '} 
-                                                <Button type="submit" onClick={() => adicionar(item)}>+</Button></p>
+                                            <p>R$ {item.price},00 {' '} </p> 
+                                                <Button type="submit" onClick={() => adicionar(item)}>+</Button>
+                                          
                                         </div>
                                     );
                                 })}

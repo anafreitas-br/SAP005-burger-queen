@@ -4,6 +4,7 @@ import Historic from '../../components/Historic';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import { Button } from '../../components/Button/Button';
+import historico from '../../img/historico.png'
 import Modal from '../../components/Modal/Modal'
 
 const Kitchen = () => {
@@ -64,8 +65,9 @@ const Kitchen = () => {
         <>
             <InnerHeader />
             <Link to='/historic'>
-                <Button type="submit" onClick={(() => <Historic />)}>Histórico</Button>
-            </Link>
+                    <img className="ButtonHistoric" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)}/>
+                    <figcaption><strong>Histórico</strong></figcaption>
+                </Link>
             <div className="kitchen">
                 {loading ?
                     (
@@ -87,7 +89,6 @@ const Kitchen = () => {
                                         })}
                                         </div>
                                         <Button onClick={() => handleSubmit(item.id)}>Está Pronto</Button>
-                                ______________________________________________________
                                     </div>
                                 )
                             }

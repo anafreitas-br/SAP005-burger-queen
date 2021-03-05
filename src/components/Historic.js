@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom'
-import Button from '../components/Button/Button';
 import InnerHeader from './InnerHeader';
 import Loading from './Loading'
+import home from '../img/home.png'
 
 const Historic = () => {
     const id = localStorage.getItem("id")
@@ -61,7 +61,7 @@ const Historic = () => {
         <>
             <InnerHeader />
             <Link to={roleBack}>
-                <Button type="submit">Home</Button>
+            <img className="btnHome" alt="botão para salão" src={home} type="submit" onClick={roleBack}/>
             </Link>
             <div className="kitchen">
                 {loading ?
@@ -71,7 +71,7 @@ const Historic = () => {
                         < div className="ordersList">
                             {order && order.map(function (item) {
                                 return (
-                                    <div className="EachOrder" key={item.id}>
+                                    <div className="EachOrderHistoric" key={item.id}>
                                         <p>Status: {item.status}</p>
                                         <p>Cliente: {item.client_name} Mesa: {item.table}</p>
                                         <p>Data e hora: {item.createdAt}</p>

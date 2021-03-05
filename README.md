@@ -1,3 +1,4 @@
+
 # Vegan Queen
 
 ## Índice
@@ -152,4 +153,5 @@ Este projeto foi desenvolvido com muito carinho pelas desenvolvedoras:
 
 <a href=“https://www.github.com/BiancaSherika“> Bianca Sherika</a><br/>
 <a href=“https://www.github.com/anafreitas-brAna“> Ana Freitas</a>
+
 

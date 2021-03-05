@@ -76,7 +76,7 @@ const Breakfast = () => {
                                         </div>
                                     );
                                 })}
-                            <Command pedido={pedido} />
+                            <Command pedido={pedido} setPedido={setPedido} />
                         </div>
                     )}
             </div>

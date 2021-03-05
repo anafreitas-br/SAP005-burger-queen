@@ -153,4 +153,3 @@ Este projeto foi desenvolvido com muito carinho pelas desenvolvedoras:
 
 [Bianca Sherika](https://www.github.com/BiancaSherika)<br/>
 [Ana Freitas](https://www.github.com/anafreitas-br)
-

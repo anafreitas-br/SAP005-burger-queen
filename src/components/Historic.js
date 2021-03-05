@@ -38,7 +38,6 @@ const Historic = () => {
         return () => { ordersList.current = false }
     }, [getOrders]);
 
-
     useEffect(() => {
         fetch(`https://lab-api-bq.herokuapp.com/users/${id}`, {
             headers: {

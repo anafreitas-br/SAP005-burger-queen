@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import OutHeader from '../../components/OutHeader';
-import { Button } from '../../components/Button/Button'
+import { Button } from '../../components/Button/Button';
+import Modal from '../../components/Modal/Modal.js'
 
 const Register = () => {
 
@@ -10,6 +11,13 @@ const Register = () => {
     const [option, setOption] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [warning, setWarning] = useState('');
+
+    const rota = (e) => {
+        e.preventDefault();
+        history.push('/')
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -29,12 +37,13 @@ const Register = () => {
             .then((response) => response.json())
             .then((json) => {
                 if (json.message !== undefined) {
-                    alert(json.message)
+                    setWarning(json.message)
+                    setIsModalVisible(true)
                 } else {
-                    alert("Conta criada com sucesso !")
-                    history.push('/')
+                    setWarning("Conta criada com sucesso")
+                    setIsModalVisible(true)
+                    rota()
                 }
-
             })
     }
 
@@ -64,6 +73,13 @@ const Register = () => {
                     <p className="Texts"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
                 </div>
             </form>
+            <div className="modalC">
+                {isModalVisible ? (
+                    <Modal onClose={() => setIsModalVisible(false)}>
+                        <h1>{warning}</h1>
+                    </Modal>
+                ) : null}
+            </div>
         </>
     );
 }

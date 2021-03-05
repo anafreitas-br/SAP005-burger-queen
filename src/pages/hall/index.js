@@ -24,7 +24,7 @@ const Hall = () => {
 
     return (
         <>
-            <InnerHeader/>
+            <InnerHeader />
             <form className="Order">
                 <div className="Group">
                     <p className="Texts">Cliente: {client}</p>
@@ -35,11 +35,11 @@ const Hall = () => {
                         <input name="client" className="FieldOrder" placeholder="nome" value={client} onChange={(e) => setClient(e.target.value)} /></p>
                     <p className="Texts"> Mesa <span className='required'> *</span>
                         <input type="number" name="table" className="FieldOrder" placeholder="n°..." value={table} onChange={(e) => setTable(e.target.value)} /></p>
-                </div>    
+                </div>
             </form>
             <div className="orderDay">
                 <Link to='/burger'>
-                    <img className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)}/>
+                    <img className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)} />
                 </Link>
 
                 <Link to='/breakfast'>
@@ -51,7 +51,7 @@ const Hall = () => {
                 </Link>
 
                 <Link to='/historic'>
-                    <img className="Button" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)}/>
+                    <img className="Button" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)} />
                 </Link>
             </div>
 

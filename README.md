@@ -20,7 +20,7 @@
 
 ## Apresentação
 
-*Vegan Queen* é uma aplicação web desenvolvida sob demanda do cliente fictício Restaurande Vegan Queen, seu objetivo é automatizar o sistema interno do restaurante e melhorar os procedimentos de solicitação de pedido, envio para preparo e entrega ao cliente final. Ele se dá no formato de cardápio e comanda digital, acompanhamento do preparo e entrega de cada solicitação e histórico de todos pedidos entregues ao cliente final. Este projeto foi desenvolvido durante o bootcamp da <a href=“https://www.laboratoria.la/brLaboratória“>Laboratória</a>, com finalidade de aprendizagem e enriquecimento dos conhecimentos das alunas.
+*Vegan Queen* é uma aplicação web desenvolvida sob demanda do cliente fictício Restaurande Vegan Queen, seu objetivo é automatizar o sistema interno do restaurante e melhorar os procedimentos de solicitação de pedido, envio para preparo e entrega ao cliente final. Ele se dá no formato de cardápio e comanda digital, acompanhamento do preparo e entrega de cada solicitação e histórico de todos pedidos entregues ao cliente final. Este projeto foi desenvolvido durante o bootcamp da <a href=“https://laboratoria.la/brLaboratória“>Laboratória</a>, com finalidade de aprendizagem e enriquecimento dos conhecimentos das alunas.
 
 ## Temática
 

@@ -4,12 +4,15 @@ import Historic from '../../components/Historic';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import { Button } from '../../components/Button/Button';
+import Modal from '../../components/Modal/Modal'
 
 const Kitchen = () => {
-    const token = localStorage.getItem("token")
-    const [order, setOrder] = useState('')
+    const token = localStorage.getItem("token");
+    const [order, setOrder] = useState('');
     const ordersList = useRef(false);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [warning, setWarning] = useState('');
 
     const handleSubmit = (itemId) => {
         fetch(`https://lab-api-bq.herokuapp.com/orders/${itemId}`, {
@@ -24,6 +27,10 @@ const Kitchen = () => {
             })
         })
             .then((response) => response.json())
+            .then(() => {
+                setWarning("Pedido enviado para o salão")
+                setIsModalVisible(true)
+            })
     }
 
     const getOrders = useCallback(async () => {
@@ -37,7 +44,9 @@ const Kitchen = () => {
             .then((json) => {
                 const order = json.filter(item => item.status === `pending`)
                 setOrder(order)
-                setLoading(false)
+                setTimeout(() => {
+                    setLoading(false)
+                }, 2000);
             })
         // eslint-disable-next-line
     }, [order, token])
@@ -85,6 +94,13 @@ const Kitchen = () => {
                             )}
                         </div>
                     )}
+            </div>
+            <div className="modalC">
+                {isModalVisible ? (
+                    <Modal onClose={() => setIsModalVisible(false)}>
+                        <h1>{warning}</h1>
+                    </Modal>
+                ) : null}
             </div>
         </>
     )

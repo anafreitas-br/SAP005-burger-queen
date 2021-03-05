@@ -23,7 +23,9 @@ const Historic = () => {
             .then((json) => {
                 const order = json.filter(item => item.status === `Entregue`)
                 setOrder(order)
-                setLoading(false)
+                setTimeout(() => {
+                    setLoading(false)
+                }, 2000);
             })
         // eslint-disable-next-line
     }, [order, token])
@@ -52,7 +54,7 @@ const Historic = () => {
                     setRoleBack('./hall')
                 }
             })
-            // eslint-disable-next-line
+        // eslint-disable-next-line
     }, [roleBack])
 
     return (

@@ -5,7 +5,6 @@ import InnerHeader from '../components/InnerHeader';
 import Command from './Command';
 import Loading from '../components/Loading';
 
-
 const Burger = () => {
 
     const token = localStorage.getItem('token')
@@ -52,31 +51,23 @@ const Burger = () => {
                     }
                 })
                 setMenuBurger(burger)
-                setLoading(false)
+                setTimeout(() => {
+                    setLoading(false)
+                }, 2000);
             })
     }, [token]);
 
-    const adicionar = (event) => {
-        event.preventDefault();
-        const parent = event.target.parentNode.parentNode;
-        const complement = parent.getAttribute("complement");
-        const flavor = parent.getAttribute('flavor');
-        const id = parent.getAttribute('id');
-        const name = parent.getAttribute('name');
-        const price = parent.getAttribute('price');
-
+    const adicionar = (item) => {
         const objeto = {
-            id: id,
-            // idItem: Math.floor((Math.random()*999)+1),
-            name: name,
-            flavor: flavor,
-            complement: complement,
-            price: price,
+            id: item.id,
+            name: item.name,
+            flavor: item.flavor,
+            complement: item.complement,
+            price: item.price,
             qtd: 1
         }
         setPedido(obj => [...obj, objeto])
     };
-
 
     return (
         <>
@@ -96,26 +87,22 @@ const Burger = () => {
                                         <div
                                             className="printScreen nameProduct"
                                             key={item.id}
-                                            id={item.id}
-                                            name={item.name}
-                                            flavor={item.flavor}
-                                            complement={item.complement}
-                                            price={item.price}
                                         >
                                             <p>{item.name}</p>
-                                            <p>Sabor {item.flavor}</p>
+                                            <p>{item.flavor}</p>
                                             <p>{item.complement}</p>
                                             <p>R$ {item.price},00 {' '}
-                                                <Button className="btnAdd" onClick={adicionar}>+</Button></p>
+                                                <Button className="btnAdd" onClick={() => adicionar(item)}>+</Button></p>
                                         </div>
                                     );
                                 })}
-                            <Command pedido={pedido} />
+                            <Command pedido={pedido} setPedido={setPedido} />
                         </div>
                     )}
             </div>
         </>
   );
+
 }
 
 export default Burger;

@@ -26,7 +26,7 @@ const Hall = () => {
 
     return (
         <>
-            <InnerHeader/>
+            <InnerHeader />
             <form className="Order">
 
             <div className="Inputs">
@@ -41,25 +41,22 @@ const Hall = () => {
                 </div>
             </form>
             <div className="orderDay">
-
                 <Link to='/burger'>
                     <img id="VQ" className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)}/> 
                     <figcaption><strong>Lanches</strong></figcaption>
                 </Link>
-
                 <Link to='/breakfast'>
                     <img className="Button" alt="botão para menu Café" src={café} type="submit" onClick={(() => <Breakfast />)}/>
                     <figcaption><strong>Café-da-Manhã</strong></figcaption>
                 </Link>
-
                 <Link to='/orderkitchen'>
                     <img className="Button" alt="botão para os pedidos prontos" src={prontos} type="submit" onClick={(() => <OrderKitchen />)}/>
                         <figcaption><strong>Está Pronto!</strong></figcaption>
                 </Link>
-
                 <Link to='/historic'>
                     <img className="Button" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)}/>
                     <figcaption><strong>Histórico</strong></figcaption>
+
                 </Link>
             </div>
 

@@ -19,10 +19,11 @@ const InnerHeader = () => {
         <>
             <img className="btnLogout" src={logout} alt='Sair' onClick={routerLogout} />
             <div className='divNavbar'>
-                    <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
+                <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
                 <form className="Order">
                     <div className="Professional">
                         <p className="TextsProf">Olá, {professional}</p>
+
                     </div>
                 </form>
             </div>

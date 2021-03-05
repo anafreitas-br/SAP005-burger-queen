@@ -3,14 +3,17 @@ import { Button } from '../components/Button/Button';
 import InnerHeader from './InnerHeader';
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
+import Modal from './Modal/Modal';
 
 
 const OrderKitchen = () => {
-    const professional = localStorage.getItem("name")
-    const token = localStorage.getItem("token")
-    const [order, setOrder] = useState('')
+    const professional = localStorage.getItem("name");
+    const token = localStorage.getItem("token");
+    const [order, setOrder] = useState('');
     const ordersList = useRef(false);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [warning, setWarning] = useState('');
 
     const handleSubmit = (itemId) => {
         fetch(`https://lab-api-bq.herokuapp.com/orders/${itemId}`, {
@@ -25,6 +28,10 @@ const OrderKitchen = () => {
             })
         })
             .then((response) => response.json())
+            .then(() => {
+                setWarning("Pedido finalizado com sucesso")
+                setIsModalVisible(true)
+            })
     }
 
     const getOrders = useCallback(async () => {
@@ -38,10 +45,12 @@ const OrderKitchen = () => {
             .then((json) => {
                 const order = json.filter(item => item.status === `pronto`)
                 setOrder(order)
-                setLoading(false)
+                setTimeout(() => {
+                    setLoading(false)
+                }, 2000);
             })
-            // eslint-disable-next-line
-    }, [ order, token])
+        // eslint-disable-next-line
+    }, [order, token])
 
     useEffect(() => {
         if (!ordersList.current) {
@@ -54,38 +63,45 @@ const OrderKitchen = () => {
 
     return (
         <>
-            <InnerHeader professional={professional}/>
-            <Link to = './hall'>
-            <Button type="submit">Home</Button>
+            <InnerHeader professional={professional} />
+            <Link to='./hall'>
+                <Button type="submit">Home</Button>
             </Link>
             <div className="kitchen">
-            {loading ?
-                (
-                    <Loading />
-                ) : (
-                <div className="ordersList">
-                    {order && order.map(function (item) {
-                        return (
-                            <div className="EachOrder" key={item.id}>
-                                <p>Status: {item.status}</p>
-                                <p>Cliente: {item.client_name} Mesa: {item.table}</p>
-                                <p>Data e hora: {item.createdAt}</p>
-                                <div>Produtos: {item.Products.map(function (product) {
-                                    return (
-                                        <div key={item.id}>
-                                            <p>{product.name} {product.flavor} {product.complement} - Quantidade: {product.qtd}</p>
+                {loading ?
+                    (
+                        <Loading />
+                    ) : (
+                        <div className="ordersList">
+                            {order && order.map(function (item) {
+                                return (
+                                    <div className="EachOrder" key={item.id}>
+                                        <p>Status: {item.status}</p>
+                                        <p>Cliente: {item.client_name} Mesa: {item.table}</p>
+                                        <p>Data e hora: {item.createdAt}</p>
+                                        <div>Produtos: {item.Products.map(function (product) {
+                                            return (
+                                                <div key={item.id}>
+                                                    <p>{product.name} {product.flavor} {product.complement} - Quantidade: {product.qtd}</p>
+                                                </div>
+                                            )
+                                        })}
                                         </div>
-                                    )
-                                })}
-                                </div>
-                                <Button onClick={() => handleSubmit(item.id)}>Pedido Entregue</Button>
+                                        <Button onClick={() => handleSubmit(item.id)}>Pedido Entregue</Button>
                                 ______________________________________________________
-                            </div>
-                        )
-                    }
+                                    </div>
+                                )
+                            }
+                            )}
+                        </div>
                     )}
-                </div>
-                )}
+            </div>
+            <div className="modalC">
+                {isModalVisible ? (
+                    <Modal onClose={() => setIsModalVisible(false)}>
+                        <h1>{warning}</h1>
+                    </Modal>
+                ) : null}
             </div>
         </>
     )

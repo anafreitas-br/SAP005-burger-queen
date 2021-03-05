@@ -28,11 +28,11 @@
 
 A temática escolhida para definição do cliente foi de restaurante vegano, cujos procedimentos internos e produtos servidos pela empresa seguem a cultura do veganismo. De acordo com a [Associação Brasileira de Veganismo](https://veganismo.org.br/), o significado deste conceito é:
 
-                      “ Veganismo é uma filosofia e estilo de vida que busca excluir, na medida do possível
-                        e praticável, todas as formas de exploração e crueldade contra animais na alimentação,
-                        vestuário e qualquer outra finalidade e, por extensão, que promova o desenvolvimento e
-                        uso de alternativas livres de origem animal para benefício de humanos, animais e meio 
-                        ambiente.”
+                  “ Veganismo é uma filosofia e estilo de vida que busca excluir, na medida do possível
+                    e praticável, todas as formas de exploração e crueldade contra animais na alimentação,
+                    vestuário e qualquer outra finalidade e, por extensão, que promova o desenvolvimento e
+                    uso de alternativas livres de origem animal para benefício de humanos, animais e meio 
+                    ambiente.”
 
 Desta forma, ambas desenvolvedoras tem afinidade com o modo de vida vegano e escolhemos este tema para nosso cliente, alnhando nossa prestação de serviços aos valores do contratante.
 
@@ -55,10 +55,10 @@ Os protótipos da página foram realizados através do MarvelApp, segue imagens 
 
 Após feito os protótipos, realizamos testes com potenciais usuários e recebemos os seguintes feedbacks e as respectivas resoluções que realizamos:
 
-:heavy_exclamation_mark: Barra de rolagem não acessível pelo desktop
+:heavy_exclamation_mark: Barra de rolagem não acessível pelo desktop </br>
 :heavy_check_mark: Definir produto será usado somente via tablet onde a rolagem será via touch
 
-:heavy_exclamation_mark: Botoẽs de navegação do salão muito pequenos e amontuados
+:heavy_exclamation_mark: Botoẽs de navegação do salão muito pequenos e amontuados </br>
 :heavy_check_mark: Definir usabilidade do produto em modo horizontal
 
 ## Usuários
@@ -144,9 +144,9 @@ Para desenvolvimento deste projeto foi utilizado HTML5, CSS3, Vanilla JavaScript
 
 Para as próximas refatorações iremos implementar:
 
-:pushpin:Funcionalidade de deletar item na comanda
-:pushpin:Funcionalidade de aumentar quantidade de itens específicos na comanda
-:pushpin:Contagem de tempo do preparo de cada pedido
+:pushpin:Funcionalidade de deletar item na comanda </br>
+:pushpin:Funcionalidade de aumentar quantidade de itens específicos na comanda </br>
+:pushpin:Contagem de tempo do preparo de cada pedido </br>
 
 ## Devas
 

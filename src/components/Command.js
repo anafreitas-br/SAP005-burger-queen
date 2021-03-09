@@ -10,18 +10,14 @@ const Command = ({ pedido, setPedido }) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [warning, setWarning] = useState('');
 
-    const sumOrder = () => {
+    useEffect(() => {
         let somar = 0;
         pedido.forEach(item => {
             let add = Number(item.price) * Number(item.qtd)
             somar += add;
         })
         setSum(somar)
-    }
-
-    useEffect(() => {
-        sumOrder();
-    }, [sumOrder])
+    }, [pedido])
 
     const handleSubmit = (event) => {
         event.preventDefault();

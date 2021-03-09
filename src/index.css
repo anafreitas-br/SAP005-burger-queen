@@ -23,7 +23,7 @@ body {
 
 .Field::placeholder,
 .FieldOrder::placeholder {
-    font-size: 1.3rem;
+	font-size: 1.3rem;
 }
 
 .Field:focus {
@@ -32,7 +32,7 @@ body {
 }
 
 .FieldClient {
-    width: 50%;
+	width: 50%;
 }
 
 .Error {
@@ -138,13 +138,13 @@ figcaption {
 	text-align: center;
 	font-weight: bold;
 	margin-left: 2rem;
-    align-items: center;
+	align-items: center;
 }
 
 .client {
-    margin-top: 1.5rem;
+	margin-top: 1.5rem;
 	padding: 1.2rem;
-    text-align: left;
+	text-align: left;
 }
 
 .ClientsTable {
@@ -216,8 +216,8 @@ figcaption {
 	margin-top: -3rem;
 	display: flex;
 	margin-left: 10rem;
-    margin-right: 10rem;
-    align-items: center;
+	margin-right: 10rem;
+	align-items: center;
 }
 
 .printScreennameProduct,
@@ -225,7 +225,7 @@ figcaption {
 	border: solid #fff;
 	border-radius: 10px;
 	margin-top: 2rem;
-    padding: 0.5rem;
+	padding: 0.5rem;
 	align-items: center;
 }
 
@@ -293,12 +293,10 @@ figcaption {
 	left: 0;
 	z-index: 10;
 	background-color: rgba(0, 0, 0, 0.8);
-	display: flex; 
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow:auto;
-	
-
+	overflow: auto;
 }
 
 .container {
@@ -308,7 +306,7 @@ figcaption {
 	height: 55%;
 	align-items: center;
 	border-radius: 20px;
-	overflow:auto;
+	overflow: auto;
 }
 .content {
 	margin-top: 10rem;

@@ -12,21 +12,21 @@ import OrderKitchen from '../components/OrderKitchen'
 import PrivateRoute from './PrivateRoute'
 
 const Routes = () => (
-    <>
-        <BrowserRouter>
-            <Switch>
-                <Route component={Login} exact path='/' />
-                <Route component={Register} exact path='/register' />
-                <PrivateRoute component={Hall} exact path='/hall' />
-                <PrivateRoute component={Kitchen} exact path='/kitchen' />
-                <PrivateRoute component={Breakfast} exact path='/breakfast' />
-                <PrivateRoute component={Burger} exact path='/burger' />
-                <PrivateRoute component={Historic} exact path='/historic' />
-                <PrivateRoute component={OrderKitchen} exact path='/orderkitchen' />
-                <Route component={NotFound} />
-            </Switch>
-        </BrowserRouter>
-    </>
+  <>
+    <BrowserRouter>
+      <Switch>
+        <Route component={Login} exact path='/' />
+        <Route component={Register} exact path='/register' />
+        <PrivateRoute component={Hall} exact path='/hall' />
+        <PrivateRoute component={Kitchen} exact path='/kitchen' />
+        <PrivateRoute component={Breakfast} exact path='/breakfast' />
+        <PrivateRoute component={Burger} exact path='/burger' />
+        <PrivateRoute component={Historic} exact path='/historic' />
+        <PrivateRoute component={OrderKitchen} exact path='/orderkitchen' />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  </>
 )
 
 export default Routes

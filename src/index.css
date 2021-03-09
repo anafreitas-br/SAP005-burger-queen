@@ -7,7 +7,8 @@ body {
 	justify-items: center;
 }
 
-.Field {
+.Field,
+.FieldOrder {
 	border: none;
 	background: rgba(0, 0, 0, .25);
 	color: #000000;
@@ -20,9 +21,18 @@ body {
 	cursor: pointer;
 }
 
+.Field::placeholder,
+.FieldOrder::placeholder {
+    font-size: 1.3rem;
+}
+
 .Field:focus {
 	box-shadow: 0.4px 4px rgba(0, 0, 0, .4);
 	outline: none;
+}
+
+.FieldClient {
+    width: 50%;
 }
 
 .Error {
@@ -44,13 +54,13 @@ body {
 .divNavbar {
 	display: flex;
 	margin: 3rem;
-	margin-top: 1rem;
+	margin-top: 0.1rem;
 }
 
 .Button,
 .ButtonHistoric {
 	padding: .5rem;
-	width: 60%;
+	width: 65%;
 	border: 1vw solid #fff;
 	border-radius: 10px;
 	margin-top: 1rem;
@@ -113,21 +123,28 @@ figcaption {
 	margin-left: 1.4rem;
 }
 
-.Texts,
 .TextsRegister,
-.Group {
-	font-size: 1.3rem;
+.Group,
+.eachDetail {
+	font-size: 1.2rem;
 	font-family: 'Roboto Slab', serif;
 	align-items: center;
 	font-weight: bold;
 }
+
 .Texts {
-	font-size: 1.1rem;
-	display: flex;
+	font-size: 1.3rem;
 	font-family: 'Roboto Slab', serif;
 	text-align: center;
 	font-weight: bold;
 	margin-left: 2rem;
+    align-items: center;
+}
+
+.client {
+    margin-top: 1.5rem;
+	padding: 1.2rem;
+    text-align: left;
 }
 
 .ClientsTable {
@@ -149,7 +166,7 @@ figcaption {
 }
 
 .Inputs {
-	margin-top: .1rem;
+	margin-top: 0.1rem;
 }
 
 .Title {
@@ -163,7 +180,7 @@ figcaption {
 .btnLogout {
 	width: 7%;
 	height: 9%;
-	margin-top: 3rem;
+
 	border: none;
 	background: #dbd7d2;
 	cursor: pointer;
@@ -196,25 +213,19 @@ figcaption {
 
 .Order {
 	text-align: center;
-	margin-top: -2rem;
+	margin-top: -3rem;
 	display: flex;
 	margin-left: 10rem;
 }
 
 
-.printScreennameProduct {
+.printScreennameProduct,
+.commandScreen {
 	border: solid #fff;
-	
-	margin-left: 12rem;
-	margin-right: 12rem;
-	padding: 1.5rem;
 	border-radius: 10px;
-	margin-top: 2.5rem;
+	margin-top: 2rem;
+    padding: 0.5rem;
 	align-items: center;
-
-
-	
-
 }
 
 .orderList {
@@ -253,25 +264,24 @@ figcaption {
 	font-family: 'Roboto Slab', serif;
 	align-items: center;
 	font-weight: bold;
-	margin-left: 20rem;
-	margin-right: 20rem;
+	margin-left: 18rem;
+	margin-right: 18rem;
 	margin-top: 2rem;
 	border-width: medium;
 	border-radius: 15px;
-	padding: 2rem;
+	padding: 1rem;
 }
 
 .Command {
 	background-color: #96cf4a;
 	font-family: 'Roboto Slab', serif;
 	font-size: 1.2rem;
-	margin-left: 18rem;
-	margin-right: 18rem;
+	margin-left: 16rem;
+	margin-right: 16rem;
 	border-radius: 15px;
 	margin-top: 2rem;
 	padding: 2rem;
 	display: grid;
-
 }
 
 .modal {

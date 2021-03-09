@@ -23,8 +23,9 @@ const Breakfast = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                const breakfast = json.filter(item => item.type === 'breakfast')
-                breakfast.forEach(item => {
+                const breakfast = json
+                .filter(item => item.type === 'breakfast')
+                .map(item => {
                     if (item.name === "Café com leite") {
                         item.name = "Café com leite vegetal"
                     } else if (item.name === "Misto quente") {
@@ -32,6 +33,7 @@ const Breakfast = () => {
                     } else if (item.name === "Café americano") {
                         item.name = "Café puro"
                     }
+                    return item
                 })
                 setMenu(breakfast)
                 setTimeout(() => {
@@ -41,13 +43,27 @@ const Breakfast = () => {
     }, [token])
 
     const adicionar = (item) => {
-        const objeto = {
+        const jaTemItem = pedido.find((itemPedido) => itemPedido.id === item.id);
+        if (jaTemItem) {
+          const newValue = pedido.map((itemPedido) => {
+            if (itemPedido.id === item.id) {
+              return {
+                ...itemPedido,
+                qtd: itemPedido.qtd + 1
+              }
+            }
+            return itemPedido
+          })
+          setPedido(newValue)
+        } else {
+          const objeto = {
             id: item.id,
             name: item.name,
             price: item.price,
             qtd: 1
         }
         setPedido(obj => [...obj, objeto])
+      }
     };
 
     return (
@@ -56,23 +72,22 @@ const Breakfast = () => {
             <Link to="/hall">
             <img className="btnHome" alt="botão para salão" src={home} type="submit" onClick={(() => "/hall")}/>
             </Link>
-            <div className="Breakfast">
+            <div>
                 {loading ?
                     (
                         <Loading />
                     ) : (
-                        <div className="MenuBreakfast">
+                        <div>
                             {menu &&
                                 menu.map(function (item) {
                                     return (
                                         <div
-                                            className="printScreen nameProduct"
+                                            className="printScreen"
                                             key={item.id}
                                         >
                                             <p>{item.name}</p>
-                                            <p>R$ {item.price},00 {' '} </p> 
-                                                <Button type="submit" onClick={() => adicionar(item)}>+</Button>
-                                          
+                                            <p>R$ {item.price},00 {' '}
+                                                <Button type="submit" onClick={() => adicionar(item)}>+</Button></p> 
                                         </div>
                                     );
                                 })}

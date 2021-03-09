@@ -76,11 +76,10 @@ const OrderKitchen = () => {
                         <div className="ordersList">
                             {order && order.map(function (item) {
                                 return (
-                                    <div className="EachOrder" key={item.id}>
-                                        <p>Status: {item.status}</p>
-                                        <p>Cliente: {item.client_name} Mesa: {item.table}</p>
+                                    <div className="EachOrder eachDetail" key={item.id}>
+                                        <p>Status: {item.status} | Cliente: {item.client_name} | Mesa: {item.table}</p>
                                         <p>Data e hora: {item.createdAt}</p>
-                                        <div>Produtos: {item.Products.map(function (product) {
+                                        <div className="printScreennameProduct">Produtos: {item.Products.map(function (product) {
                                             return (
                                                 <div key={item.id}>
                                                     <p>{product.name} {product.flavor} {product.complement} - Quantidade: {product.qtd}</p>

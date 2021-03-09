@@ -23,33 +23,35 @@ const Burger = () => {
         })
             .then((response) => response.json())
             .then((json) => {
-                const burger = json.filter(item => item.type === 'all-day')
-                burger.forEach(item => {
+                const burger = json
+                .filter(item => item.type === 'all-day')
+                .map(item => {
                     if (item.flavor === "carne" & item.complement === "queijo") {
-                        item.flavor = "beterraba e grão de bico"
+                        item.flavor = "sabor beterraba e feijão"
                         item.complement = "Com queijo de castanhas"
                     } else if (item.flavor === "carne" & item.complement === "ovo") {
-                        item.flavor = "beterraba e grão de bico"
+                        item.flavor = "sabor beterraba e feijão"
                         item.complement = "Com ovo vegetal"
                     } else if (item.flavor === "carne") {
-                        item.flavor = "beterraba e grão de bico"
+                        item.flavor = "sabor beterraba e feijão"
                     } else if (item.flavor === "frango" & item.complement === "queijo") {
-                        item.flavor = "shimeji e paris"
+                        item.flavor = "sabor shimeji e paris"
                         item.complement = "Com queijo de castanhas"
                     } else if (item.flavor === "frango" & item.complement === "ovo") {
-                        item.flavor = "shimeji e paris"
-                        item.complement = "Com ovo vegetal"
+                        item.flavor = "sabor shimeji e paris"
+                       item.complement = "Com ovo vegetal"
                     } else if (item.flavor === "frango") {
-                        item.flavor = "shimeji e paris"
+                        item.flavor = "sabor shimeji e paris"
                     } else if (item.flavor === "vegetariano" & item.complement === "queijo") {
-                        item.flavor = "falafel"
+                        item.flavor = "sabor falafel"
                         item.complement = "Com queijo de castanhas"
                     } else if (item.flavor === "vegetariano" & item.complement === "ovo") {
-                        item.flavor = "falafel"
+                        item.flavor = "sabor falafel"
                         item.complement = "Com ovo vegetal"
                     } else if (item.flavor === "vegetariano") {
-                        item.flavor = "falafel"
+                        item.flavor = "sabor falafel"
                     }
+                    return item
                 })
                 setMenuBurger(burger)
                 setTimeout(() => {
@@ -59,7 +61,20 @@ const Burger = () => {
     }, [token]);
 
     const adicionar = (item) => {
-        const objeto = {
+        const jaTemItem = pedido.find((itemPedido) => itemPedido.id === item.id);
+        if (jaTemItem) {
+          const newValue = pedido.map((itemPedido) => {
+            if (itemPedido.id === item.id) {
+              return {
+                ...itemPedido,
+                qtd: itemPedido.qtd + 1
+              }
+            }
+            return itemPedido
+          })
+          setPedido(newValue)
+        } else {
+          const objeto = {
             id: item.id,
             name: item.name,
             flavor: item.flavor,
@@ -68,32 +83,32 @@ const Burger = () => {
             qtd: 1
         }
         setPedido(obj => [...obj, objeto])
+      }
     };
 
     return (
         <>
             <InnerHeader />
             <Link to="/hall">
-            <img className="btnHome" alt="botão para salão" src={home} type="submit" onClick={(() => "/hall")}/>
+                <img className="btnHome" alt="botão para salão" src={home} type="submit" onClick={(() => "/hall")} />
             </Link>
-            <div className="Burger">
+            <div>
                 {loading ?
                     (
                         <Loading />
                     ) : (
-                        <div className="MenuBurger">
+                        <div>
                             {menuBurger &&
                                 menuBurger.map(function (item) {
                                     return (
                                         <div
-                                            className="printScreen nameProduct"
+                                            className="printScreen"
                                             key={item.id}
                                         >
-                                            <p>{item.name}</p>
-                                            <p>{item.flavor}</p>
+                                            <p>{item.name} {item.flavor}</p>
                                             <p>{item.complement}</p>
-                                            <p>R$ {item.price},00 {' '}</p>
-                                                <Button className="btnAdd" onClick={() => adicionar(item)}>+</Button>
+                                            <p>R$ {item.price},00 {' '}
+                                                <Button type="submit" onClick={() => adicionar(item)}>+</Button></p>
                                         </div>
                                     );
                                 })}
@@ -102,7 +117,7 @@ const Burger = () => {
                     )}
             </div>
         </>
-  );
+    );
 
 }
 

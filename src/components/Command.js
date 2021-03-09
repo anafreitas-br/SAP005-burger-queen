@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from './Modal/Modal';
 import { Button } from '../components/Button/Button';
 
@@ -13,11 +13,15 @@ const Command = ({ pedido, setPedido }) => {
     const sumOrder = () => {
         let somar = 0;
         pedido.forEach(item => {
-            let add = Number(item.price)
+            let add = Number(item.price) * Number(item.qtd)
             somar += add;
         })
         setSum(somar)
     }
+
+    useEffect(() => {
+        sumOrder();
+    }, [sumOrder])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -61,19 +65,18 @@ const Command = ({ pedido, setPedido }) => {
                 <div className="CommandDetails">
                     {pedido && pedido.map(function (item) {
                         return (
-                            <div className="commandScreen" key={item.id}>
-                                <p className="eachDetail">{item.name}</p>
-                                <p className="eachDetail">{item.flavor}</p>
-                                <p className="eachDetail">{item.complement}</p>
-                                <p className="eachDetail">R$ {item.price},00</p>
+                            <div className="commandScreen eachDetail" key={item.id}>
+                                <p>{item.name} {item.flavor}</p>
+                                <p>{item.complement}</p>
+                                <p>Qtd: {item.qtd} R$ {item.price},00</p>
                             </div>
                         );
                     })}
-                    <p className="sumTotal">Total: {sum}</p>
+                    <p>___________________________________</p>
+                    <p className="eachDetail">Total: {sum}</p>
                     <br></br>
                     <br></br>
                 </div>
-                <Button type="submit" onClick={sumOrder}>Somar</Button>
                 <Button type="submit" onClick={handleSubmit}>Finalizar pedido</Button>
             </div>
             <div className="modalC">

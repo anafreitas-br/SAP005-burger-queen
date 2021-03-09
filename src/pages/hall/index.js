@@ -9,7 +9,7 @@ import lanches from '../../img/lanches.png'
 import historico from '../../img/historico.png'
 import prontos from '../../img/prontos.png'
 import café from '../../img/café.png'
-import './Hall.css'
+
 
 const Hall = () => {
 

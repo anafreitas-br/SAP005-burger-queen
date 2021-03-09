@@ -216,8 +216,9 @@ figcaption {
 	margin-top: -3rem;
 	display: flex;
 	margin-left: 10rem;
+    margin-right: 10rem;
+    align-items: center;
 }
-
 
 .printScreennameProduct,
 .commandScreen {

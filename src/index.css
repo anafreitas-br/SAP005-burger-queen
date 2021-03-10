@@ -5,6 +5,7 @@ body {
 	background: #dbd7d2;
 	color: #000000;
 	justify-items: center;
+	overflow-x: hidden;
 }
 
 .Field,

@@ -144,9 +144,9 @@ Para desenvolvimento deste projeto foi utilizado HTML5, CSS3, Vanilla JavaScript
 
 Para as próximas refatorações iremos implementar:
 
-:pushpin:Funcionalidade de deletar item na comanda </br>
-:pushpin:Funcionalidade de aumentar quantidade de itens específicos na comanda </br>
+:pushpin:Armazenar valor total de cada pedido no histórico </br>
 :pushpin:Contagem de tempo do preparo de cada pedido </br>
+:pushpin:Refatorar layout do cardápio e comanda</br>
 
 ## Devas
 

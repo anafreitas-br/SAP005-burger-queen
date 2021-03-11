@@ -29,7 +29,7 @@ const InnerHeader = () => {
       <div className="modalC">
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>
-            <h1>Tem certeza que deseja fazer logout ?</h1>
+            <h1>Tem certeza que deseja sair ?</h1>
             <Button onClick={routerLogout}>Tenho certeza</Button>
           </Modal>
         ) : null}

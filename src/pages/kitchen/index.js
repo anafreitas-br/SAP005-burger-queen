@@ -8,6 +8,7 @@ import historico from '../../img/historico.png'
 import Modal from '../../components/Modal'
 import Footer from '../../components/Footer'
 
+
 const Kitchen = () => {
   const token = localStorage.getItem("token");
   const [order, setOrder] = useState('');

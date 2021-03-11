@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import InnerHeader from '../../components/InnerHeader'
-import lanches from '../../img/lanches.png'
-import prontos from '../../img/prontos.png'
-import café from '../../img/café.png'
-import Footer from '../../components/Footer'
+import InnerHeader from '../../components/InnerHeader';
+import lanches from '../../img/lanches.png';
+import prontos from '../../img/prontos.png';
+import café from '../../img/café.png';
+import Footer from '../../components/Footer';
 
 const Hall = () => {
-
   const [client, setClient] = useState('');
   const [table, setTable] = useState('');
 

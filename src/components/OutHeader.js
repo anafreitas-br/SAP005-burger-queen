@@ -1,8 +1,7 @@
-import React from 'react'
-import LogoVector from '../img/LogoVector.png'
+import React from 'react';
+import LogoVector from '../img/LogoVector.png';
 
 const OutHeader = ({ message }) => {
-
   return (
     <>
       <img className="Logo" alt="logotipo Vegan Queen" src={LogoVector} />

@@ -90,7 +90,7 @@ const Burger = () => {
     <>
       <InnerHeader />
       <Link to="/hall">
-        <img className="btnHome" alt="botão para salão" src={home} type="submit" onClick={(() => "/hall")} />
+        <img className="btnHome" alt="botão para salão" src={home} type="submit" onClick={(() => "/hall")}/>
       </Link>
       <div>
         {loading ?

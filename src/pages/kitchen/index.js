@@ -6,6 +6,7 @@ import Loading from '../../components/Loading';
 import { Button } from '../../components/Button/Button';
 import historico from '../../img/historico.png'
 import Modal from '../../components/Modal/Modal'
+import Footer from '../../components/Footer'
 
 const Kitchen = () => {
   const token = localStorage.getItem("token");
@@ -102,6 +103,7 @@ const Kitchen = () => {
           </Modal>
         ) : null}
       </div>
+      <Footer/>
     </>
   )
 }

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 import LogoVector from '../img/LogoVector.png'
 import logout from '../img/logout.png'
+import Modal from './Modal/Modal'
 
 const InnerHeader = () => {
   const history = useHistory();
   const professional = localStorage.getItem("name");
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const routerLogout = () => {
     const logoutConfirm = window.confirm('Deseja fazer logout ?');
@@ -17,7 +19,14 @@ const InnerHeader = () => {
 
   return (
     <>
-      <img className="btnLogout" src={logout} alt='Sair' onClick={routerLogout} />
+      <img className="btnLogout" src={logout} alt='Sair'  onClick={routerLogout} />
+      <div className="modalC">
+        {isModalVisible ? (
+          <Modal onClose={() => setIsModalVisible(false)}>
+            <h1>{routerLogout}</h1>
+          </Modal>
+        ) : null}
+      </div>
       <div className='divNavbar'>
         <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
         <form className="Order">
@@ -27,6 +36,7 @@ const InnerHeader = () => {
           </div>
         </form>
       </div>
+      
     </>
   )
 }

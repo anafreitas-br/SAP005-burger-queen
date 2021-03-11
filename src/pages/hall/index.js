@@ -9,7 +9,7 @@ import lanches from '../../img/lanches.png'
 import historico from '../../img/historico.png'
 import prontos from '../../img/prontos.png'
 import café from '../../img/café.png'
-
+import Footer from '../../components/Footer'
 
 const Hall = () => {
 
@@ -54,7 +54,9 @@ const Hall = () => {
           <figcaption><strong>Histórico</strong></figcaption>
         </Link>
       </div>
-
+      <br></br>
+      <br></br>
+      <Footer/>
     </>
   )
 }

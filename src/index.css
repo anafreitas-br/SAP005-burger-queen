@@ -6,6 +6,8 @@ body {
 	color: #000000;
 	justify-items: center;
 	overflow-x: hidden;
+
+
 }
 
 .Field,
@@ -56,6 +58,11 @@ body {
 	display: flex;
 	margin: 3rem;
 	margin-top: 0.1rem;
+}
+
+.footerP {
+	margin:  0;
+	padding: 0;
 }
 
 .Button,

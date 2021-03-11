@@ -49,6 +49,12 @@ const Historic = () => {
                 item.complement = "Com ovo vegetal"
               } else if (item.flavor === "vegetariano") {
                 item.flavor = "sabor falafel"
+              } else if (item.name === "Café com leite") {
+                item.name = "Café com leite vegetal"
+              } else if (item.name === "Misto quente") {
+                item.name = "Sanduiche natural"
+              } else if (item.name === "Café americano") {
+                item.name = "Café puro"
               }
               return item
             })

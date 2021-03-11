@@ -38,7 +38,7 @@ const Hall = () => {
       </form>
       <div className="orderDay">
         <Link to='/burger'>
-          <img id="VQ" className="Button" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)} />
+          <img className="Button VQ" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)} />
           <figcaption className="legend"><strong>Lanches</strong></figcaption>
         </Link>
         <Link to='/breakfast'>

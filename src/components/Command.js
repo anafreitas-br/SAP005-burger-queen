@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useHistory } from "react-router-dom";
-import Modal from './Modal/Modal';
+import Modal from './Modal';
 import { Button } from '../components/Button/Button';
 
-const Command = ({ pedido }) => {
+const Command = ({ pedido, setPedido }) => {
   const history = useHistory();
   const token = localStorage.getItem("token")
   const [sum, setSum] = useState(0);
@@ -64,6 +64,18 @@ const Command = ({ pedido }) => {
       })
   }
 
+  const subtraction = (item) => {
+    if (item.qtd > 1) {
+      const newValue = item.qtd--;
+      setPedido(obj => [...obj, newValue]);
+    } else if (item.qtd === 1) {
+      const index = pedido.indexOf(item)
+      const newValue = pedido.splice(index, 1)
+      setPedido(newValue);
+    }
+    setPedido([...pedido]);
+  }
+
   const close = (e) => {
     e.preventDefault();
     setIsModalVisible(false);
@@ -80,14 +92,12 @@ const Command = ({ pedido }) => {
               <div className="commandScreen eachDetail" key={item.id}>
                 <p>{item.name} {item.flavor}</p>
                 <p>{item.complement}</p>
-                <p>Qtd: {item.qtd} R$ {item.price},00</p>
+                <p>Qtd: {item.qtd} R$ {item.price},00 {' '}
+                <Button onClick={() => subtraction(item)}>-</Button></p>
               </div>
             );
           })}
-          <p>___________________________________</p>
           <p className="eachDetail">Total: {sum}</p>
-          <br></br>
-          <br></br>
         </div>
         <Button type="submit" onClick={handleSubmit}>Finalizar pedido</Button>
       </div>

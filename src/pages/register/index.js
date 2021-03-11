@@ -5,6 +5,7 @@ import { Button } from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal.js'
 import Footer from '../../components/Footer'
 
+
 const Register = () => {
 
   const history = useHistory();
@@ -71,7 +72,7 @@ const Register = () => {
             </form>
           </div>
           <Button type="submit" onClick={handleSubmit}>Cadastrar</Button>
-          <p className="TextsRegister"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
+          <p className="TextsRegister Ask"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
         </div>
       </form>
       <div className="modalC">

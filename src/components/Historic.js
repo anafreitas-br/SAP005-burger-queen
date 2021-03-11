@@ -21,7 +21,45 @@ const Historic = () => {
     })
       .then((response) => response.json())
       .then((json) => {
-        const order = json.filter(item => item.status === `Entregue`)
+        const order = json
+          .filter(item => item.status === `Entregue`)
+          .map(item => {
+            item.Products.map(item => {
+              if (item.flavor === "carne" & item.complement === "queijo") {
+                item.flavor = "sabor beterraba e feijão"
+                item.complement = "Com queijo de castanhas"
+              } else if (item.flavor === "carne" & item.complement === "ovo") {
+                item.flavor = "sabor beterraba e feijão"
+                item.complement = "Com ovo vegetal"
+              } else if (item.flavor === "carne") {
+                item.flavor = "sabor beterraba e feijão"
+              } else if (item.flavor === "frango" & item.complement === "queijo") {
+                item.flavor = "sabor shimeji e paris"
+                item.complement = "Com queijo de castanhas"
+              } else if (item.flavor === "frango" & item.complement === "ovo") {
+                item.flavor = "sabor shimeji e paris"
+                item.complement = "Com ovo vegetal"
+              } else if (item.flavor === "frango") {
+                item.flavor = "sabor shimeji e paris"
+              } else if (item.flavor === "vegetariano" & item.complement === "queijo") {
+                item.flavor = "sabor falafel"
+                item.complement = "Com queijo de castanhas"
+              } else if (item.flavor === "vegetariano" & item.complement === "ovo") {
+                item.flavor = "sabor falafel"
+                item.complement = "Com ovo vegetal"
+              } else if (item.flavor === "vegetariano") {
+                item.flavor = "sabor falafel"
+              } else if (item.name === "Café com leite") {
+                item.name = "Café com leite vegetal"
+              } else if (item.name === "Misto quente") {
+                item.name = "Sanduiche natural"
+              } else if (item.name === "Café americano") {
+                item.name = "Café puro"
+              }
+              return item
+            })
+            return item
+          })
         setOrder(order)
         setTimeout(() => {
           setLoading(false)

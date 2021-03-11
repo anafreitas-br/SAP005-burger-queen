@@ -17,7 +17,6 @@ const InnerHeader = () => {
 
   return (
     <>
-
       <img className="btnLogout" src={logout} alt='Sair' onClick={() => setIsModalVisible(true)} />
       <div className='divNavbar'>
         <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
@@ -27,7 +26,6 @@ const InnerHeader = () => {
           </div>
         </form>
       </div>
-
       <div className="modalC">
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>

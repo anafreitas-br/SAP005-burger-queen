@@ -17,6 +17,7 @@ const InnerHeader = () => {
 
   return (
     <>
+
       <img className="btnLogout" src={logout} alt='Sair' onClick={() => setIsModalVisible(true)} />
       <div className='divNavbar'>
         <img className="LogoOrder" alt="logotipo Vegan Queen" src={LogoVector} />
@@ -26,10 +27,11 @@ const InnerHeader = () => {
           </div>
         </form>
       </div>
+
       <div className="modalC">
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>
-            <h1>Tem certeza que deseja fazer logout ?</h1>
+            <h1>Tem certeza que deseja sair ?</h1>
             <Button onClick={routerLogout}>Tenho certeza</Button>
           </Modal>
         ) : null}

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import OutHeader from '../../components/OutHeader';
 import { Button } from '../../components/Button/Button';
-import Modal from '../../components/Modal'
+import Modal from '../../components/Modal/Modal.js'
+import Footer from '../../components/Footer'
 
 const Login = () => {
 
@@ -64,6 +65,9 @@ const Login = () => {
           </Modal>
         ) : null}
       </div>
+      <br></br>
+      <br></br>
+      <Footer/>
     </>
   )
 }

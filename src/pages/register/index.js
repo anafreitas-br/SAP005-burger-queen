@@ -5,6 +5,7 @@ import { Button } from '../../components/Button/Button';
 import Footer from '../../components/Footer'
 import Modal from '../../components/Modal'
 
+
 const Register = () => {
 
   const history = useHistory();

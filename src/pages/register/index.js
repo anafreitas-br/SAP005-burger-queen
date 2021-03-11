@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import OutHeader from '../../components/OutHeader';
 import { Button } from '../../components/Button/Button';
-<<<<<<< HEAD
-import Modal from '../../components/Modal/Modal.js'
 import Footer from '../../components/Footer'
-=======
 import Modal from '../../components/Modal'
->>>>>>> 6d768369b9f21c2d50ce8a68f98431bd1e3e241f
 
 const Register = () => {
 

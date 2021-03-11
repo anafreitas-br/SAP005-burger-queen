@@ -1,331 +1,324 @@
 body {
-	margin: 2rem;
-	margin-right: 100rem;
-	font-family: Arial, Helvetica, sans-serif;
-	background: #dbd7d2;
-	color: #000000;
-	justify-items: center;
-<<<<<<< HEAD
-	overflow-x: hidden;
-
-
-=======
+  margin: 2rem;
+  margin-right: 100rem;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #dbd7d2;
+  color: #000000;
+  justify-items: center;
   overflow-x: hidden;
->>>>>>> 6d768369b9f21c2d50ce8a68f98431bd1e3e241f
 }
 
 .Field,
 .FieldOrder {
-	border: none;
-	background: rgba(0, 0, 0, .25);
-	color: #000000;
-	margin: 0.5rem;
-	padding: 1rem;
-	border-radius: 7px;
-	font-size: 1rem;
-	width: 40%;
-	transition: all .1.5s linear;
-	cursor: pointer;
+  border: none;
+  background: rgba(0, 0, 0, .25);
+  color: #000000;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  width: 40%;
+  transition: all .1.5s linear;
+  cursor: pointer;
 }
 
 .Field::placeholder,
 .FieldOrder::placeholder {
-	font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .Field:focus {
-	box-shadow: 0.4px 4px rgba(0, 0, 0, .4);
-	outline: none;
+  box-shadow: 0.4px 4px rgba(0, 0, 0, .4);
+  outline: none;
 }
 
 .FieldClient {
-	width: 50%;
+  width: 50%;
 }
 
 .Error {
-	color: #ff8080;
+  color: #ff8080;
 }
 
 .Logo {
-	width: 28%;
-	margin-top: 2rem;
+  width: 28%;
+  margin-top: 2rem;
 }
 
 .LogoOrder {
-	width: 25%;
-	margin-top: -6rem;
-	margin-right: 2rem;
-	text-align: left;
+  width: 25%;
+  margin-top: -6rem;
+  margin-right: 2rem;
+  text-align: left;
 }
 
 .divNavbar {
-	display: flex;
-	margin: 3rem;
-	margin-top: 0.1rem;
+  display: flex;
+  margin: 3rem;
+  margin-top: 0.1rem;
 }
 
 .footerP {
-	margin:  0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .Button,
 .ButtonHistoric {
-	padding: .5rem;
-	width: 65%;
-	border: 1vw solid #fff;
-	border-radius: 10px;
-	margin-top: 1rem;
-	border-radius: 7px;
-	font-family: 'Roboto Slab', serif;
-	font-size: 1rem;
-	cursor: pointer;
-	color: white;
-	margin: 0 auto;
-	grid-gap: 10px;
+  padding: .5rem;
+  width: 65%;
+  border: 1vw solid #fff;
+  border-radius: 10px;
+  margin-top: 1rem;
+  border-radius: 7px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  margin: 0 auto;
+  grid-gap: 10px;
 }
 
 .Button:hover {
-	background: #f4ca16;
+  background: #f4ca16;
 }
 
 .ButtonHistoric {
-	width: 10%;
-	margin-left: 2%;
+  width: 10%;
+  margin-left: 2%;
 }
 
 .ButtonHistoric:hover {
-	background: #f4ca16;
+  background: #f4ca16;
 }
 
 .VQ {
-	width: 16vw;
-	margin-right: 30px;
-	margin-left: 30px;
+  width: 16vw;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .orderDay {
-	display: flex;
-	margin-top: 3rem;
-	grid-gap: 8px;
+  display: flex;
+  margin-top: 3rem;
+  grid-gap: 8px;
 }
 
 figcaption {
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: center;
-	margin-left: 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 30px;
 }
 
 .Btn-Register {
-	margin: 1rem;
+  margin: 1rem;
 }
 
 .Button-back {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .Title {
-	font-family: 'Crete Round', serif;
-	margin: 0;
+  font-family: 'Crete Round', serif;
+  margin: 0;
 }
 
 .Option {
-	cursor: pointer;
-	margin-left: 1.4rem;
+  cursor: pointer;
+  margin-left: 1.4rem;
 }
 
 .TextsRegister,
 .Group,
 .eachDetail {
-	font-size: 1.2rem;
-	font-family: 'Roboto Slab', serif;
-	align-items: center;
-	font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Roboto Slab', serif;
+  align-items: center;
+  font-weight: bold;
 }
 .Ask {
   padding-bottom: 3.5rem;
 }
 
 .Texts {
-	font-size: 1.3rem;
-	font-family: 'Roboto Slab', serif;
-	text-align: center;
-	font-weight: bold;
-	margin-left: 2rem;
-	align-items: center;
+  font-size: 1.3rem;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 2rem;
+  align-items: center;
 }
 
 .client {
-	margin-top: 1.5rem;
-	padding: 1.2rem;
-	text-align: left;
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  text-align: left;
 }
 
 .ClientsTable {
-	margin-left: 2rem;
-	font-size: 1.1rem;
-	font-family: 'Roboto Slab', serif;
-	text-align: center;
-	font-weight: bold;
+  margin-left: 2rem;
+  font-size: 1.1rem;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  font-weight: bold;
 }
 
 .TextsProf {
-	margin-left: 1rem;
-	font-size: 1.3rem;
-	display: flex;
-	font-family: 'Roboto Slab', serif;
-	text-align: center;
-	font-weight: bold;
-	align-items: center;
+  margin-left: 1rem;
+  font-size: 1.3rem;
+  display: flex;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
 }
 
 .Inputs {
-	margin-top: 0.1rem;
+  margin-top: 0.1rem;
 }
 
 .Title {
-	text-align: center;
+  text-align: center;
 }
 
 .btnAdd {
-	text-align: center;
+  text-align: center;
 }
 
 .btnLogout {
-	width: 7%;
-	height: 9%;
+  width: 7%;
+  height: 9%;
 
-	border: none;
-	background: #dbd7d2;
-	cursor: pointer;
-	margin-left: 85%;
+  border: none;
+  background: #dbd7d2;
+  cursor: pointer;
+  margin-left: 85%;
 }
 
 .btnLogout:hover {
-	background: #f4ca16;
-	border-radius: 0.8rem;
+  background: #f4ca16;
+  border-radius: 0.8rem;
 }
 
 .btnHome {
-	width: 7%;
-	height: 9%;
-	margin-top: 2%;
-	margin-left: 30px;
-	background: #dbd7d2;
-	cursor: pointer;
-	margin-left: 85%;
-	border: solid #000;
-	border-radius: 20px;
-	align-items: center;
-	margin-top: -5rem;
-	margin-bottom: auto;
+  width: 7%;
+  height: 9%;
+  margin-top: 2%;
+  margin-left: 30px;
+  background: #dbd7d2;
+  cursor: pointer;
+  margin-left: 85%;
+  border: solid #000;
+  border-radius: 20px;
+  align-items: center;
+  margin-top: -5rem;
+  margin-bottom: auto;
   text-align: right;
 }
 
-
 .btnHome:hover {
-	background: #f4ca16;
+  background: #f4ca16;
 }
 
 .Order {
-	text-align: center;
-	margin-top: -3rem;
-	display: flex;
-	margin-left: 10rem;
-	margin-right: 10rem;
-	align-items: center;
+  text-align: center;
+  margin-top: -3rem;
+  display: flex;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  align-items: center;
 }
 
 .printScreennameProduct,
 .commandScreen {
-	border: solid #fff;
-	border-radius: 10px;
-	margin-top: 1rem;
-	padding: 0.3rem;
-	align-items: center;
+  border: solid #fff;
+  border-radius: 10px;
+  margin-top: 1rem;
+  padding: 0.3rem;
+  align-items: center;
 }
 
 .orderList {
-	padding: 5rem;
-	align-items: center;
+  padding: 5rem;
+  align-items: center;
 }
 
 .EachOrder,
 .EachOrderHistoric {
-	border: solid #fff;
-	background-color: #96cf4a;
-	margin: auto;
-	padding: 1.5rem;
-	border-radius: 10px;
-	margin-top: 2.5rem;
-	align-items: center;
-	font-family: 'Roboto Slab', serif;
+  border: solid #fff;
+  background-color: #96cf4a;
+  margin: auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 2.5rem;
+  align-items: center;
+  font-family: 'Roboto Slab', serif;
   max-width: 50%;
 }
 
 .EachOrderHistoric {
-	background-color: #bec4f5;
+  background-color: #bec4f5;
 }
 
 .printScreen {
-	background-color: #f4ca16;
-	border: solid #fff;
-	font-size: 1.2rem;
-	font-family: 'Roboto Slab', serif;
-	align-items: center;
-	font-weight: bold;
-	margin-left: 18rem;
-	margin-right: 18rem;
-	margin-top: 2rem;
-	border-width: medium;
-	border-radius: 15px;
-	padding: 1rem;
+  background-color: #f4ca16;
+  border: solid #fff;
+  font-size: 1.2rem;
+  font-family: 'Roboto Slab', serif;
+  align-items: center;
+  font-weight: bold;
+  margin-left: 18rem;
+  margin-right: 18rem;
+  margin-top: 2rem;
+  border-width: medium;
+  border-radius: 15px;
+  padding: 1rem;
   max-width: 40%;
 }
 
 .Command {
-	background-color: #96cf4a;
-	font-family: 'Roboto Slab', serif;
-	font-size: 1.2rem;
-	margin-left: 14rem;
-	margin-right: 14rem;
-	border-radius: 15px;
-	margin-top: 2rem;
-	padding: 2rem;
+  background-color: #96cf4a;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.2rem;
+  margin-left: 14rem;
+  margin-right: 14rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+  padding: 2rem;
 }
 
 .modal {
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	background-color: rgba(0, 0, 0, 0.8);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: auto;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
 }
 
 .container {
-	background-color: #fff;
-	color: #000;
-	width: 55%;
-	height: 55%;
-	align-items: center;
-	border-radius: 20px;
-	overflow: auto;
+  background-color: #fff;
+  color: #000;
+  width: 55%;
+  height: 55%;
+  align-items: center;
+  border-radius: 20px;
+  overflow: auto;
 }
 .content {
-	margin-top: 10rem;
-	align-items: center;
+  margin-top: 10rem;
+  align-items: center;
 }
 
 .close {
-	outline: none;
-	width: 32px;
-	height: 32px;
-	float: right;
+  outline: none;
+  width: 32px;
+  height: 32px;
+  float: right;
 }

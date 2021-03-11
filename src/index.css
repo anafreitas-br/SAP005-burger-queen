@@ -5,7 +5,7 @@ body {
 	background: #dbd7d2;
 	color: #000000;
 	justify-items: center;
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .Field,
@@ -42,7 +42,7 @@ body {
 
 .Logo {
 	width: 28%;
-	margin-top: 3rem;
+	margin-top: 2rem;
 }
 
 .LogoOrder {
@@ -87,7 +87,7 @@ body {
 	background: #f4ca16;
 }
 
-#VQ {
+.VQ {
 	width: 16vw;
 	margin-right: 30px;
 	margin-left: 30px;
@@ -131,6 +131,9 @@ figcaption {
 	font-family: 'Roboto Slab', serif;
 	align-items: center;
 	font-weight: bold;
+}
+.Ask {
+  padding-bottom: 3.5rem;
 }
 
 .Texts {
@@ -206,7 +209,9 @@ figcaption {
 	align-items: center;
 	margin-top: -5rem;
 	margin-bottom: auto;
+  text-align: right;
 }
+
 
 .btnHome:hover {
 	background: #f4ca16;
@@ -225,8 +230,8 @@ figcaption {
 .commandScreen {
 	border: solid #fff;
 	border-radius: 10px;
-	margin-top: 2rem;
-	padding: 0.5rem;
+	margin-top: 1rem;
+	padding: 0.3rem;
 	align-items: center;
 }
 
@@ -235,28 +240,21 @@ figcaption {
 	align-items: center;
 }
 
-.EachOrder {
+.EachOrder,
+.EachOrderHistoric {
 	border: solid #fff;
 	background-color: #96cf4a;
-	margin-left: 12rem;
-	margin-right: 12rem;
+	margin: auto;
 	padding: 1.5rem;
 	border-radius: 10px;
 	margin-top: 2.5rem;
 	align-items: center;
 	font-family: 'Roboto Slab', serif;
+  max-width: 50%;
 }
 
 .EachOrderHistoric {
-	border: solid #fff;
 	background-color: #bec4f5;
-	margin-left: 12rem;
-	margin-right: 12rem;
-	padding: 1.5rem;
-	border-radius: 10px;
-	margin-top: 2.5rem;
-	align-items: center;
-	font-family: 'Roboto Slab', serif;
 }
 
 .printScreen {
@@ -272,18 +270,18 @@ figcaption {
 	border-width: medium;
 	border-radius: 15px;
 	padding: 1rem;
+  max-width: 40%;
 }
 
 .Command {
 	background-color: #96cf4a;
 	font-family: 'Roboto Slab', serif;
 	font-size: 1.2rem;
-	margin-left: 16rem;
-	margin-right: 16rem;
+	margin-left: 14rem;
+	margin-right: 14rem;
 	border-radius: 15px;
 	margin-top: 2rem;
 	padding: 2rem;
-	display: grid;
 }
 
 .modal {

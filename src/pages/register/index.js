@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import OutHeader from '../../components/OutHeader';
 import { Button } from '../../components/Button/Button';
 import Footer from '../../components/Footer'
@@ -8,18 +8,12 @@ import Modal from '../../components/Modal'
 
 const Register = () => {
 
-  const history = useHistory();
   const [name, setName] = useState('');
   const [option, setOption] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [warning, setWarning] = useState('');
-
-  const rota = (e) => {
-    e.preventDefault();
-    history.push('/')
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,7 +38,6 @@ const Register = () => {
         } else {
           setWarning("Conta criada com sucesso")
           setIsModalVisible(true)
-          rota()
         }
       })
   }

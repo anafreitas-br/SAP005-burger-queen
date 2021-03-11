@@ -4,7 +4,7 @@ import InnerHeader from '../../components/InnerHeader'
 import lanches from '../../img/lanches.png'
 import prontos from '../../img/prontos.png'
 import café from '../../img/café.png'
-
+import Footer from '../../components/Footer'
 
 const Hall = () => {
 
@@ -45,7 +45,9 @@ const Hall = () => {
           <figcaption><strong>Está Pronto!</strong></figcaption>
         </Link>
       </div>
-
+      <br></br>
+      <br></br>
+      <Footer/>
     </>
   )
 }

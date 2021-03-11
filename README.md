@@ -28,11 +28,11 @@
 
 A temática escolhida para definição do cliente foi de restaurante vegano, cujos procedimentos internos e produtos servidos pela empresa seguem a cultura do veganismo. De acordo com a [Associação Brasileira de Veganismo](https://veganismo.org.br/), o significado deste conceito é:
 
-                  “ Veganismo é uma filosofia e estilo de vida que busca excluir, na medida do possível
-                    e praticável, todas as formas de exploração e crueldade contra animais na alimentação,
-                    vestuário e qualquer outra finalidade e, por extensão, que promova o desenvolvimento e
-                    uso de alternativas livres de origem animal para benefício de humanos, animais e meio 
-                    ambiente.”
+          “ Veganismo é uma filosofia e estilo de vida que busca excluir, na medida do possível
+            e praticável, todas as formas de exploração e crueldade contra animais na alimentação,
+            vestuário e qualquer outra finalidade e, por extensão, que promova o desenvolvimento e
+            uso de alternativas livres de origem animal para benefício de humanos, animais e meio 
+            ambiente.”
 
 Desta forma, ambas desenvolvedoras tem afinidade com o modo de vida vegano e escolhemos este tema para nosso cliente, alnhando nossa prestação de serviços aos valores do contratante.
 
@@ -144,9 +144,9 @@ Para desenvolvimento deste projeto foi utilizado HTML5, CSS3, Vanilla JavaScript
 
 Para as próximas refatorações iremos implementar:
 
-:pushpin:Funcionalidade de deletar item na comanda </br>
-:pushpin:Funcionalidade de aumentar quantidade de itens específicos na comanda </br>
+:pushpin:Armazenar valor total de cada pedido no histórico </br>
 :pushpin:Contagem de tempo do preparo de cada pedido </br>
+:pushpin:Refatorar layout do cardápio e comanda</br>
 
 ## Devas
 

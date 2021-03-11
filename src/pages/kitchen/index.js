@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import { Button } from '../../components/Button/Button';
 import historico from '../../img/historico.png'
-import Modal from '../../components/Modal/Modal'
+import Modal from '../../components/Modal'
 import Footer from '../../components/Footer'
 
 const Kitchen = () => {

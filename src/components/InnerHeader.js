@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 import LogoVector from '../img/LogoVector.png'
 import logout from '../img/logout.png'
-import Modal from './Modal/Modal'
+import Modal from './Modal'
 
 const InnerHeader = () => {
   const history = useHistory();

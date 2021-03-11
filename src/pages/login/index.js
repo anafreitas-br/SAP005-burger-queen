@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import OutHeader from '../../components/OutHeader';
 import { Button } from '../../components/Button/Button';
-import Modal from '../../components/Modal/Modal.js'
+import Modal from '../../components/Modal'
 
 const Login = () => {
 
@@ -55,7 +55,7 @@ const Login = () => {
           <input type="password" name="password" className="Field" placeholder="..." value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <Button type="submit" onClick={handleSubmit}>Entrar</Button>
-        <p className="TextsRegister"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>
+        <p className="TextsRegister Ask"> Primeiro dia aqui? <Link to="/register" className="Button-back" >Cadastre-se !</Link></p>
       </form>
       <div className="modalC">
         {isModalVisible ? (

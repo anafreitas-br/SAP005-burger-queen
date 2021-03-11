@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import OutHeader from '../../components/OutHeader';
 import { Button } from '../../components/Button/Button';
-import Modal from '../../components/Modal/Modal.js'
+import Modal from '../../components/Modal'
 
 const Register = () => {
 
@@ -70,7 +70,7 @@ const Register = () => {
             </form>
           </div>
           <Button type="submit" onClick={handleSubmit}>Cadastrar</Button>
-          <p className="TextsRegister"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
+          <p className="TextsRegister Ask"> Já tem uma conta? <Link to="/" className="Button-back" >Faça Login aqui!</Link></p>
         </div>
       </form>
       <div className="modalC">

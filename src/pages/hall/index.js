@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InnerHeader from '../../components/InnerHeader'
-import Burger from '../../components/Burger'
-import Breakfast from '../../components/Breakfast'
-import Historic from '../../components/Historic'
-import OrderKitchen from '../../components/OrderKitchen'
 import lanches from '../../img/lanches.png'
-import historico from '../../img/historico.png'
 import prontos from '../../img/prontos.png'
 import café from '../../img/café.png'
 import Footer from '../../components/Footer'
@@ -38,20 +33,16 @@ const Hall = () => {
       </form>
       <div className="orderDay">
         <Link to='/burger'>
-          <img className="Button VQ" alt="botão para menu lanches" src={lanches} type="submit" onClick={(() => <Burger />)} />
+          <img className="Button VQ" alt="botão para menu lanches" src={lanches} type="submit"/>
           <figcaption className="legend"><strong>Lanches</strong></figcaption>
         </Link>
         <Link to='/breakfast'>
-          <img className="Button" alt="botão para menu Café" src={café} type="submit" onClick={(() => <Breakfast />)} />
+          <img className="Button" alt="botão para menu Café" src={café} type="submit"/>
           <figcaption><strong>Café-da-Manhã</strong></figcaption>
         </Link>
         <Link to='/orderkitchen'>
-          <img className="Button" alt="botão para os pedidos prontos" src={prontos} type="submit" onClick={(() => <OrderKitchen />)} />
+          <img className="Button" alt="botão para os pedidos prontos" src={prontos} type="submit" />
           <figcaption><strong>Está Pronto!</strong></figcaption>
-        </Link>
-        <Link to='/historic'>
-          <img className="Button" alt="botão para histórico de pedidos " src={historico} type="submit" onClick={(() => <Historic />)} />
-          <figcaption><strong>Histórico</strong></figcaption>
         </Link>
       </div>
       <br></br>

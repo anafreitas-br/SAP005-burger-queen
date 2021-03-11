@@ -9,7 +9,7 @@ const Modal = ({ id = "modal", onClose = () => { }, children }) => {
     <div id={id} className="modal" onClick={handleOutsideClick}>
       <div className="container">
         <section className='content'> {children} </section>
-        <Button className="close" onClick={onClose}>OK</Button>
+        <Button className="close" onClick={onClose}>Fechar</Button>
       </div>
     </div>
 

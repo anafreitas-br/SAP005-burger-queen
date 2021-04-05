@@ -133,7 +133,7 @@ O layout da aplicação foi pensado da seguinte forma:
 
 A paleta de cores foi decidica baseando-se nos alimentos que o restaurante serve, ilustração feita pela ferramenta Coolors:
 
-<img src="./src/img/Readme/paleta.png" width="260px"> 
+<img src="./src/img/Readme/paleta.png" width="290px"> 
 
 Sendo amarelo do pão, roxo de beterraba, verde das verduras, cinza esbranquiçado dos cogumelos shimeji e paris e preto do gergelim
 

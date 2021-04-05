@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from '../pages/login'
-import Register from '../pages/register'
-import Hall from '../pages/hall'
-import Breakfast from './Breakfast'
-import Burger from './Burger'
-import Kitchen from '../pages/kitchen'
-import NotFound from './NotFound'
-import Historic from '../components/Historic'
-import OrderKitchen from '../components/OrderKitchen'
-import PrivateRoute from './PrivateRoute'
+import Login from '../pages/login';
+import Register from '../pages/register';
+import Hall from '../pages/hall';
+import Breakfast from './Breakfast';
+import Burger from './Burger';
+import Kitchen from '../pages/kitchen';
+import NotFound from './NotFound';
+import Historic from '../components/Historic';
+import OrderKitchen from '../components/OrderKitchen';
+import PrivateRoute from './PrivateRoute';
 
 const Routes = () => (
   <>
